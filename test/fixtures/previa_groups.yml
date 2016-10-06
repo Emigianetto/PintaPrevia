@@ -1,0 +1,17 @@
+---
+one:
+  id: 253223
+  name: 'Grupo 1'
+  active: true
+  date: '2016-09-29 22:17:32'
+  leader_id: 298486374
+  created_at: '2016-09-29 22:17:32'
+  updated_at: '2016-09-29 22:17:32'
+two:
+  id: 25431312
+  name: 'Grupo 2'
+  active: true
+  date: '2016-09-29 22:17:20'
+  leader_id: 980190962
+  created_at: '2016-09-29 22:17:32'
+  updated_at: '2016-09-29 22:17:32'

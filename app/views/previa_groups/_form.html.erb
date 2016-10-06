@@ -1,0 +1,32 @@
+<%= form_for(@previa_group) do |f| %>
+  <% if @previa_group.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@previa_group.errors.count, "error") %> prohibited this previa_group from being saved:</h2>
+
+      <ul>
+      <% @previa_group.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br>
+    <%= date_select("previa_group", "date", :default => Date.today, 
+    :order => [:month, :day, :year], :start_year => (Date.today.year - 1), 
+    :end_year => Date.today.year) %>
+  </div>
+  <div class="field">
+    <%= f.label :active %><br>
+    <%= f.check_box :active, {checked: true} %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

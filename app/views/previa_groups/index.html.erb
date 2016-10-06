@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Previa Groups</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Leader</th>
+      <th>Active</th>
+      <th>Date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @previa_groups.each do |previa_group| %>
+      <tr>
+        <td><%= previa_group.name %></td>
+        <td><%= previa_group.leader.first_name %></td>
+        <td><%= previa_group.active %></td>
+        <td><%= previa_group.date %></td>
+        <td><%= link_to 'Show', previa_group %></td>
+        <td><%= link_to 'Edit', edit_previa_group_path(previa_group) %></td>
+        <td><%= link_to 'Destroy', previa_group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

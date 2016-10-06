@@ -1,0 +1,14 @@
+-InviteUser
+-Accept/RejectInvite
+
+
+-Properties
+-BanGroup(fromInvitingUser)
+-Login FB/Gmail (Modificar creacion de grupo para tomar user de sesion)
+-SearchGroups
+-InviteGroup
+-Accept/RejectInvite
+-BanGroup(fromInvitingGroup)
+-Chat
+-DisbandGroup
+-Backend?(ver como manejar admins)
