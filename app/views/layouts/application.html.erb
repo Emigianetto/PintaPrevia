@@ -16,9 +16,13 @@
   <!-- <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon" /> -->
   <%= favicon_link_tag %>
 </head>
-<body>
+<body style="padding-top: 70px">
+  <%= render "partials/topnav" %>
+  <div class="container">
 
-<%= yield %>
+    <%= yield %>
 
+    <%= render "partials/footer" %>
+  </div>
 </body>
 </html>

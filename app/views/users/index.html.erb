@@ -1,39 +1,41 @@
-<p id="notice"><%= notice %></p>
+<div class="panel panel-success">
+  <div class="panel-heading">Listing Users</div>
+  <div class="panel-body">
 
-<h1>Listing Users</h1>
+    <p id="notice"><%= notice %></p>
 
-<table>
-  <thead>
-    <tr>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Email</th>
-      <th>Pass</th>
-      <th>Birth Date</th>
-      <th>Gender</th>
-      <th>City</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.first_name %></td>
-        <td><%= user.last_name %></td>
-        <td><%= user.email %></td>
-        <td><%= user.pass %></td>
-        <td><%= user.birth_date %></td>
-        <td><%= user.gender %></td>
-        <td><%= user.city.name %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New User', new_user_path %>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Pass</th>
+          <th>Birth Date</th>
+          <th>Gender</th>
+          <th>City</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.first_name %></td>
+            <td><%= user.last_name %></td>
+            <td><%= user.email %></td>
+            <td><%= user.pass %></td>
+            <td><%= user.birth_date %></td>
+            <td><%= user.gender %></td>
+            <td><%= user.city.name %></td>
+            <td>
+              <span class="fa fa-navicon fa-lg"> <%= link_to 'Show', user %> </span>
+              <span class="fa fa-edit fa-lg"> <%= link_to 'Edit', edit_user_path(user) %> </span>
+              <span class="fa fa-trash fa-lg"> <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %> </span>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= link_to 'Nuevo usuario', new_user_path, class: 'btn btn-primary' %>
+  </div>
+</div>

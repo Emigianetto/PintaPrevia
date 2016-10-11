@@ -13,4 +13,9 @@
  *= require_tree .
  *= require_self
  *= require bootstrap
+ *= require font-awesome
  */
+.vertical-align {
+    display: flex;
+    align-items: center;
+}

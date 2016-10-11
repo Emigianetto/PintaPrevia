@@ -11,37 +11,59 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :first_Name %><br>
-    <%= f.text_field :first_name %>
-  </div>
-  <div class="field">
-    <%= f.label :lastName %><br>
-    <%= f.text_field :last_name %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.email_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :pass %><br>
-    <%= f.password_field :pass %>
-  </div>
-  <div class="field">
-    <%= f.label :birth_date %><br>
-    <%= date_select("user", "birth_date", :default => Date.today, 
-    :order => [:month, :day, :year], :start_year => (Date.today.year - 100), 
-    :end_year => Date.today.year) %>
-  </div>
-  <div class="field">
-    <%= f.label :gender %><br>
-    <%= f.select :gender, User::GENDER_TYPES, {include_blank: true} %>
-  </div>
-  <div class="field">
-    <%= f.label :city %><br>
-    <%= f.collection_select :city_id, City.all, :id, :name %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group row vertical-align">
+        <%= f.label :first_Name, class: "col-xs-3 col-form-label" %>
+        <div class="col-xs-9">
+          <%= f.text_field :first_name, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group row vertical-align">
+        <%= f.label :lastName, class: "col-xs-3 col-form-label" %>
+        <div class="col-xs-9">
+          <%= f.text_field :last_name, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group row vertical-align">
+        <%= f.label :email, class: "col-xs-3 col-form-label" %>
+        <div class="col-xs-9">
+          <%= f.email_field :email, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group row vertical-align">
+        <%= f.label :pass, class: "col-xs-3 col-form-label" %>
+        <div class="col-xs-9">
+          <%= f.password_field :pass, class: "form-control" %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group row vertical-align">
+        <%= f.label :birth_date, class: "col-xs-3 col-form-label" %>
+        <div class="col-xs-9">
+          <%= date_select("user", "birth_date", :default => Date.today, 
+          :order => [:month, :day, :year], :start_year => (Date.today.year - 100), 
+          :end_year => Date.today.year, :html_options => {:class => "form-control"}) %>
+        </div>
+      </div>
+      <div class="form-group row vertical-align">
+        <%= f.label :gender, class: "col-xs-3 col-form-label" %>
+        <div class="col-xs-9">
+          <%= f.select :gender, User::GENDER_TYPES, {include_blank: true}, {class: "form-control"} %>
+        </div>
+      </div>
+      <div class="form-group row vertical-align">
+        <%= f.label :city, class: "col-xs-3 col-form-label" %>
+        <div class="col-xs-9">
+          <%= f.collection_select :city_id, City.all, :id, :name, {}, {class: "form-control"} %>
+        </div>
+      </div>
+      <div class="actions">
+      <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+        Guardar
+      <% end %>
+      </div>
+    </div>
   </div>
 <% end %>

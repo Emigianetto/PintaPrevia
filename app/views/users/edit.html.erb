@@ -1,6 +1,9 @@
-<h1>Editing User</h1>
+<div class="panel panel-primary">
+  <div class="panel-heading">Editing User</div>
+  <div class="panel-body">
+    <%= render 'form' %>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+    <%= link_to 'Mostrar', @user, class: 'btn btn-success' %>
+    <%= link_to 'Usuarios', users_path, class: 'btn btn-primary' %>
+  </div>
+</div>

@@ -1,7 +1,7 @@
 -InviteUser
-
-
 -Accept/RejectInvite
+
+
 -Properties
 -BanGroup(fromInvitingUser)
 -Login FB/Gmail (Modificar creacion de grupo para tomar user de sesion)
