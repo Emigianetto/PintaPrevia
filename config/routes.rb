@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :users
   post 'users/:id/invitation' => 'users#accept_invitation', as: 'user_accept_invitation'
+  get 'users/:id/groups' => 'users#groups', as: 'user_groups'
   
 
   resources :previa_groups

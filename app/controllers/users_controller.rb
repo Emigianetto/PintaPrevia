@@ -75,6 +75,12 @@ class UsersController < ApplicationController
     end
   end
 
+  # GET /users/1/groups
+  # GET /users/1/groups.json
+  def groups
+    set_user
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
