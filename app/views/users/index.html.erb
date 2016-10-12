@@ -28,9 +28,9 @@
             <td><%= user.gender %></td>
             <td><%= user.city.name %></td>
             <td>
-              <span class="fa fa-navicon fa-lg"> <%= link_to 'Show', user %> </span>
-              <span class="fa fa-edit fa-lg"> <%= link_to 'Edit', edit_user_path(user) %> </span>
-              <span class="fa fa-trash fa-lg"> <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %> </span>
+              <span class="fa fa-navicon fa-lg"> <%= link_to 'Mostrar', user %> </span>
+              <span class="fa fa-edit fa-lg"> <%= link_to 'Editar', edit_user_path(user) %> </span>
+              <span class="fa fa-trash fa-lg"> <%= link_to 'Eliminar', user, method: :delete, data: { confirm: 'Are you sure?' } %> </span>
             </td>
           </tr>
         <% end %>

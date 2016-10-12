@@ -9,11 +9,13 @@ class UsersControllerTest < ActionController::TestCase
     get :index
     assert_response :success
     assert_not_nil assigns(:users)
+    assert_basic_accessibiliy
   end
 
   test "should get new" do
     get :new
     assert_response :success
+    assert_basic_accessibiliy
   end
 
   test "should create user" do
@@ -33,11 +35,13 @@ class UsersControllerTest < ActionController::TestCase
   test "should show user" do
     get :show, id: @user
     assert_response :success
+    assert_basic_accessibiliy
   end
 
   test "should get edit" do
     get :edit, id: @user
     assert_response :success
+    assert_basic_accessibiliy
   end
 
   test "should update user" do

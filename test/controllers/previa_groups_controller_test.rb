@@ -9,11 +9,13 @@ class PreviaGroupsControllerTest < ActionController::TestCase
     get :index
     assert_response :success
     assert_not_nil assigns(:previa_groups)
+    assert_basic_accessibiliy
   end
 
   test "should get new" do
     get :new
     assert_response :success
+    assert_basic_accessibiliy
   end
 
   test "should create previa_group" do
@@ -27,11 +29,13 @@ class PreviaGroupsControllerTest < ActionController::TestCase
   test "should show previa_group" do
     get :show, id: @previa_group
     assert_response :success
+    assert_basic_accessibiliy
   end
 
   test "should get edit" do
     get :edit, id: @previa_group
     assert_response :success
+    assert_basic_accessibiliy
   end
 
   test "should update previa_group" do
