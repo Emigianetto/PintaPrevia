@@ -2,7 +2,7 @@
 -Accept/RejectInvite
 
 
--Properties(sacarlo y refactorizar los migrations, ABMs, etc e implementar las funciones para calgular los atributos del grupo, y manejar los atributos de busqueda)
+-Properties(sacarlo y refactorizar los migrations, ABMs, etc e implementar las funciones para calcular los atributos del grupo, y manejar los atributos de busqueda)
 -BanGroup(fromInvitingUser)
 -Login FB/Gmail (Modificar creacion de grupo para tomar user de sesion)
 -SearchGroups
@@ -10,5 +10,5 @@
 -Accept/RejectInvite
 -BanGroup(fromInvitingGroup)
 -Chat
--DisbandGroup
+-DisbandGroup(por opcion de lider, por salida del ultimo integrante, o por salida del lider)
 -Backend?(ver como manejar admins)
