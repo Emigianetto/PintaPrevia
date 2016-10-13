@@ -17,17 +17,30 @@
   <%= favicon_link_tag %>
 </head>
 <body style="padding-top: 70px">
-  <%= render "partials/topnav" %>
+  <%= render "partials/topnav_login" %>
+<% if false %>
+  <% if logged_in? %>
+    <%= render "partials/topnav_logout" %>
+  <% else %>
+    <%= render "partials/topnav_login" %>
+  <% end %>
+<% end %>
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-3 col-md-2 sidebar">
-        <%= render "partials/sidenav" %>
+        <%= render "partials/sidenav_user" %>
+      <% if false %>
+        <% if admin? %>
+          <%= render "partials/sidenav_admin" %>
+        <% else %>
+          <%= render "partials/sidenav_user" %>
+        <% end %>
+      <% end %>
       </div>
       <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
         <%= yield %>
       </div>
     </div>
-
     <%= render "partials/footer" %>
   </div>
 </body>

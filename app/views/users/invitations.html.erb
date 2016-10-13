@@ -18,7 +18,7 @@
         <td><%= invitation.group.name %></td>
         <td><%= invitation.group.leader.name %></td>
         <td><%= invitation.date %></td>
-        <td><%= link_to 'Accept', user_accept_invitation_path(@user, :invitation_id => invitation.id), method: :post, data: { confirm: 'Are you sure?'} %></td>
+        <td><%= link_to 'Aceptar', user_accept_invitation_path(@user, :invitation_id => invitation.id), method: :post, data: { confirm: '¿Estas seguro?'} %></td>
       </tr>
     <% end %>
   </tbody>
