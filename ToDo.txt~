@@ -8,14 +8,24 @@
 -BanGroup(fromInvitingUser)
 -BanGroup(fromInvitingGroup)
 -InviteGroup
+-Accept/RejectInvite
 
 
 -Test Services
 -User session y ver como rescatarlo
 -Login FB/Gmail (Modificar creacion de grupo para tomar user de sesion)
 -SearchGroups
--Accept/RejectInvite
 -Chat
 -DisbandGroup(por opcion de lider, por salida del ultimo integrante, o por salida del lider)
 -Backend?(ver como manejar admins)
+<<<<<<< HEAD
 -Notificaciones? (nueva inv, aceptada, rechazada, etc)
+=======
+
+
+LULA:
+-Idioma extranjero, abreviaturas, lenguaje especifico 
+-Tablas accesibles, tag summary, id y header en th y td
+-Formularios accesibles
+
+>>>>>>> d56b96ef48a89be614bf5e918b02d9106547ef2f
