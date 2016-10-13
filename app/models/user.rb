@@ -17,4 +17,10 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :banned_groups, :class_name=>'PreviaGroup', :join_table => 'user_bans', :foreign_key => 'user_id', :association_foreign_key => 'previa_group_id'
   
   GENDER_TYPES = ["Masculino", "Femenino"]
+
+  def age
+    now = Time.now.utc.to_date
+    now.year - birth_date.year - ((now.month > birth_date.month || (now.month == birth_date.month && now.day >= birth_date.day)) ? 0 : 1)
+  end
+
 end

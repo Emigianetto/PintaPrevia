@@ -1,1 +1,21 @@
---- {}
+---
+one:
+  id: 298
+  name: 'min_age'
+  created_at: '2016-09-29 22:17:32'
+  updated_at: '2016-09-29 22:17:32'
+two:
+  id: 311
+  name: 'max_age'
+  created_at: '2016-09-29 22:17:32'
+  updated_at: '2016-09-29 22:17:32'
+three:
+  id: 313
+  name: 'gender'
+  created_at: '2016-09-29 22:17:32'
+  updated_at: '2016-09-29 22:17:32'
+four:
+  id: 315
+  name: 'distance'
+  created_at: '2016-09-29 22:17:32'
+  updated_at: '2016-09-29 22:17:32'

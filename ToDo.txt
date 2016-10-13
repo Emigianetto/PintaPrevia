@@ -2,7 +2,11 @@
 -Accept/RejectInvite
 
 
--Properties(sacarlo y refactorizar los migrations, ABMs, etc e implementar las funciones para calcular los atributos del grupo, y manejar los atributos de busqueda)
+-Properties(ABMs, etc e implementar las funciones para calcular los atributos del grupo, y manejar los atributos de busqueda)
+	-min_age
+	-max_age
+	-gender
+	-distance
 -BanGroup(fromInvitingUser)
 -Login FB/Gmail (Modificar creacion de grupo para tomar user de sesion)
 -SearchGroups

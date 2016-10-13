@@ -1,3 +1,4 @@
 class Property < ActiveRecord::Base
-  has_and_belongs_to_many :previa_groups
+  has_many :previa_group_properties
+  has_many :previa_groups, :through => :previa_group_properties
 end
