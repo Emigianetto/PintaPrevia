@@ -55,4 +55,45 @@ class PreviaGroupsControllerTest < ActionController::TestCase
 
     assert_redirected_to previa_groups_path
   end
+
+  test "should invite previa_group" do
+    previa_group_invited = PreviaGroup.second
+    assert_difference('PreviaInvitation.count', 1) do
+      assert_difference('previa_group_invited.previa_invitations_received.count', 1) do
+        assert_difference('@previa_group.previa_invitations_sent.count', 1) do
+          post :invite_group, id: @previa_group, previa_group_id: previa_group_invited
+        end
+      end
+    end
+  end
+
+  test "should accept previa_invitation" do
+    previa_group_invited = PreviaGroup.second
+
+    post :invite_group, id: @previa_group, previa_group_id: previa_group_invited
+    assert_difference('@previa_group.matched_groups.count', 1) do
+      assert_difference('previa_group_invited.matched_groups.count', 1) do
+        assert_difference('PreviaInvitation.count', -1) do
+          assert_difference('previa_group_invited.previa_invitations_received.count', -1) do
+            assert_difference('@previa_group.previa_invitations_sent.count', -1) do
+              post :accept_previa_invitation, id: previa_group_invited, previa_invitation_id: previa_group_invited.previa_invitations_received.first
+            end
+          end
+        end
+      end
+    end
+  end
+
+  test "should reject previa_invitation" do
+    previa_group_invited = PreviaGroup.second
+
+    post :invite_group, id: @previa_group, previa_group_id: previa_group_invited
+    assert_difference('PreviaInvitation.count', -1) do
+      assert_difference('previa_group_invited.previa_invitations_received.count', -1) do
+        assert_difference('@previa_group.previa_invitations_sent.count', -1) do
+          post :accept_previa_invitation, id: previa_group_invited, previa_invitation_id: previa_group_invited.previa_invitations_received.first
+        end
+      end
+    end
+  end
 end

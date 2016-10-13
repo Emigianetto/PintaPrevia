@@ -81,6 +81,19 @@ class UsersController < ApplicationController
     set_user
   end
 
+  # POST /users/1/ban_group
+  # POST /users/1/ban_group.json
+  def ban_group
+    set_user
+    previa_group = PreviaGroup.find(params[:previa_group_id])
+    BanGroupFromUser.call(@user, previa_group)
+
+    respond_to do |format|
+      format.html { redirect_to @user, notice: 'Group was successfully banned.' }
+      format.json { head :no_content }
+    end
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

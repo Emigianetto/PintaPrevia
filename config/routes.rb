@@ -6,10 +6,17 @@ Rails.application.routes.draw do
   resources :users
   post 'users/:id/invitation' => 'users#accept_invitation', as: 'user_accept_invitation'
   get 'users/:id/groups' => 'users#groups', as: 'user_groups'
+  post 'users/:id/ban_group' => 'users#ban_group', as: 'user_ban_group'
   
 
   resources :previa_groups
   post 'previa_groups/:id/invite_user' => 'previa_groups#invite_user', as: 'previa_group_invite_user'
+  post 'previa_groups/:id/ban_group' => 'previa_groups#ban_group', as: 'previa_group_ban_group'
+  post 'previa_groups/:id/invite_group' => 'previa_groups#invite_group', as: 'previa_group_invite_group'
+  post 'previa_groups/:id/accept_previa_invitation' => 'previa_groups#accept_previa_invitation', as: 'previa_group_accept_previa_invitation'
+  post 'previa_groups/:id/reject_previa_invitation' => 'previa_groups#reject_previa_invitation', as: 'previa_group_reject_previa_invitation'
+
+  resources :properties
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

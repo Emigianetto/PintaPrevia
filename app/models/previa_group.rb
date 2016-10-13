@@ -17,7 +17,8 @@ class PreviaGroup < ActiveRecord::Base
 
   has_and_belongs_to_many :matched_groups, :class_name=>'PreviaGroup', :join_table => 'group_matches', :foreign_key => 'inviter_group_id', :association_foreign_key => 'invited_group_id'
   
-  has_many :previa_invitations
+  has_many :previa_invitations_sent, :class_name=>'PreviaInvitation', :foreign_key => 'inviting_group_id'
+  has_many :previa_invitations_received, :class_name=>'PreviaInvitation', :foreign_key => 'invited_group_id'
 
 =begin
   has_many :current_groups

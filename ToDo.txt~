@@ -1,18 +1,21 @@
 -InviteUser
 -Accept/RejectInvite
-
-
--Properties(ABMs, etc e implementar las funciones para calcular los atributos del grupo, y manejar los atributos de busqueda)
+-Properties(implementar las funciones para manejar los atributos de busqueda)
 	-min_age
 	-max_age
-	-genders
+	-gender
 	-distance
 -BanGroup(fromInvitingUser)
+-BanGroup(fromInvitingGroup)
+-InviteGroup
+
+
+-Test Services
+-User session y ver como rescatarlo
 -Login FB/Gmail (Modificar creacion de grupo para tomar user de sesion)
 -SearchGroups
--InviteGroup
 -Accept/RejectInvite
--BanGroup(fromInvitingGroup)
 -Chat
 -DisbandGroup(por opcion de lider, por salida del ultimo integrante, o por salida del lider)
 -Backend?(ver como manejar admins)
+-Notificaciones? (nueva inv, aceptada, rechazada, etc)

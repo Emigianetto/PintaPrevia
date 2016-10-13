@@ -30,7 +30,7 @@ class PreviaGroupsController < ApplicationController
 
     respond_to do |format|
       if @previa_group.persisted?
-        format.html { redirect_to previa_groups_url, notice: 'Previa group was successfully created.' }
+        format.html { redirect_to @previa_group, notice: 'Previa group was successfully created.' }
         format.json { render :show, status: :created, location: @previa_group }
       else
         format.html { render :new }
@@ -72,6 +72,58 @@ class PreviaGroupsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to @previa_group, notice: 'User was successfully invited.' }
+      format.json { head :no_content }
+    end
+  end
+
+  # POST /previa_groups/1/ban_group
+  # POST /previa_groups/1/ban_group.json
+  def ban_group
+    set_previa_group
+    banned_group = PreviaGroup.find(params[:previa_group_id])
+    BanGroupFromGroup.call(@previa_group, banned_group)
+
+    respond_to do |format|
+      format.html { redirect_to @previa_group, notice: 'Group was successfully banned.' }
+      format.json { head :no_content }
+    end
+  end
+
+  # POST /previa_groups/1/invite_group
+  # POST /previa_groups/1/invite_group.json
+  def invite_group
+    set_previa_group
+    invited_group = PreviaGroup.find(params[:previa_group_id])
+    InviteGroup.call(@previa_group, invited_group)
+
+    respond_to do |format|
+      format.html { redirect_to @previa_group, notice: 'Group was successfully invited.' }
+      format.json { head :no_content }
+    end
+  end
+
+  # POST /previa_groups/1/accept_previa_invitation
+  # POST /previa_groups/1/accept_previa_invitation.json
+  def accept_previa_invitation
+    set_previa_group
+    previa_invitation = PreviaInvitation.find(params[:previa_invitation_id])
+    AcceptPreviaInvitation.call(@previa_group, previa_invitation)
+
+    respond_to do |format|
+      format.html { redirect_to @previa_group, notice: 'Invitation was successfully accepted.' }
+      format.json { head :no_content }
+    end
+  end
+
+  # POST /previa_groups/1/reject_previa_invitation
+  # POST /previa_groups/1/reject_previa_invitation.json
+  def reject_previa_invitation
+    set_previa_group
+    previa_invitation = PreviaInvitation.find(params[:previa_invitation_id])
+    RejectPreviaInvitation.call(@previa_group, previa_invitation)
+
+    respond_to do |format|
+      format.html { redirect_to @previa_group, notice: 'Invitation was successfully rejected.' }
       format.json { head :no_content }
     end
   end

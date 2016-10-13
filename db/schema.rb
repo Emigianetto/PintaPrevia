@@ -67,12 +67,14 @@ ActiveRecord::Schema.define(version: 20161012182853) do
 
   create_table "previa_invitations", force: :cascade do |t|
     t.date     "date"
-    t.integer  "previa_group_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.integer  "inviting_group_id"
+    t.integer  "invited_group_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
-  add_index "previa_invitations", ["previa_group_id"], name: "index_previa_invitations_on_previa_group_id"
+  add_index "previa_invitations", ["invited_group_id"], name: "index_previa_invitations_on_invited_group_id"
+  add_index "previa_invitations", ["inviting_group_id"], name: "index_previa_invitations_on_inviting_group_id"
 
   create_table "properties", force: :cascade do |t|
     t.string   "name"
