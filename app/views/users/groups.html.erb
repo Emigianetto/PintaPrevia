@@ -4,25 +4,25 @@
 
     <p id="notice"><%= notice %></p>
 
-    <table class="table table-bordered">
+    <table class="table table-bordered" summary="Lista de los grupos a las que pertenece el usuario">
       <thead>
         <tr>
-          <th>Nombre</th>
-          <th>Lider</th>
-          <th>Activo</th>
-          <th>Fecha</th>
-          <th></th>
+          <th id="columna_nombre">Nombre</th>
+          <th id="columna_lider">Lider</th>
+          <th id="columna_activo">Activo</th>
+          <th id="columna_fecha">Fecha</th>
+          <th id="columna_acciones">Acciones</th>
         </tr>
       </thead>
 
       <tbody>
         <% @user.previa_groups.each do |previa_group| %>
           <tr>
-            <td><%= previa_group.name %></td>
-            <td><%= previa_group.leader.first_name %></td>
-            <td><%= previa_group.active %></td>
-            <td><%= previa_group.date %></td>
-            <td>
+            <td headers="columna_nombre"><%= previa_group.name %></td>
+            <td headers="columna_lider"><%= previa_group.leader.first_name %></td>
+            <td headers="columna_activo"><%= previa_group.active %></td>
+            <td headers="columna_fecha"><%= previa_group.date %></td>
+            <td headers="columna_acciones">
               <span class="fa fa-navicon fa-lg"> <%= link_to 'Mostrar', previa_group %> </span>
               <span class="fa fa-edit fa-lg"> <%= link_to 'Editar', edit_previa_group_path(previa_group) %> </span>
               <span class="fa fa-trash fa-lg"> <%= link_to 'Eliminar', previa_group, method: :delete, data: { confirm: '¿Estas seguro?' } %> </span>

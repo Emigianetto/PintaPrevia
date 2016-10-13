@@ -12,3 +12,10 @@
 -Chat
 -DisbandGroup(por opcion de lider, por salida del ultimo integrante, o por salida del lider)
 -Backend?(ver como manejar admins)
+
+
+LULA:
+-Idioma extranjero, abreviaturas, lenguaje especifico 
+-Tablas accesibles, tag summary, id y header en th y td
+-Formularios accesibles
+
