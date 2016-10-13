@@ -1,7 +1,8 @@
 class PreviaGroup < ActiveRecord::Base
   belongs_to :leader, :class_name => 'User'
 
-  has_and_belongs_to_many :properties, :class_name=>'Property', :join_table => 'previa_group_properties', :foreign_key => 'previa_group_id', :association_foreign_key => 'property_id'
+  has_many :previa_group_properties
+  has_many :properties, :through => :previa_group_properties
 
   #has_many :previa_groups_users
   #has_many :users, through: :previa_groups_users, :class_name => 'User'
@@ -35,4 +36,26 @@ class PreviaGroup < ActiveRecord::Base
   has_many :matched_groups, through: :group_matches, :class_name => 'Group'
 =end
 
+  def min_age
+    members = users
+    min = members.min_by { |m| m.age}
+    min.age
+  end
+
+  def max_age
+    members = users
+    max = members.max_by { |m| m.age}
+    max.age
+  end
+
+  def gender
+    members = users
+    counts = Hash.new(0)
+    members.each{ |m| counts[m.gender] += 1}
+    ans = "A"
+    if (counts.length == 1)
+      ans = counts.first.first.first
+    end
+    ans
+  end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161004022358) do
+ActiveRecord::Schema.define(version: 20161012182853) do
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
@@ -36,9 +36,15 @@ ActiveRecord::Schema.define(version: 20161004022358) do
   add_index "group_matches", ["inviter_group_id"], name: "index_group_matches_on_inviter_group_id"
 
   create_table "previa_group_properties", id: false, force: :cascade do |t|
-    t.integer "previa_group_id", null: false
-    t.integer "property_id",     null: false
+    t.integer  "previa_group_id"
+    t.integer  "property_id"
+    t.string   "value"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
+
+  add_index "previa_group_properties", ["previa_group_id"], name: "index_previa_group_properties_on_previa_group_id"
+  add_index "previa_group_properties", ["property_id"], name: "index_previa_group_properties_on_property_id"
 
   create_table "previa_groups", force: :cascade do |t|
     t.string   "name"
@@ -70,12 +76,11 @@ ActiveRecord::Schema.define(version: 20161004022358) do
 
   create_table "properties", force: :cascade do |t|
     t.string   "name"
-    t.string   "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "user_bans", force: :cascade do |t|
+  create_table "user_bans", id: false, force: :cascade do |t|
     t.integer "user_id"
     t.integer "previa_group_id"
   end
