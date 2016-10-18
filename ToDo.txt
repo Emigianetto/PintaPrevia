@@ -9,17 +9,20 @@
 -BanGroup(fromInvitingGroup)
 -InviteGroup
 -Accept/RejectInvite
-
-
--Test Services
 -User session y ver como rescatarlo
+-Register y Login
+
+
+-seguridad (ver los before_filter y before_action, si tienen que heredar de app_controller o que)
+-Test Services
 -Login FB/Gmail (Modificar creacion de grupo para tomar user de sesion)
 -SearchGroups
 -Chat
 -DisbandGroup(por opcion de lider, por salida del ultimo integrante, o por salida del lider)
 -Backend?(ver como manejar admins)
 -Notificaciones? (nueva inv, aceptada, rechazada, etc)
-
+-fix footer
+-error controller 404, forbidden, etc
 
 
 LULA:

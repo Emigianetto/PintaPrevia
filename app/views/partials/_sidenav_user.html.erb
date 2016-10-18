@@ -1,5 +1,9 @@
 <ul class="nav nav-sidebar">
-  <li class="active"><a href="#">Crear grupo <span class="sr-only">(current)</span></a></li>
+  <li class="<% current_page?(new_previa_group_path) %>">
+
+    <%= link_to "<span class='sr-only'>(current)</span>Crear Grupo".html_safe, new_previa_group_path%>
+
+  </li>
   <li><a href="#">Invitar usuarios</a></li>
   <li><a href="#">Eliminar grupo</a></li>
 </ul>

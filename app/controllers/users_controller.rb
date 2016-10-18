@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :accept_invitation, :groups, :ban_group]
+  before_filter :authorize, :except => [:new, :login]
 
   # GET /users
   # GET /users.json
@@ -29,8 +30,8 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
+        format.html { redirect_to url_for(:controller => :frontend, :action => :index), notice: 'User was successfully created.'}
+        format.json { render :index} #TODO
       else
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -62,10 +63,36 @@ class UsersController < ApplicationController
     end
   end
 
+  # POST /users/login
+  # POST /users/login.json
+  def login
+    @user = AuthenticateUser.call(params[:users][:email], params[:users][:pass])
+    respond_to do |format|
+      if !@user.nil?
+        session[:current_user_id] = @user.id
+        format.html { redirect_to @user }
+        format.json { render :show, status: :ok, location: @user }
+      else
+        format.html { redirect_to url_for(:controller => :frontend, :action => :index), notice: 'User was NOT logged in.'}
+        format.json { } #TODO
+      end
+    end
+  end
+
+  # POST /users/logout
+  # POST /users/logout.json
+  def logout
+    session.delete(:current_user_id)
+    
+    respond_to do |format|
+      format.html { redirect_to url_for(:controller => :frontend, :action => :index), notice: 'User was successfully logged out.'}
+      format.json { head :no_content }
+    end
+  end
+  
   # POST /users/1/invitation
   # POST /users/1/invitation.json
   def accept_invitation
-    set_user
     previa_group = PreviaGroup.find(params[:previa_group_id])
     AcceptGroupInvitation.call(@user, previa_group)
 
@@ -78,13 +105,11 @@ class UsersController < ApplicationController
   # GET /users/1/groups
   # GET /users/1/groups.json
   def groups
-    set_user
   end
 
   # POST /users/1/ban_group
   # POST /users/1/ban_group.json
   def ban_group
-    set_user
     previa_group = PreviaGroup.find(params[:previa_group_id])
     BanGroupFromUser.call(@user, previa_group)
 
@@ -98,7 +123,14 @@ class UsersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
+      #@user = User.find_by(id: session[:current_user_id])
       @user = User.find(params[:id])
+    end
+
+    def authorize
+      if session[:current_user_id].nil?
+        redirect_to(root_path)
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

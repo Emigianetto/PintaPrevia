@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   validates_presence_of :first_name, :last_name, :email, :pass, :birth_date, :gender, :city
+  validates_uniqueness_of :email
 
   belongs_to :city, :class_name => 'City', inverse_of: 'users', :foreign_key => 'city_id'
 

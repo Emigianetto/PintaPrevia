@@ -18,38 +18,12 @@
 </head>
 <body style="padding-top: 70px">
   <%= render "partials/topnav_login" %>
-
-  <% if session[:current_user_id].nil? %>
-    <%= render "partials/topnav_login" %>
-  <% else %>
-    <%= render "partials/topnav_logout" %>
-  <% end %>
-  
   <div class="container-fluid">
     <div class="row">
-      <% if !session[:current_user_id].nil? %>
-        <div class="col-sm-3 col-md-2 sidebar">
-          <%= render "partials/sidenav_user" %>
-        <% if false %>
-          <% if admin? %>
-            <%= render "partials/sidenav_admin" %>
-          <% else %>
-            <%= render "partials/sidenav_user" %>
-          <% end %>
-        <% end %>
-        </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <%= yield %>
-        </div>
-      <% else %>
-        <div class="col-md-8 col-md-offset-2 main">
-          <%= yield %>
-        </div>
-      <% end %>
+      <div class="col-md-12 main">
+        <%= yield %>
+      </div>
     </div>
-    <% if false %>
-      <%= render "partials/footer" %>
-    <% end %>
   </div>
 </body>
 </html>

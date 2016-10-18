@@ -10,17 +10,18 @@
           <a class="navbar-brand" href="#">Pinta Previa</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right">
-            <div class="form-group">
-              <input type="text" placeholder="Mail" class="form-control">
-            </div>
-            <div class="form-group">
-              <input type="password" placeholder="Clave" class="form-control">
-            </div>
-            <!--<button type="submit" class="btn btn-success">Ingresar</button>-->
-            <%= link_to 'Ingresar', users_path, class: 'btn btn-success btn-md' %>
 
-          </form>
+          <%= form_for :users, url: url_for( :controller => :users, :action => :login ), :html => {:class => "navbar-form navbar-right"} do |f| %>
+            <div class="form-group">
+              <%= f.email_field :email, placeholder: "Mail", class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= f.password_field :pass, placeholder: "Clave", class: "form-control" %>
+            </div>
+            <%= button_tag(type: 'submit', class: "btn btn-success btn-md") do %>
+              Ingresar
+            <% end %>
+          <% end %>
         </div><!--/.navbar-collapse -->
       </div>
     </nav>

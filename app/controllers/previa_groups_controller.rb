@@ -1,5 +1,6 @@
 class PreviaGroupsController < ApplicationController
   before_action :set_previa_group, only: [:show, :edit, :update, :destroy]
+  # TODO before_action :set_user
 
   # GET /previa_groups
   # GET /previa_groups.json
@@ -15,7 +16,7 @@ class PreviaGroupsController < ApplicationController
 
   # GET /previa_groups/new
   def new
-    @previa_group = PreviaGroup.new(:active => true, :leader => User.find(params[:format]))
+    @previa_group = PreviaGroup.new(:active => true, :leader => User.find(session[:current_user_id]))
   end
 
   # GET /previa_groups/1/edit
@@ -25,7 +26,7 @@ class PreviaGroupsController < ApplicationController
   # POST /previa_groups
   # POST /previa_groups.json
   def create
-    user = User.find(298486374)
+    user = User.find(session[:current_user_id])
     @previa_group = CreatePreviaGroup.call(previa_group_params, user)   
 
     respond_to do |format|
