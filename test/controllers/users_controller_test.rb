@@ -3,6 +3,7 @@ require 'test_helper'
 class UsersControllerTest < ActionController::TestCase
   setup do
     @user = users(:one)
+    session[:current_user_id] = @user.id
   end
 
   test "should get index" do
@@ -13,6 +14,7 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test "should get new" do
+    session.delete(:current_user_id)
     get :new
     assert_response :success
     TEST_ACCESSIBILITY ? assert_basic_accessibiliy : nil
@@ -29,7 +31,7 @@ class UsersControllerTest < ActionController::TestCase
                             pass: 'sarasa3' }
     end
 
-    assert_redirected_to user_path(assigns(:user))
+    assert_redirected_to root_path
   end
 
   test "should show user" do

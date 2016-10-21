@@ -12,7 +12,8 @@
 -User session y ver como rescatarlo
 -Register y Login
 
-
+-uniqueness group name
+-pedir confirmacion de pass, tanto en el registro como en el editar
 -seguridad (ver los before_filter y before_action, si tienen que heredar de app_controller o que)
 -Test Services
 -Login FB/Gmail (Modificar creacion de grupo para tomar user de sesion)
@@ -29,3 +30,8 @@ LULA:
 -Idioma extranjero, abreviaturas, lenguaje especifico 
 -Tablas accesibles, tag summary, id y header en th y td
 -Formularios accesibles
+
+verdura 1
+roque 2
+pollo 2
+tomate,queso,albahaca 1

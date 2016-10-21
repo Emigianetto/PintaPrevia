@@ -1,5 +1,5 @@
 class PreviaGroupsController < ApplicationController
-  before_action :set_previa_group, except: [:new]
+  before_action :set_previa_group, except: [:new, :create, :index]
   before_action :set_user
 
   # GET /previa_groups

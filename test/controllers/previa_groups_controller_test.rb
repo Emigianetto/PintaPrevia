@@ -3,6 +3,8 @@ require 'test_helper'
 class PreviaGroupsControllerTest < ActionController::TestCase
   setup do
     @previa_group = previa_groups(:one)
+    @user = users(:one)
+    session[:current_user_id] = @user.id
   end
 
   test "should get index" do

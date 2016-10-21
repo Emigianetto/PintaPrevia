@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, :except => [:new, :login]
-  before_filter :authorize, :except => [:new, :login]
+  before_action :set_user, :except => [:new, :login, :create]
+  before_filter :authorize, :except => [:new, :login, :create]
 
   # GET /users
   # GET /users.json
@@ -29,8 +29,9 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to url_for(:controller => :frontend, :action => :index), notice: 'User was successfully created.'}
-        format.json { render :index} #TODO
+        #url_for(:controller => :frontend, :action => :index)
+        format.html { redirect_to root_path, notice: 'User was successfully created.'}
+        format.json { redirect_to root_path, status: :ok} #TODO
       else
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
