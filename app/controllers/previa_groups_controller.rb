@@ -1,6 +1,6 @@
 class PreviaGroupsController < ApplicationController
-  before_action :set_previa_group, only: [:show, :edit, :update, :destroy]
-  # TODO before_action :set_user
+  before_action :set_previa_group, except: [:new]
+  before_action :set_user
 
   # GET /previa_groups
   # GET /previa_groups.json
@@ -11,12 +11,11 @@ class PreviaGroupsController < ApplicationController
   # GET /previa_groups/1
   # GET /previa_groups/1.json
   def show
-    @users = GetInvitableUsers.call(@previa_group)
   end
 
   # GET /previa_groups/new
   def new
-    @previa_group = PreviaGroup.new(:active => true, :leader => User.find(session[:current_user_id]))
+    @previa_group = PreviaGroup.new(:active => true, :leader => @user)
   end
 
   # GET /previa_groups/1/edit
@@ -26,8 +25,7 @@ class PreviaGroupsController < ApplicationController
   # POST /previa_groups
   # POST /previa_groups.json
   def create
-    user = User.find(session[:current_user_id])
-    @previa_group = CreatePreviaGroup.call(previa_group_params, user)   
+    @previa_group = CreatePreviaGroup.call(previa_group_params, @user)   
 
     respond_to do |format|
       if @previa_group.persisted?
@@ -64,12 +62,18 @@ class PreviaGroupsController < ApplicationController
     end
   end
 
+  # GET /previa_groups/1/invitable_users
+  # GET /previa_groups/1/invitable_users.json
+  def invitable_users
+    @invitable_users = GetInvitableUsers.call(@previa_group)
+  end
+
   # POST /previa_groups/1/invite_user
   # POST /previa_groups/1/invite_user.json
   def invite_user
     set_previa_group
-    user = User.find(params[:user_id])
-    InviteUser.call(@previa_group, user)
+    invited_user = User.find(params[:user_id])
+    InviteUser.call(@previa_group, invited_user)
 
     respond_to do |format|
       format.html { redirect_to @previa_group, notice: 'User was successfully invited.' }
@@ -133,6 +137,10 @@ class PreviaGroupsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_previa_group
       @previa_group = PreviaGroup.find(params[:id])
+    end
+
+    def set_user
+      @user = User.find(session[:current_user_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

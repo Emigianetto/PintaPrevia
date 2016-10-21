@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :accept_invitation, :groups, :ban_group]
+  before_action :set_user, :except => [:new, :login]
   before_filter :authorize, :except => [:new, :login]
 
   # GET /users
@@ -11,7 +11,6 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @invitations = GetInvitationsForUser.call(@user)
   end
 
   # GET /users/new
@@ -102,9 +101,21 @@ class UsersController < ApplicationController
     end
   end
 
+  # GET /users/1/invitations
+  # GET /users/1/invitations.json
+  def invitations
+    @invitations = GetInvitationsForUser.call(@user)
+  end
+
   # GET /users/1/groups
   # GET /users/1/groups.json
   def groups
+  end
+
+  # GET /users/1/groups_leading
+  # GET /users/1/groups_leading.json
+  def groups_leading
+    @groups_leading = GetGroupsLeading.call(@user)
   end
 
   # POST /users/1/ban_group
@@ -123,8 +134,8 @@ class UsersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      #@user = User.find_by(id: session[:current_user_id])
-      @user = User.find(params[:id])
+      @user = User.find_by(id: session[:current_user_id])
+      #@user = User.find(params[:id])
     end
 
     def authorize

@@ -5,14 +5,17 @@ Rails.application.routes.draw do
 
   resources :users
   post 'users/:id/invitation' => 'users#accept_invitation', as: 'user_accept_invitation'
+  get 'users/:id/invitations' => 'users#invitations', as: 'user_invitations'
   get 'users/:id/groups' => 'users#groups', as: 'user_groups'
   post 'users/:id/ban_group' => 'users#ban_group', as: 'user_ban_group'
   post 'users/login' => 'users#login', as: 'user_login'
   post 'users/logout' => 'users#logout', as: 'user_logout'
+  get 'users/:id/groups_leading' => 'users#groups_leading', as: 'user_groups_leading'
   
 
   resources :previa_groups
   post 'previa_groups/:id/invite_user' => 'previa_groups#invite_user', as: 'previa_group_invite_user'
+  get 'previa_groups/:id/invitable_users' => 'previa_groups#invitable_users', as: 'previa_group_invitable_users'
   post 'previa_groups/:id/ban_group' => 'previa_groups#ban_group', as: 'previa_group_ban_group'
   post 'previa_groups/:id/invite_group' => 'previa_groups#invite_group', as: 'previa_group_invite_group'
   post 'previa_groups/:id/accept_previa_invitation' => 'previa_groups#accept_previa_invitation', as: 'previa_group_accept_previa_invitation'

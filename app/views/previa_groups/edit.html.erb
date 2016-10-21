@@ -1,6 +1,7 @@
-<h1>Editing Previa Group</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @previa_group %> |
-<%= link_to 'Back', previa_groups_path %>
+<div class="panel panel-primary">
+  <div class="panel-heading">Editar grupo</div>
+  <div class="panel-body">
+    <%= render 'form' %>
+  </div>
+</div>
+<%= link_to 'Atrás', previa_groups_path, class: 'btn btn-success btn-lg'%>

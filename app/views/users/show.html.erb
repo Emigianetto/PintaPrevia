@@ -16,17 +16,12 @@
 </p>
 
 <p>
-  <strong>Clave:</strong>
-  <%= @user.pass %>
-</p>
-
-<p>
   <strong>Fecha de nacimiento:</strong>
   <%= @user.birth_date %>
 </p>
 
 <p>
-  <strong>Género:</strong>
+  <strong>Sexo:</strong>
   <%= @user.gender %>
 </p>
 
@@ -34,29 +29,6 @@
   <strong>Ciudad:</strong>
   <%= @user.city.name %>
 </p>
-
-<h1>Listing Invitations for User <%= @user.first_name %></h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Grupo</th>
-      <th>Lider</th>
-      <th>Fecha</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @user.invitations.each do |previa_group| %>
-      <tr>
-        <td><%= previa_group.name %></td>
-        <td><%= previa_group.leader.first_name %></td>
-        <td><%= link_to 'Aceptar', user_accept_invitation_path(@user, :previa_group_id => previa_group.id), method: :post, data: { confirm: '¿Estás seguro?'} %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
 <%= link_to 'Ver grupos', user_groups_path(@user) %> |
 <%= link_to 'Editar', edit_user_path(@user) %> |

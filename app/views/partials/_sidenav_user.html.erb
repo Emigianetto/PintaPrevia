@@ -1,15 +1,35 @@
-<ul class="nav nav-sidebar">
-  <li class="<% current_page?(new_previa_group_path) %>">
-
-    <%= link_to "<span class='sr-only'>(current)</span>Crear Grupo".html_safe, new_previa_group_path%>
-
-  </li>
-  <li><a href="#">Invitar usuarios</a></li>
-  <li><a href="#">Eliminar grupo</a></li>
-</ul>
-<ul class="nav nav-sidebar">
-  <li><a href="">Mensajes</a></li>
-</ul>
-<ul class="nav nav-sidebar">
-  <li><a href="">Perfil</a></li>
-</ul>
+<div class="nav nav-sidebar">
+  <ul class="list-group">
+    <li class="nav-header disabled"><a>Grupo</a></li>
+    <li class="<% if current_page?(new_previa_group_path)%>active<% end %> list-group-item">
+      <%= link_to "<span class='sr-only'>(actual)</span>Crear grupo".html_safe, new_previa_group_path%>
+    </li>
+    <li class="<% if current_page?(user_groups_path(@user))%>active<% end %> list-group-item">
+      <%= link_to "<span class='sr-only'>(actual)</span>Listar grupos".html_safe, user_groups_path(@user)%>
+    </li>
+    <li class="<% if current_page?(user_groups_leading_path(@user))%>active<% end %> list-group-item">
+      <%= link_to "<span class='sr-only'>(actual)</span>Invitar usuarios".html_safe, user_groups_leading_path(@user)%>
+    </li>
+    <li class="<% if current_page?(user_invitations_path(@user))%>active<% end %> list-group-item">
+      <%= link_to "<span class='sr-only'>(actual)</span>Invitaciones".html_safe, user_invitations_path(@user) %>
+    </li>
+  </ul>
+  <ul class="list-group">
+    <li class="nav-header disabled"><a>Mensajes</a></li>
+    <li class="<% if current_page?(new_previa_group_path)%>active<% end %> list-group-item">
+      <%= link_to "<span class='sr-only'>(actual)</span>Bandeja de entrada".html_safe, new_previa_group_path%>
+    </li>
+    <li class="<% if current_page?(new_previa_group_path)%>active<% end %> list-group-item">
+      <%= link_to "<span class='sr-only'>(actual)</span>Redactar nuevo".html_safe, new_previa_group_path%>
+    </li>
+  </ul>
+  <ul class="list-group">
+    <li class="nav-header disabled"><a>Cuenta</a></li>
+    <li class="<% if current_page?(edit_user_path(@user))%>active<% end %> list-group-item">
+      <%= link_to "<span class='sr-only'>(actual)</span>Editar perfil".html_safe, edit_user_path(@user) %>
+    </li>
+    <li class="<% if current_page?(new_previa_group_path)%>active<% end %> list-group-item">
+      <%= link_to "<span class='sr-only'>(actual)</span>Editar galeria".html_safe, new_previa_group_path%>
+    </li>
+  </ul>
+</div>

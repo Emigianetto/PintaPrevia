@@ -1,38 +1,38 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Nombre:</strong>
   <%= @previa_group.name %>
 </p>
 
 <p>
-  <strong>Leader:</strong>
+  <strong>Lider:</strong>
   <%= @previa_group.leader.first_name %>
 </p>
 
 <p>
-  <strong>Active:</strong>
+  <strong>Activo:</strong>
   <%= @previa_group.active %>
 </p>
 
 <p>
-  <strong>Date:</strong>
+  <strong>Fecha:</strong>
   <%= @previa_group.date %>
 </p>
 
 <p>
-  <strong>Users count:</strong>
+  <strong>Cantidad de usuarios:</strong>
   <%= @previa_group.users.count %>
 </p>
 
-<h1>Listing Users to Invite</h1>
+<h1>Lista de usuarios para invitar</h1>
 <table>
   <thead>
     <tr>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Gender</th>
-      <th>City</th>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Sexo</th>
+      <th>Ciudad</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -44,10 +44,10 @@
         <td><%= user.last_name %></td>
         <td><%= user.gender %></td>
         <td><%= user.city.name %></td>
-        <td><%= link_to 'Invite User', previa_group_invite_user_path(@previa_group, :user_id => user.id), method: :post, data: { confirm: 'Are you sure?'} %></td>
+        <td><%= link_to 'Invitar Usuario', previa_group_invite_user_path(@previa_group, :user_id => user.id), method: :post, data: { confirm: 'Are you sure?'} %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to 'Back', previa_groups_path %>
+<%= link_to 'Atrás', previa_groups_path %>
