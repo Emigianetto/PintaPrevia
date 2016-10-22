@@ -25,6 +25,7 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
+    puts user_params
     @user = User.new(user_params)
 
     respond_to do |format|
@@ -93,7 +94,7 @@ class UsersController < ApplicationController
   # POST /users/1/invitation
   # POST /users/1/invitation.json
   def accept_invitation
-    previa_group = PreviaGroup.find(params[:previa_group_id])
+    previa_group = PreviaGroup.find(params[:invitation_id])
     AcceptGroupInvitation.call(@user, previa_group)
 
     respond_to do |format|
@@ -131,6 +132,18 @@ class UsersController < ApplicationController
     end
   end
 
+  # POST /users/1/leave_group
+  # POST /users/1/leave_group.json
+  def leave_group
+    previa_group = PreviaGroup.find(params[:id])
+    LeavePreviaGroup.call(@user, previa_group)
+
+    respond_to do |format|
+      format.html { redirect_to user_groups_path(@user), notice: 'Group was successfully abandoned.' }
+      format.json { head :no_content }
+    end
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -147,6 +160,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:previa_group_id, :first_name, :last_name, :email, :pass, :birth_date, :gender, :city_id)
+      params.require(:user).permit(:previa_group_id, :first_name, :last_name, :email, :email_confirmation, :pass, :pass_confirmation, :birth_date, :gender, :city_id)
     end
 end

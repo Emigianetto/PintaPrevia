@@ -1,0 +1,69 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">Detalles grupo</div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group row vertical-align">
+          <div class= "col-xs-3 col-form-label"> Nombre:</div>
+          <div class="col-xs-9">
+            <p> <%= @previa_group.name %> </p>
+          </div>
+        </div>
+        <div class="form-group row vertical-align">
+          <div class= "col-xs-3 col-form-label"> Lider:</div>
+          <div class="col-xs-9">
+            <p> <%= @previa_group.leader.first_name %> </p>
+          </div>
+        </div>
+        <div class="form-group row vertical-align">
+          <div class= "col-xs-3 col-form-label"> Edad mínima:</div>
+          <div class="col-xs-9">
+            <p> <%= @previa_group.min_age %> </p>
+          </div>
+        </div>
+        <div class="form-group row vertical-align">
+          <div class= "col-xs-3 col-form-label"> Edad máxima:</div>
+          <div class="col-xs-9">
+            <p> <%= @previa_group.max_age %> </p>
+          </div>
+        </div>
+        <div class="form-group row vertical-align">
+          <div class= "col-xs-3 col-form-label"> Tipo:</div>
+          <div class="col-xs-9">
+            <p> <%= @previa_group.gender %> </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="panel panel-primary">
+  <div class="panel-heading">Lista de usuarios del grupo <% @previa_group.name %> </div>
+  <div class="panel-body">
+
+    <p id="notice"><%= notice %></p>
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Edad</th>
+          <th>Sexo</th>
+          <th>Ciudad</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @current_users.each do |user| %>
+          <tr>
+            <td><%= user.first_name %></td>
+            <td><%= user.last_name %></td>
+            <td><%= user.age %></td>
+            <td><%= user.gender %></td>
+            <td><%= user.city.name %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

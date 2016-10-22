@@ -26,25 +26,37 @@
         </div>
       </div>
       <div class="form-group row vertical-align">
+        <%= f.label :birth_date, "Fecha de nacimiento", class: "col-xs-3 col-form-label" %>
+        <div class="col-xs-9">
+          <%= date_select("user", "birth_date", :default => Date.today, 
+          :order => [:month, :day, :year], :start_year => (Date.today.year - 100), 
+          :end_year => Date.today.year, :html_options => {:class => "form-control"}) %>
+        </div>
+      </div>
+      <div class="form-group row vertical-align">
         <%= f.label :email, "Mail", class: "col-xs-3 col-form-label" %>
         <div class="col-xs-9">
           <%= f.email_field :email, class: "form-control" %>
         </div>
       </div>
       <div class="form-group row vertical-align">
-        <%= f.label :pass, "Clave", class: "col-xs-3 col-form-label" %>
+        <%= f.label :email_confirmation, "Confirmar mail", class: "col-xs-3 col-form-label" %>
         <div class="col-xs-9">
-          <%= f.password_field :pass, class: "form-control" %>
+          <%= f.email_field :email_confirmation, class: "form-control" %>
         </div>
       </div>
     </div>
     <div class="col-md-6">
       <div class="form-group row vertical-align">
-        <%= f.label :birth_date, "Fecha de nacimiento", class: "col-xs-3 col-form-label" %>
+        <%= f.label :pass, "Clave", class: "col-xs-3 col-form-label" %>
         <div class="col-xs-9">
-          <%= date_select("user", "birth_date", :default => Date.today, 
-          :order => [:month, :day, :year], :start_year => (Date.today.year - 100), 
-          :end_year => Date.today.year, :html_options => {:class => "form-control"}) %>
+          <%= f.password_field :pass, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group row vertical-align">
+        <%= f.label :pass_confirmation, "Confirmar clave", class: "col-xs-3 col-form-label" %>
+        <div class="col-xs-9">
+          <%= f.password_field :pass_confirmation, class: "form-control" %>
         </div>
       </div>
       <div class="form-group row vertical-align">

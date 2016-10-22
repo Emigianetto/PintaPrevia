@@ -1,0 +1,28 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">Lista grupos encontrados</div>
+  <div class="panel-body">
+
+    <p id="notice"><%= notice %></p>
+
+    <table class="table table-bordered" summary="Lista de los grupos que coincidieron con los parámetros de búsqueda">
+      <thead>
+        <tr>
+          <th id="columna_nombre">Nombre</th>
+          <th id="columna_acciones">Acciones</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @previa_groups_found.each do |previa_group| %>
+          <tr>
+            <td headers="columna_nombre"><%= previa_group.name %></td>
+            <td headers="columna_acciones">
+            <span class="fa fa-navicon fa-lg"> <%= link_to 'Detalles', previa_group_details_path(previa_group) %> </span>
+            <span class="fa fa-navicon fa-lg"> <%= link_to 'Invitar', previa_group_invite_group_path(previa_group), method: :post, data: { confirm: '¿Estás seguro?' } %> </span>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -17,7 +17,10 @@
           <tr>
             <td headers="columna_nombre"><%= previa_group.name %></td>
             <td headers="columna_acciones">
+              <% if !previa_group.active %>
               <span class="fa fa-navicon fa-lg"> <%= link_to 'Seleccionar', previa_group_invitable_users_path(previa_group) %> </span>
+              <span class="fa fa-navicon fa-lg"> <%= link_to 'Finalizar', previa_group_finish_path(previa_group), method: :post, data: { confirm: '¿Estás seguro?' } %> </span>
+              <% end %>
             </td>
           </tr>
         <% end %>

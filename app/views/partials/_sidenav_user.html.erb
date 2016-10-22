@@ -8,10 +8,13 @@
       <%= link_to "<span class='sr-only'>(actual)</span>Listar grupos".html_safe, user_groups_path(@user)%>
     </li>
     <li class="<% if current_page?(user_groups_leading_path(@user))%>active<% end %> list-group-item">
-      <%= link_to "<span class='sr-only'>(actual)</span>Invitar usuarios".html_safe, user_groups_leading_path(@user)%>
+      <%= link_to "<span class='sr-only'>(actual)</span>Administrar grupos".html_safe, user_groups_leading_path(@user)%>
     </li>
     <li class="<% if current_page?(user_invitations_path(@user))%>active<% end %> list-group-item">
-      <%= link_to "<span class='sr-only'>(actual)</span>Invitaciones".html_safe, user_invitations_path(@user) %>
+      <%= link_to "<span class='sr-only'>(actual)</span>Invitaciones a grupo".html_safe, user_invitations_path(@user) %>
+    </li>
+    <li class="<% if current_page?(user_invitations_path(@user))%>active<% end %> list-group-item">
+      <%= link_to "<span class='sr-only'>(actual)</span>Solicitudes de previa".html_safe, previa_group_invitations_path %>
     </li>
   </ul>
   <ul class="list-group">

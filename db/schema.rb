@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20161012182853) do
   create_table "previa_groups", force: :cascade do |t|
     t.string   "name"
     t.boolean  "active"
-    t.date     "date"
+    t.datetime "date"
     t.integer  "leader_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 20161012182853) do
   add_index "previa_groups_users", ["user_id"], name: "index_previa_groups_users_on_user_id"
 
   create_table "previa_invitations", force: :cascade do |t|
-    t.date     "date"
+    t.datetime "date"
     t.integer  "inviting_group_id"
     t.integer  "invited_group_id"
     t.datetime "created_at",        null: false

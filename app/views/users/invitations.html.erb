@@ -8,7 +8,6 @@
         <tr>
           <th>Grupo</th>
           <th>Lider</th>
-          <th>Fecha</th>
           <th colspan="3">Acciones</th>
         </tr>
       </thead>
@@ -16,9 +15,8 @@
       <tbody>
         <% @user.invitations.each do |invitation| %>
           <tr>
-            <td><%= invitation.group.name %></td>
-            <td><%= invitation.group.leader.name %></td>
-            <td><%= invitation.date %></td>
+            <td><%= invitation.name %></td>
+            <td><%= invitation.leader.first_name %></td>
             <td>
               <span class="fa fa-navicon fa-lg"> <%= link_to 'Aceptar', user_accept_invitation_path(@user, :invitation_id => invitation.id), method: :post, data: { confirm: '¿Estás seguro?'} %> </span>                
             </td>

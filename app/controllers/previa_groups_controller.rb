@@ -15,7 +15,7 @@ class PreviaGroupsController < ApplicationController
 
   # GET /previa_groups/new
   def new
-    @previa_group = PreviaGroup.new(:active => true, :leader => @user)
+    @previa_group = PreviaGroup.new(:active => false, :leader => @user, :search_min_age => 18, :search_max_age => 60, :search_gender => 'Mixto')
   end
 
   # GET /previa_groups/1/edit
@@ -62,29 +62,56 @@ class PreviaGroupsController < ApplicationController
     end
   end
 
+  # GET /previa_groups/1/details
+  # GET /previa_groups/1/details.json
+  def details
+    @current_users = GetCurrentUsers.call(@previa_group)
+  end
+
   # GET /previa_groups/1/invitable_users
   # GET /previa_groups/1/invitable_users.json
   def invitable_users
     @invitable_users = GetInvitableUsers.call(@previa_group)
   end
 
+  # GET /previa_groups/1/current_users
+  # GET /previa_groups/1/current_users.json
+  def current_users
+    @current_users = GetCurrentUsers.call(@previa_group)
+  end
+
   # POST /previa_groups/1/invite_user
   # POST /previa_groups/1/invite_user.json
   def invite_user
-    set_previa_group
     invited_user = User.find(params[:user_id])
     InviteUser.call(@previa_group, invited_user)
 
     respond_to do |format|
-      format.html { redirect_to @previa_group, notice: 'User was successfully invited.' }
+      format.html { redirect_to previa_group_invitable_users_path(@previa_group), notice: 'User was successfully invited.' }
       format.json { head :no_content }
     end
+  end
+
+  # POST /previa_groups/1/finish
+  # POST /previa_groups/1/finish.json
+  def finish
+    FinishPreviaGroup.call(@previa_group)
+
+    respond_to do |format|
+      format.html { redirect_to previa_group_current_users_path(@previa_group), notice: 'Previa group successfully finished.'}
+      format.json {head :no_content}
+    end
+  end
+
+  # GET /previa_groups/1/invite_group
+  # GET /previa_groups/1/invite_group.json
+  def search_previa_groups
+    @previa_groups_found = SearchPreviaGroups.call(@previa_group)
   end
 
   # POST /previa_groups/1/ban_group
   # POST /previa_groups/1/ban_group.json
   def ban_group
-    set_previa_group
     banned_group = PreviaGroup.find(params[:previa_group_id])
     BanGroupFromGroup.call(@previa_group, banned_group)
 
@@ -97,7 +124,6 @@ class PreviaGroupsController < ApplicationController
   # POST /previa_groups/1/invite_group
   # POST /previa_groups/1/invite_group.json
   def invite_group
-    set_previa_group
     invited_group = PreviaGroup.find(params[:previa_group_id])
     InviteGroup.call(@previa_group, invited_group)
 
@@ -110,7 +136,6 @@ class PreviaGroupsController < ApplicationController
   # POST /previa_groups/1/accept_previa_invitation
   # POST /previa_groups/1/accept_previa_invitation.json
   def accept_previa_invitation
-    set_previa_group
     previa_invitation = PreviaInvitation.find(params[:previa_invitation_id])
     AcceptPreviaInvitation.call(@previa_group, previa_invitation)
 
@@ -123,7 +148,6 @@ class PreviaGroupsController < ApplicationController
   # POST /previa_groups/1/reject_previa_invitation
   # POST /previa_groups/1/reject_previa_invitation.json
   def reject_previa_invitation
-    set_previa_group
     previa_invitation = PreviaInvitation.find(params[:previa_invitation_id])
     RejectPreviaInvitation.call(@previa_group, previa_invitation)
 
@@ -132,6 +156,13 @@ class PreviaGroupsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  # GET /previa_groups/1/invitations
+  # GET /previa_groups/1/invitations.json
+  def invitations
+    @invitations = GetPreviaInvitations.call(@user)
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -146,6 +177,6 @@ class PreviaGroupsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def previa_group_params
       params.fetch(:previa_group, {})
-      params.require(:previa_group).permit(:user_id, :name, :active, :date, :leader_id,:group_attributes, :members, :invited_users, :banned_users, :banned_groups, :matched_groups, :previa_invitations)
+      params.require(:previa_group).permit(:user_id, :name, :active, :date, :leader_id,:group_attributes, :members, :invited_users, :banned_users, :banned_groups, :matched_groups, :previa_invitations, :search_min_age, :search_max_age, :search_gender, :search_distance)
     end
 end

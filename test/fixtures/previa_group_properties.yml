@@ -19,7 +19,7 @@ two:
 three:
   previa_group_id: 253223
   property_id: 313
-  value: 'FEMALE'
+  value: 'Femenino'
   created_at: '2016-09-29 22:17:32'
   updated_at: '2016-09-29 22:17:32'
 four:

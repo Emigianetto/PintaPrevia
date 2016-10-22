@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+  validates :pass, confirmation: true
+  validates :pass_confirmation, presence: true
+  validates :email, confirmation: true
+  validates :email_confirmation, presence: true
   validates_presence_of :first_name, :last_name, :email, :pass, :birth_date, :gender, :city
   validates_uniqueness_of :email
 

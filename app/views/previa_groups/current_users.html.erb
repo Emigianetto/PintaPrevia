@@ -1,5 +1,5 @@
 <div class="panel panel-primary">
-  <div class="panel-heading">Lista de usuarios a invitar</div>
+  <div class="panel-heading">Lista de usuarios del grupo <% @previa_group.name %> </div>
   <div class="panel-body">
 
     <p id="notice"><%= notice %></p>
@@ -9,24 +9,21 @@
         <tr>
           <th>Nombre</th>
           <th>Apellido</th>
-          <th>Mail</th>
+          <th>Edad</th>
           <th>Ciudad</th>
-          <th colspan="3">Acciones</th>
         </tr>
       </thead>
       <tbody>
-        <% @invitable_users.each do |user| %>
+        <% @current_users.each do |user| %>
           <tr>
             <td><%= user.first_name %></td>
             <td><%= user.last_name %></td>
-            <td><%= user.email %></td>
+            <td><%= user.age %></td>
             <td><%= user.city.name %></td>
-            <td>
-              <span class="fa fa-navicon fa-lg"> <%= link_to 'Invitar', previa_group_invite_user_path(@previa_group, :user_id => user.id), method: :post, data: { confirm: '¿Estás seguro?'} %> </span>    
-            </td>
           </tr>
         <% end %>
       </tbody>
     </table>
+    <%= link_to 'Atras', user_groups_path(), class: 'btn btn-primary' %>
   </div>
 </div>

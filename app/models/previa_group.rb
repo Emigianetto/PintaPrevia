@@ -1,4 +1,7 @@
 class PreviaGroup < ActiveRecord::Base
+  validates_presence_of :name, :date, :search_gender, :search_distance, :search_min_age, :search_max_age
+  validates_uniqueness_of :name
+
   belongs_to :leader, :class_name => 'User'
 
   has_many :previa_group_properties
@@ -20,6 +23,9 @@ class PreviaGroup < ActiveRecord::Base
   has_many :previa_invitations_sent, :class_name=>'PreviaInvitation', :foreign_key => 'inviting_group_id'
   has_many :previa_invitations_received, :class_name=>'PreviaInvitation', :foreign_key => 'invited_group_id'
 
+  GENDER_TYPES = ["Masculino", "Femenino", "Todos"]
+
+  attr_accessor :search_gender, :search_distance, :search_min_age, :search_max_age
 =begin
   has_many :current_groups
   has_many :members, through: :current_groups, :class_name => 'User'
@@ -53,9 +59,9 @@ class PreviaGroup < ActiveRecord::Base
     members = users
     counts = Hash.new(0)
     members.each{ |m| counts[m.gender] += 1}
-    ans = "A"
+    ans = "Todos"
     if (counts.length == 1)
-      ans = counts.first.first.first
+      ans = counts.first.first
     end
     ans
   end

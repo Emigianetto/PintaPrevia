@@ -20,17 +20,27 @@
         </div>
       </div>
       <div class="form-group row vertical-align">
-        <%= f.label :date, "Fecha", class: "col-xs-3 col-form-label" %>
+        <%= f.label :search_min_age, "Edad mínima", class: "col-xs-3 col-form-label" %>
         <div class="col-xs-9">
-          <%= date_select("previa_group", "date", :default => Date.today, 
-          :order => [:month, :day, :year], :start_year => (Date.today.year - 100), 
-          :end_year => Date.today.year, :html_options => {:class => "form-control"}) %>
+          <%= f.number_field :search_min_age, min: 18, max: 90, class: "form-control" %>
         </div>
       </div>
       <div class="form-group row vertical-align">
-        <%= f.label :active, "Activo", class: "col-xs-3 col-form-label" %>
+        <%= f.label :search_max_age, "Edad máxima", class: "col-xs-3 col-form-label" %>
         <div class="col-xs-9">
-          <%= f.check_box :active, {checked: true} %>
+          <%= f.number_field :search_max_age, min: 18, max: 90, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group row vertical-align">
+        <%= f.label :search_gender, "Tipo de grupo", class: "col-xs-3 col-form-label" %>
+        <div class="col-xs-9">
+          <%= f.select :search_gender, PreviaGroup::GENDER_TYPES, {prompt: "Seleccione sexo"}, {class: "form-control"} %>
+        </div>
+      </div>
+      <div class="form-group row vertical-align">
+        <%= f.label :search_distance, "Distancia", class: "col-xs-3 col-form-label" %>
+        <div class="col-xs-9">
+          <%= f.number_field :search_distance, class: "form-control" %>
         </div>
       </div>
       <div class="actions">
