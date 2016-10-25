@@ -1,0 +1,33 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">Lista de invitaciones a previa de grupos</div>
+  <div class="panel-body">
+  <% if !notice.nil? %>
+    <div class="alert alert-success" role="alert">
+      <p id="notice"><%= notice %></p>
+    </div>
+  <% end %>
+    
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Grupo</th>
+          <th>Lider</th>
+          <th colspan="3">Acciones</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @previa_invitations.each do |invitation| %>
+          <tr>
+            <td><%= invitation.inviting_group.name %></td>
+            <td><%= invitation.inviting_group.leader.first_name %></td>
+            <td>
+              <span class="fa fa-navicon fa-lg"> <%= link_to 'Aceptar', previa_group_accept_previa_invitation_path(@invitation, :invitation_id => invitation.id), method: :post, data: { confirm: '¿Estás seguro?'} %> </span>
+              <span class="fa fa-navicon fa-lg"> <%= link_to 'Recazar', previa_group_reject_previa_invitation_path(@invitation, :invitation_id => invitation.id), method: :post, data: { confirm: '¿Estás seguro?'} %> </span>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

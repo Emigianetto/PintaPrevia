@@ -1,4 +1,8 @@
-<p id="notice"><%= notice %></p>
+<% if !notice.nil? %>
+  <div class="alert alert-success" role="alert">
+    <p id="notice"><%= notice %></p>
+  </div>
+<% end %>
 <div class="panel panel-primary">
   <div class="panel-heading">Lista de invitaciones de <%= @user.first_name %></div>
   <div class="panel-body">
@@ -26,4 +30,3 @@
     </table>
   </div>
 </div>
-<br>

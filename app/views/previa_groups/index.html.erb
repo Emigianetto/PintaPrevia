@@ -2,6 +2,11 @@
 <div class="panel panel-primary">
   <div class="panel-heading">Lista de grupos</div>
   <div class="panel-body">
+  <% if !notice.nil? %>
+    <div class="alert alert-success" role="alert">
+      <p id="notice"><%= notice %></p>
+    </div>
+  <% end %>
   
     <table>
       <thead>
@@ -23,7 +28,7 @@
             <td><%= previa_group.date %></td>
             <td><%= link_to 'Mostrar', previa_group %></td>
             <td><%= link_to 'Editar', edit_previa_group_path(previa_group) %></td>
-            <td><%= link_to 'Elimianr', previa_group, method: :delete, data: { confirm: '¿Estás seguro?' } %></td>
+            <td><%= link_to 'Eliminar', previa_group, method: :delete, data: { confirm: '¿Estás seguro?' } %></td>
           </tr>
         <% end %>
       </tbody>

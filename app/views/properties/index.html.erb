@@ -1,6 +1,10 @@
-<p id="notice"><%= notice %></p>
+<% if !notice.nil? %>
+    <div class="alert alert-success" role="alert">
+      <p id="notice"><%= notice %></p>
+    </div>
+  <% end %>
 
-<h1>Listing Properties</h1>
+<h1>Lista de propiedades</h1>
 
 <table>
   <thead>
@@ -12,9 +16,9 @@
   <tbody>
     <% @properties.each do |property| %>
       <tr>
-        <td><%= link_to 'Show', property %></td>
-        <td><%= link_to 'Edit', edit_property_path(property) %></td>
-        <td><%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', property %></td>
+        <td><%= link_to 'Editar', edit_property_path(property) %></td>
+        <td><%= link_to 'Eliminar', property, method: :delete, data: { confirm: '¿Estás seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Property', new_property_path %>
+<%= link_to 'Nueva propiedad', new_property_path %>

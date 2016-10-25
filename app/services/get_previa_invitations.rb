@@ -1,7 +1,7 @@
 class GetPreviaInvitations
 
   def self.call(user)
-    #TODO
+    invitations = PreviaInvitation.all
   end
 
 end

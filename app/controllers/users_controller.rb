@@ -31,7 +31,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         #url_for(:controller => :frontend, :action => :index)
-        format.html { redirect_to root_path, notice: 'User was successfully created.'}
+        format.html { redirect_to root_path, notice: 'El usuario fue creado con éxito.'}
         format.json { redirect_to root_path, status: :ok} #TODO
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to @user, notice: 'El usuario fue modificado con éxito.' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -59,7 +59,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to users_url, notice: 'El usuario fue borrado con éxito.' }
       format.json { head :no_content }
     end
   end
@@ -74,7 +74,7 @@ class UsersController < ApplicationController
         format.html { redirect_to @user }
         format.json { render :show, status: :ok, location: @user }
       else
-        format.html { redirect_to url_for(:controller => :frontend, :action => :index), notice: 'User was NOT logged in.'}
+        format.html { redirect_to url_for(:controller => :frontend, :action => :index), notice: 'Mail y/o clave incorrectas.'}
         format.json { } #TODO
       end
     end
@@ -86,7 +86,7 @@ class UsersController < ApplicationController
     session.delete(:current_user_id)
     
     respond_to do |format|
-      format.html { redirect_to url_for(:controller => :frontend, :action => :index), notice: 'User was successfully logged out.'}
+      format.html { redirect_to url_for(:controller => :frontend, :action => :index), notice: 'Se ha cerrado la sesión con éxito.'}
       format.json { head :no_content }
     end
   end
@@ -98,7 +98,7 @@ class UsersController < ApplicationController
     AcceptGroupInvitation.call(@user, previa_group)
 
     respond_to do |format|
-      format.html { redirect_to @user, notice: 'Invitation was successfully accepted.' }
+      format.html { redirect_to @user, notice: 'La invitación fue aceptada con éxito.' }
       format.json { head :no_content }
     end
   end
@@ -107,6 +107,12 @@ class UsersController < ApplicationController
   # GET /users/1/invitations.json
   def invitations
     @invitations = GetInvitationsForUser.call(@user)
+  end
+
+  # GET /users/1/previa_invitations
+  # GET /users/1/previa_invitations.json
+  def previa_invitations
+    @previa_invitations = GetPreviaInvitations.call(@user)
   end
 
   # GET /users/1/groups
@@ -127,7 +133,7 @@ class UsersController < ApplicationController
     BanGroupFromUser.call(@user, previa_group)
 
     respond_to do |format|
-      format.html { redirect_to @user, notice: 'Group was successfully banned.' }
+      format.html { redirect_to @user, notice: 'El grupo de previa fue bloqueado con éxito.' }
       format.json { head :no_content }
     end
   end
@@ -139,7 +145,7 @@ class UsersController < ApplicationController
     LeavePreviaGroup.call(@user, previa_group)
 
     respond_to do |format|
-      format.html { redirect_to user_groups_path(@user), notice: 'Group was successfully abandoned.' }
+      format.html { redirect_to user_groups_path(@user), notice: 'El grupo de previa fue abandonado con éxito.' }
       format.json { head :no_content }
     end
   end

@@ -15,7 +15,7 @@ class PreviaGroupsController < ApplicationController
 
   # GET /previa_groups/new
   def new
-    @previa_group = PreviaGroup.new(:active => false, :leader => @user, :search_min_age => 18, :search_max_age => 60, :search_gender => 'Mixto')
+    @previa_group = PreviaGroup.new(:active => false, :leader => @user, :search_min_age => 18, :search_max_age => 60, :search_gender => 'Mixto', :search_distance => 30)
   end
 
   # GET /previa_groups/1/edit
@@ -29,8 +29,8 @@ class PreviaGroupsController < ApplicationController
 
     respond_to do |format|
       if @previa_group.persisted?
-        format.html { redirect_to @previa_group, notice: 'Previa group was successfully created.' }
-        format.json { render :show, status: :created, location: @previa_group }
+        format.html { redirect_to previa_group_invitable_users_path(@previa_group), notice: 'El grupo de previa fue creado con éxito.' }
+        format.json { render :invitable_users, status: :created, location: @previa_group }
       else
         format.html { render :new }
         format.json { render json: @previa_group.errors, status: :unprocessable_entity }
@@ -43,7 +43,7 @@ class PreviaGroupsController < ApplicationController
   def update
     respond_to do |format|
       if @previa_group.update(previa_group_params)
-        format.html { redirect_to @previa_group, notice: 'Previa group was successfully updated.' }
+        format.html { redirect_to @previa_group, notice: 'El grupo de previa fue modificado con éxito.' }
         format.json { render :show, status: :ok, location: @previa_group }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class PreviaGroupsController < ApplicationController
   def destroy
     @previa_group.destroy
     respond_to do |format|
-      format.html { redirect_to previa_groups_url, notice: 'Previa group was successfully destroyed.' }
+      format.html { redirect_to previa_groups_url, notice: 'El grupo de previa fue borrado con éxito.' }
       format.json { head :no_content }
     end
   end
@@ -87,7 +87,7 @@ class PreviaGroupsController < ApplicationController
     InviteUser.call(@previa_group, invited_user)
 
     respond_to do |format|
-      format.html { redirect_to previa_group_invitable_users_path(@previa_group), notice: 'User was successfully invited.' }
+      format.html { redirect_to previa_group_invitable_users_path(@previa_group), notice: 'El usuario fue invitado con éxito.' }
       format.json { head :no_content }
     end
   end
@@ -98,7 +98,7 @@ class PreviaGroupsController < ApplicationController
     FinishPreviaGroup.call(@previa_group)
 
     respond_to do |format|
-      format.html { redirect_to previa_group_current_users_path(@previa_group), notice: 'Previa group successfully finished.'}
+      format.html { redirect_to previa_group_current_users_path(@previa_group), notice: 'El grupo de previa fue cerrado con éxito.'}
       format.json {head :no_content}
     end
   end
@@ -116,7 +116,7 @@ class PreviaGroupsController < ApplicationController
     BanGroupFromGroup.call(@previa_group, banned_group)
 
     respond_to do |format|
-      format.html { redirect_to @previa_group, notice: 'Group was successfully banned.' }
+      format.html { redirect_to @previa_group, notice: 'El grupo de previa fue bloqueado con éxito.' }
       format.json { head :no_content }
     end
   end
@@ -128,7 +128,7 @@ class PreviaGroupsController < ApplicationController
     InviteGroup.call(@previa_group, invited_group)
 
     respond_to do |format|
-      format.html { redirect_to @previa_group, notice: 'Group was successfully invited.' }
+      format.html { redirect_to @previa_group, notice: 'El grupo de previa fue invitado con éxito.' }
       format.json { head :no_content }
     end
   end
@@ -140,7 +140,7 @@ class PreviaGroupsController < ApplicationController
     AcceptPreviaInvitation.call(@previa_group, previa_invitation)
 
     respond_to do |format|
-      format.html { redirect_to @previa_group, notice: 'Invitation was successfully accepted.' }
+      format.html { redirect_to @previa_group, notice: 'La invitación fue aceptada con éxito.' }
       format.json { head :no_content }
     end
   end
@@ -152,17 +152,10 @@ class PreviaGroupsController < ApplicationController
     RejectPreviaInvitation.call(@previa_group, previa_invitation)
 
     respond_to do |format|
-      format.html { redirect_to @previa_group, notice: 'Invitation was successfully rejected.' }
+      format.html { redirect_to @previa_group, notice: 'La invitación fue rechazada con éxito.' }
       format.json { head :no_content }
     end
   end
-
-  # GET /previa_groups/1/invitations
-  # GET /previa_groups/1/invitations.json
-  def invitations
-    @invitations = GetPreviaInvitations.call(@user)
-  end
-
 
   private
     # Use callbacks to share common setup or constraints between actions.

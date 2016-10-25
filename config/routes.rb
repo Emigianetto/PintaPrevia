@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   post 'users/logout' => 'users#logout', as: 'user_logout'
   get 'users/:id/groups_leading' => 'users#groups_leading', as: 'user_groups_leading'
   post 'users/:id/leave_group' => 'users#leave_group', as: 'user_leave_group'
+  get 'users/:id/previa_invitations' => 'users#previa_invitations', as: 'user_previa_invitations'
   
 
   resources :previa_groups
@@ -25,7 +26,6 @@ Rails.application.routes.draw do
   post 'previa_groups/:id/finish' => 'previa_groups#finish', as: 'previa_group_finish'
   get 'previa_groups/:id/details' => 'previa_groups#details', as: 'previa_group_details'
   get 'previa_groups/:id/search_previa_groups' => 'previa_groups#search_previa_groups', as: 'previa_group_search_previa_groups'
-  get 'previa_groups/invitations' => 'previa_groups#invitations', as: 'previa_group_invitations'
 
   resources :properties
   

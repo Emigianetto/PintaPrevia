@@ -59,6 +59,34 @@ class UsersControllerTest < ActionController::TestCase
     assert_redirected_to users_path
   end
 
+  test "should get invitations" do
+    get :invitations, id: @user
+    assert_response :success
+    assert_not_nil assigns(:users)
+    TEST_ACCESSIBILITY ? assert_basic_accessibiliy : nil
+  end
+
+  test "should get previa invitations" do
+    get :previa_invitations, id: @user
+    assert_response :success
+    assert_not_nil assigns(:users)
+    TEST_ACCESSIBILITY ? assert_basic_accessibiliy : nil
+  end
+
+  test "should get groups" do
+    get :groups, id: @user
+    assert_response :success
+    assert_not_nil assigns(:users)
+    TEST_ACCESSIBILITY ? assert_basic_accessibiliy : nil
+  end
+
+  test "should get groups leading" do
+    get :groups_leading, id: @user
+    assert_response :success
+    assert_not_nil assigns(:users)
+    TEST_ACCESSIBILITY ? assert_basic_accessibiliy : nil
+  end
+
 #TODO (ver si es add o es accept_invitation)
 =begin
   test "should add previa group" do

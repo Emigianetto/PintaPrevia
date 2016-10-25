@@ -1,8 +1,12 @@
 <div class="panel panel-primary">
   <div class="panel-heading">Lista grupos encontrados</div>
   <div class="panel-body">
-
-    <p id="notice"><%= notice %></p>
+  <% if !notice.nil? %>
+    <div class="alert alert-success" role="alert">
+      <p id="notice"><%= notice %></p>
+    </div>
+  <% end %>
+  
 
     <table class="table table-bordered" summary="Lista de los grupos que coincidieron con los parámetros de búsqueda">
       <thead>

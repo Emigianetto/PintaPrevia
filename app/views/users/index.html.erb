@@ -2,7 +2,11 @@
   <div class="panel-heading">Lista de usuarios</div>
   <div class="panel-body">
 
-    <p id="notice"><%= notice %></p>
+  <% if !notice.nil? %>
+    <div class="alert alert-success" role="alert">
+      <p id="notice"><%= notice %></p>
+    </div>
+  <% end %>
 
     <table class="table table-bordered">
       <thead>

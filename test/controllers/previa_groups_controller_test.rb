@@ -98,4 +98,32 @@ class PreviaGroupsControllerTest < ActionController::TestCase
       end
     end
   end
+
+  test "should get details" do
+    get :details, id: @previa_group
+    assert_response :success
+    assert_not_nil assigns(:previa_groups)
+    TEST_ACCESSIBILITY ? assert_basic_accessibiliy : nil
+  end
+
+  test "should get invitable users" do
+    get :invitable_users, id: @previa_group
+    assert_response :success
+    assert_not_nil assigns(:previa_groups)
+    TEST_ACCESSIBILITY ? assert_basic_accessibiliy : nil
+  end
+
+  test "should get current users" do
+    get :current_users, id: @previa_group
+    assert_response :success
+    assert_not_nil assigns(:previa_groups)
+    TEST_ACCESSIBILITY ? assert_basic_accessibiliy : nil
+  end
+
+  test "should get search previa groups" do
+    get :search_previa_groups, id: @previa_group
+    assert_response :success
+    assert_not_nil assigns(:previa_groups)
+    TEST_ACCESSIBILITY ? assert_basic_accessibiliy : nil
+  end
 end

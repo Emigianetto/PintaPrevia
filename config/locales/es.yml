@@ -1,0 +1,42 @@
+# config/locales/es.yml
+es:
+  activerecord:
+    errors:
+      messages:
+        record_invalid: "La validación falló: %{errors}"
+      models:
+        user:
+          attributes:
+            pass_confirmation:
+              blank: "El campo de confirmación no puede estar vacio"
+              confirmation: "Las claves no coinciden"
+            first_name:
+              blank: "El nombre no puede estar vacio."
+            last_name:
+              blank: "El apellido no puede estar vacio."
+            email:
+              blank: "El mail no puede estar vacio."
+              taken: "Este mail ya existe"
+            email_confirmation:
+              blank: "El campo de confirmación no puede estar vacio"
+              confirmation: "Los mails no coinciden"
+            pass:
+              blank: "La clave no puede estar vacia."
+            gender:
+              blank: "El sexo no puede estar vacio."
+            city:
+              blank: "La ciudad no puede estar vacia."
+        previa_group:
+          attributes:
+            name:
+              blank: "El nombre no puede estar vacio."
+            search_min_age:
+              blank: "La edad mínima no puede estar vacia."
+            search_max_age:
+              blank: "La edad máxima no puede estar vacia."
+            search_gender:
+              blank: "El tipo de grupo no puede estar vacia."
+            search_distance:
+              blank: "La distancia no puede estar vacia."
+
+

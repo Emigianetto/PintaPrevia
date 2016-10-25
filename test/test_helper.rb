@@ -7,7 +7,7 @@ class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
 
-  TEST_ACCESSIBILITY = false
+  TEST_ACCESSIBILITY = true
 
   def assert_basic_accessibiliy  
     rt = Raakt::Test.new(@response.body)  
