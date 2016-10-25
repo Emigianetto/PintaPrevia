@@ -1,0 +1,38 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">Bandeja de entrada</div>
+  <div class="panel-body">
+
+  <% if !notice.nil? %>
+    <div class="alert alert-success" role="alert">
+      <p id="notice"><%= notice %></p>
+    </div>
+  <% end %>
+
+    <table class="table table-bordered" summary="Bandeja de entrada de los mensajes del usuario">
+      <thead>
+        <tr>
+          <th id="columna_de">De</th>
+          <th id="columna_asunto">Asunto</th>
+          <th id="columna_fecha">Fecha</th>
+          <th id="columna_acciones">Acciones</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @groups_leading.each do |previa_group| %>
+          <tr>
+            <td headers="columna_de"><%= previa_group.name %></td>
+            <td headers="columna_asunto"><%= previa_group.name %></td>
+            <td headers="columna_fecha"><%= previa_group.name %></td>
+            <td headers="columna_acciones">
+              <% if !previa_group.active %>
+              <span class="fa fa-navicon fa-lg"> <%= link_to 'Seleccionar', previa_group_invitable_users_path(previa_group) %> </span>
+              <span class="fa fa-navicon fa-lg"> <%= link_to 'Eliminar', previa_group_finish_path(previa_group), method: :post, data: { confirm: '¿Estás seguro?' } %> </span>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

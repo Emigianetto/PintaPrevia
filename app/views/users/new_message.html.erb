@@ -1,0 +1,55 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">Nuevo mensaje</div>
+  <div class="panel-body">
+  <%= form_for(@user) do |f| %>
+    <div class="row">
+      <div class="col-md-6">
+        <% if @user.errors[:to_user].any? %>
+        <div class="form-group row vertical-align has-error">
+        <% else %>
+        <div class="form-group row vertical-align">
+        <% end %>
+          <%= f.label :to_user, "Para", class: "col-xs-3 col-form-label" %>
+          <div class="col-xs-9">
+            <%= f.text_field :to_user, class: "form-control" %>
+            <% if @user.errors[:to_user].any? %>
+            <%= @user.errors[:to_user].first %>
+            <% end %>
+          </div>
+        </div>
+        <% if @user.errors[:subject].any? %>
+        <div class="form-group row vertical-align has-error">
+        <% else %>
+        <div class="form-group row vertical-align">
+        <% end %>
+          <%= f.label :subject, "Asunto", class: "col-xs-3 col-form-label" %>
+          <div class="col-xs-9">
+            <%= f.text_field :subject, class: "form-control" %>
+            <% if @user.errors[:subject].any? %>
+            <%= @user.errors[:subject].first %>
+            <% end %>
+          </div>
+        </div>
+        <% if @user.errors[:content].any? %>
+        <div class="form-group row vertical-align has-error">
+        <% else %>
+        <div class="form-group row vertical-align">
+        <% end %>
+          <%= f.label :content, "Contenido", class: "col-xs-3 col-form-label" %>
+          <div class="col-xs-9">
+            <%= f.text_area(:content, rows: 15, data: {provide: "markdown"}, class: "form-control")%>
+            <% if @user.errors[:content].any? %>
+            <%= @user.errors[:content].first %>
+            <% end %>
+          </div>
+        </div>
+        <div class="actions">
+        <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+          Enviar
+        <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  </div>
+</div>
