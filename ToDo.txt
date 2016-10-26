@@ -16,9 +16,7 @@
 -SearchGroups
 
 
-              <!-- <%= f.email_field :email, placeholder: "Mail", class: "form-control" %> -->
 
-              <!-- <%= f.password_field :pass, placeholder: "Clave", class: "form-control" %> -->
 
 -cambiar links por botones en las tablas
 -Buscar grupo: ver condiciones de filtro (grupos que no soy lider, no soy integrante, etc)
