@@ -13,21 +13,25 @@
 -Register y Login
 -uniqueness group name
 -pedir confirmacion de pass, tanto en el registro como en el editar
-
-
-
-
 -SearchGroups
+
+
+
+-cambiar links por botones en las tablas
+-Buscar grupo: ver condiciones de filtro (grupos que no soy lider, no soy integrante, etc)
 -Chat
 -DisbandGroup(por opcion de lider, por salida del ultimo integrante, o por salida del lider)
 -fa icons en los listados y demas
--Backend?(ver como manejar admins)
+-filtros
+-Notice de errores en servicios.
+-Backend?(ver como manejar admins, altas de cities, properties, etc)
 -Notificaciones? (nueva inv, aceptada, rechazada, etc)
 -fix footer
 -error controller 404, forbidden, etc
 -Test Services
 -seguridad (ver los before_filter y before_action, si tienen que heredar de app_controller o que)
 -Login FB/Gmail
+-Registro: Arreglar error campo fecha, align
 
 
 LULA:
@@ -35,7 +39,5 @@ LULA:
 -Tablas accesibles, tag summary, id y header en th y td
 -Formularios accesibles
 
-verdura 1
-roque 2
-pollo 2
-tomate,queso,albahaca 1
+
+-crear grupo, invitar usuarios
