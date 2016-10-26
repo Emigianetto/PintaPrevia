@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   get 'frontend/index'
 
   resources :users
-  post 'users/:id/invitation' => 'users#accept_invitation', as: 'user_accept_invitation'
+  post 'users/:id/accept_invitation' => 'users#accept_invitation', as: 'user_accept_invitation'
+  post 'users/:id/reject_invitation' => 'users#reject_invitation', as: 'user_reject_invitation'
   get 'users/:id/invitations' => 'users#invitations', as: 'user_invitations'
   get 'users/:id/groups' => 'users#groups', as: 'user_groups'
   post 'users/:id/ban_group' => 'users#ban_group', as: 'user_ban_group'

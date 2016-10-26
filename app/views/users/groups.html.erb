@@ -33,10 +33,10 @@
             </td>
             <td headers="columna_fecha"><%= previa_group.date %></td>
             <td headers="columna_acciones">
-              <span class="btn btn-danger"> <%= link_to 'Abandonar', user_leave_group_path(previa_group), method: :post, data: { confirm: '¿Estás seguro?' } %> </span>
-              <span class="btn btn-primary"> <%= link_to 'Integrantes', previa_group_current_users_path(previa_group) %> </span>
-              <% if previa_group.active %>
-                <span class="btn btn-info"> <%= link_to 'Buscar grupos', previa_group_search_previa_groups_path(previa_group) %> </span>
+              <%= link_to "<span class='fa fa-close fa-lg' aria-hidden='true'></span> Abandonar".html_safe, user_leave_group_path(previa_group),  class: "btn btn-danger", method: :post, data: { confirm: '¿Estás seguro?' } %>
+              <%= link_to "<span class='fa fa-navicon fa-lg' aria-hidden='true'></span> Integrantes".html_safe, previa_group_current_users_path(previa_group), class: "btn btn-primary" %>
+              <% if previa_group.active %> 
+              <%= link_to "<span class='fa fa-filter fa-lg' aria-hidden='true'></span> Buscar grupos".html_safe, previa_group_search_previa_groups_path(previa_group), class: "btn btn-info" %>
               <% end %>
             </td>
           </tr>
