@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    puts "GGGGGGGGGGGGGGGGGGGGGGGGGGSDSSSSSSSSSSSSSSSSSSSSSSSss"
   end
 
   # GET /users/new
@@ -67,7 +68,7 @@ class UsersController < ApplicationController
   # POST /users/login
   # POST /users/login.json
   def login
-    @user = AuthenticateUser.call(params[:users][:email], params[:users][:pass])
+    @user = AuthenticateUser.call(params[:email], params[:pass])
     respond_to do |format|
       if !@user.nil?
         session[:current_user_id] = @user.id
