@@ -1,4 +1,4 @@
-class PreviaGroup < ActiveRecord::Base
+class PreviaGroup < ApplicationRecord
   validates_presence_of :name, :date, :search_gender, :search_distance, :search_min_age, :search_max_age
   validates_uniqueness_of :name
 
