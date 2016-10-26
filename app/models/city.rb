@@ -1,3 +1,3 @@
-class City < ActiveRecord::Base
+class City < ApplicationRecord
   has_many :users
 end

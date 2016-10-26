@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   validates :pass, confirmation: true
   validates :pass_confirmation, presence: true
   validates :email, confirmation: true
