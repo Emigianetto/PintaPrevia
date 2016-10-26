@@ -22,7 +22,7 @@
             <td><%= invitation.name %></td>
             <td><%= invitation.leader.first_name %></td>
             <td>
-              <span class="fa fa-navicon fa-lg"> <%= link_to 'Aceptar', user_accept_invitation_path(@user, :invitation_id => invitation.id), method: :post, data: { confirm: '¿Estás seguro?'} %> </span>                
+              <span class="btn btn-success"> <%= link_to 'Aceptar', user_accept_invitation_path(@user, :invitation_id => invitation.id), method: :post, data: { confirm: '¿Estás seguro?'} %> </span>
             </td>
           </tr>
         <% end %>

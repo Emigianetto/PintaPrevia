@@ -22,8 +22,8 @@
             <td><%= invitation.inviting_group.name %></td>
             <td><%= invitation.inviting_group.leader.first_name %></td>
             <td>
-              <span class="fa fa-navicon fa-lg"> <%= link_to 'Aceptar', previa_group_accept_previa_invitation_path(@invitation, :invitation_id => invitation.id), method: :post, data: { confirm: '¿Estás seguro?'} %> </span>
-              <span class="fa fa-navicon fa-lg"> <%= link_to 'Recazar', previa_group_reject_previa_invitation_path(@invitation, :invitation_id => invitation.id), method: :post, data: { confirm: '¿Estás seguro?'} %> </span>
+              <span class="btn btn-success"> <%= link_to 'Aceptar', previa_group_accept_previa_invitation_path(@invitation, :invitation_id => invitation.id), method: :post, data: { confirm: '¿Estás seguro?'} %> </span>
+              <span class="btn btn-danger"> <%= link_to 'Rechazar', previa_group_reject_previa_invitation_path(@invitation, :invitation_id => invitation.id), method: :post, data: { confirm: '¿Estás seguro?'} %> </span>
             </td>
           </tr>
         <% end %>

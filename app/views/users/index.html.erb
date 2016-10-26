@@ -32,9 +32,9 @@
             <td><%= user.gender %></td>
             <td><%= user.city.name %></td>
             <td>
-              <span class="fa fa-navicon fa-lg"> <%= link_to 'Mostrar', user %> </span>
-              <span class="fa fa-edit fa-lg"> <%= link_to 'Editar', edit_user_path(user) %> </span>
-              <span class="fa fa-trash fa-lg"> <%= link_to 'Eliminar', user, method: :delete, data: { confirm: '¿Estas seguro?' } %> </span>
+              <span class="btn btn-success"> <%= link_to 'Mostrar', user %> </span>
+              <span class="btn btn-primary"> <%= link_to 'Editar', edit_user_path(user) %> </span>
+              <span class="btn btn-danger"> <%= link_to 'Eliminar', user, method: :delete, data: { confirm: '¿Estas seguro?' } %> </span>
             </td>
           </tr>
         <% end %>

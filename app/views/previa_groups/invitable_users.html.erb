@@ -25,7 +25,7 @@
             <td><%= user.email %></td>
             <td><%= user.city.name %></td>
             <td>
-              <span class="fa fa-navicon fa-lg"> <%= link_to 'Invitar', previa_group_invite_user_path(@previa_group, :user_id => user.id), method: :post, data: { confirm: '¿Estás seguro?'} %> </span>    
+              <span class="btn btn-success"> <%= link_to 'Invitar', previa_group_invite_user_path(@previa_group, :user_id => user.id), method: :post, data: { confirm: '¿Estás seguro?'} %> </span>    
             </td>
           </tr>
         <% end %>
