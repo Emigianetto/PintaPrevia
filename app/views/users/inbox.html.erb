@@ -21,7 +21,7 @@
           <tr>
             <td headers="columna_destinatario"><%= previa_group.name%></td>
             <td headers="columna_acciones">
-              <span class="fa fa-navicon fa-lg"> <%= link_to 'Ver', previa_group_inbox_path(previa_group) %> </span>
+              <%= link_to "<span class='fa fa-navicon fa-lg' aria-hidden='true'></span> Ver".html_safe, previa_group_inbox_path(previa_group), class: "btn btn-success" %>
             </td>
           </tr>
         <% end %>

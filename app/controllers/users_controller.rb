@@ -91,14 +91,26 @@ class UsersController < ApplicationController
     end
   end
   
-  # POST /users/1/invitation
-  # POST /users/1/invitation.json
+  # POST /users/1/accept_invitation
+  # POST /users/1/accept_invitation.json
   def accept_invitation
     previa_group = PreviaGroup.find(params[:invitation_id])
     AcceptGroupInvitation.call(@user, previa_group)
 
     respond_to do |format|
       format.html { redirect_to @user, notice: 'La invitación fue aceptada con éxito.' }
+      format.json { head :no_content }
+    end
+  end
+
+  # POST /users/1/reject_invitation
+  # POST /users/1/reject_invitation.json
+  def reject_invitation
+    previa_group = PreviaGroup.find(params[:invitation_id])
+    RejectGroupInvitation.call(@user, previa_group)
+
+    respond_to do |format|
+      format.html { redirect_to @user, notice: 'La invitación fue rechazada con éxito.' }
       format.json { head :no_content }
     end
   end

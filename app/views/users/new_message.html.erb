@@ -17,19 +17,6 @@
             <% end %>
           </div>
         </div>
-        <% if @user.errors[:subject].any? %>
-        <div class="form-group row vertical-align has-error">
-        <% else %>
-        <div class="form-group row vertical-align">
-        <% end %>
-          <%= f.label :subject, "Asunto", class: "col-xs-3 col-form-label" %>
-          <div class="col-xs-9">
-            <%= f.text_field :subject, class: "form-control" %>
-            <% if @user.errors[:subject].any? %>
-            <%= @user.errors[:subject].first %>
-            <% end %>
-          </div>
-        </div>
         <% if @user.errors[:content].any? %>
         <div class="form-group row vertical-align has-error">
         <% else %>
@@ -44,7 +31,7 @@
           </div>
         </div>
         <div class="actions">
-        <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+        <%= button_tag(type: 'submit', class: "btn btn-success") do %>
           Enviar
         <% end %>
         </div>

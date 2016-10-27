@@ -25,7 +25,7 @@
             <td headers="columna_asunto"><%= chat.messages.last.message %></td>
             <td headers="columna_fecha"><%= chat.messages.last.created_at %></td>
             <td headers="columna_acciones">
-              <span class="fa fa-navicon fa-lg"> <%= link_to 'Ver', previa_group_chat_path(@previa_group, :chat => chat) %> </span>
+              <%= link_to "<span class='fa fa-navicon fa-lg' aria-hidden='true'></span> Ver".html_safe, previa_group_chat_path(@previa_group, :chat => chat), class: "btn btn-success" %>
             </td>
           </tr>
         <% end %>

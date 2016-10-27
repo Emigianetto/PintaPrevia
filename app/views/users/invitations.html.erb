@@ -22,7 +22,8 @@
             <td><%= invitation.name %></td>
             <td><%= invitation.leader.first_name %></td>
             <td>
-              <span class="btn btn-success"> <%= link_to 'Aceptar', user_accept_invitation_path(@user, :invitation_id => invitation.id), method: :post, data: { confirm: '¿Estás seguro?'} %> </span>
+              <%= link_to "<span class='fa fa-check fa-lg' aria-hidden='true'></span> Aceptar".html_safe, user_accept_invitation_path(@user, :invitation_id => invitation.id), method: :post, data: { confirm: '¿Estás seguro?'}, class: "btn btn-success" %>
+              <%= link_to "<span class='fa fa-close fa-lg' aria-hidden='true'></span> Rechazar".html_safe, user_reject_invitation_path(@user, :invitation_id => invitation.id), method: :post, data: { confirm: '¿Estás seguro?'}, class: "btn btn-danger" %>
             </td>
           </tr>
         <% end %>
