@@ -1,0 +1,78 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">Mensajes</div>
+  <div class="panel-body panel-height">
+
+  <% if !notice.nil? %>
+    <div class="alert alert-success" role="alert">
+      <p id="notice"><%= notice %></p>
+    </div>
+  <% end %>
+
+    <!-- <table class="table table-bordered" summary="Mensajes del grupo">
+      <thead>
+        <tr>
+          <th id="columna_de">De</th>
+          <th id="columna_asunto">Asunto</th>
+          <th id="columna_fecha">Fecha</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @messages.each do |message| %>
+          <tr>
+            <td headers="columna_de"><%= message.author.name%></td>
+            <td headers="columna_asunto"><%= message.message %></td>
+            <td headers="columna_fecha"><%= message.created_at %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table> -->
+    <div class="row">
+        <div class="conversation-wrap col-lg-4">
+          <% @chats.each do |chat| %>
+            <div class="media conversation">
+                <a class="pull-left" href="#">
+                    <img class="media-object" data-src="holder.js/64x64" alt="64x64" style="width: 50px; height: 50px;" src="/assets/placeholder.png">
+                </a>
+                <div class="media-body">
+                    <h5 class="media-heading"><%= chat.with(@previa_group).first.name %></h5>
+                    <small><%= chat.messages.last.message %></small>
+                </div>
+            </div>
+          <% end %>
+        </div>
+        <div class="message-wrap col-lg-8">
+            <div class="msg-wrap">
+              <% @messages.each do |message| %>
+                <div class="media msg ">
+                    <a class="pull-left" href="#">
+                      <img class="media-object" data-src="holder.js/64x64"  alt="64x64" style="width: 32px; height: 32px;" src="/assets/placeholder.png">
+                    </a>
+                    <div class="media-body">
+                        <small class="pull-right time"><i class="fa fa-clock-o"></i><%= message.created_at %></small>
+                        <h5 class="media-heading"><%= message.author.name %></h5>
+                        <small class="col-lg-10"><%= message.message %></small>
+                    </div>
+                </div>
+                <!-- <div class="alert alert-info msg-date">
+                    <strong>Today</strong>
+                </div> -->
+              <% end %>
+            </div>
+
+            <%= form_for :previa_groups, url: url_for( :controller => :previa_groups, :action => :send_message, :method => :post ) do |f| %>
+              <%= hidden_field_tag :chat, @messages.first.chat.id %>
+              <div class="send-wrap ">
+                  <textarea class="form-control send-message" name="message" rows="3" placeholder="Escribir..."></textarea>
+              </div>
+              <div>
+                <%= button_tag(type: 'submit', class: "col-lg-3 pull-right btn btn-success") do %>
+                  <i class="fa fa-plus"></i> Enviar
+                <% end %>
+              </div>
+            <% end %>
+
+        </div>
+    </div>
+  </div>
+</div>

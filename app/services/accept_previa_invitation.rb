@@ -8,8 +8,18 @@ class AcceptPreviaInvitation
     inviting_group.matched_groups << invited_group
     invited_group.matched_groups << inviting_group
 
+    chat = Chat.new
+    chat.groups << inviting_group
+    chat.groups << invited_group
+
+    message = Message.new
+    message.author = inviting_group
+    message.message = "Nuevo grupo encontrado!"
+    chat.messages << message
+
+    message.save
+    chat.save
     previa_invitation.save
-    inviting_group.save
     invited_group.save
   end
 

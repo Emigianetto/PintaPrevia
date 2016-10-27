@@ -17,12 +17,14 @@
 
 
 
-
+-fix lo de waiable y mongoid en editar perfil
 -cambiar links por botones en las tablas
+-fa icons en los listados y demas
+-ver de cambiar los :id en las url por variables en session
+-ver si se saca los campos date del modelo y se usa el timestamp que ya tiene (created_at y updated_at
 -Buscar grupo: ver condiciones de filtro (grupos que no soy lider, no soy integrante, etc)
 -Chat
 -DisbandGroup(por opcion de lider, por salida del ultimo integrante, o por salida del lider)
--fa icons en los listados y demas
 -filtros
 -Notice de errores en servicios.
 -Backend?(ver como manejar admins, altas de cities, properties, etc)

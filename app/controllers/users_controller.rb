@@ -150,6 +150,11 @@ class UsersController < ApplicationController
     end
   end
 
+  # GET /users/1/inbox
+  # GET /users/1/inbox.json
+  def inbox
+    @groups_leading = GetGroupsLeading.call(@user)
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

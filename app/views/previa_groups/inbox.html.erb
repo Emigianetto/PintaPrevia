@@ -1,0 +1,35 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">Conversaciones</div>
+  <div class="panel-body">
+
+  <% if !notice.nil? %>
+    <div class="alert alert-success" role="alert">
+      <p id="notice"><%= notice %></p>
+    </div>
+  <% end %>
+
+    <table class="table table-bordered" summary="Conversaciones del grupo">
+      <thead>
+        <tr>
+          <th id="columna_de">De</th>
+          <th id="columna_asunto">Asunto</th>
+          <th id="columna_fecha">Fecha</th>
+          <th id="columna_acciones">Acciones</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @chats.each do |chat| %>
+          <tr>
+            <td headers="columna_de"><%= chat.with(@previa_group).first.name %></td>
+            <td headers="columna_asunto"><%= chat.messages.last.message %></td>
+            <td headers="columna_fecha"><%= chat.messages.last.created_at %></td>
+            <td headers="columna_acciones">
+              <span class="fa fa-navicon fa-lg"> <%= link_to 'Ver', previa_group_chat_path(@previa_group, :chat => chat) %> </span>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

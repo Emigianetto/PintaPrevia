@@ -28,3 +28,51 @@ four:
   value: '3'
   created_at: '2016-09-29 22:17:32'
   updated_at: '2016-09-29 22:17:32'
+five:
+  previa_group_id: 25431312
+  property_id: 298
+  value: '18'
+  created_at: '2016-09-29 22:17:32'
+  updated_at: '2016-09-29 22:17:32'
+six:
+  previa_group_id: 25431312
+  property_id: 311
+  value: '90'
+  created_at: '2016-09-29 22:17:32'
+  updated_at: '2016-09-29 22:17:32'
+seven:
+  previa_group_id: 25431312
+  property_id: 313
+  value: 'Masculino'
+  created_at: '2016-09-29 22:17:32'
+  updated_at: '2016-09-29 22:17:32'
+eight:
+  previa_group_id: 25431312
+  property_id: 315
+  value: '3'
+  created_at: '2016-09-29 22:17:32'
+  updated_at: '2016-09-29 22:17:32'
+nine:
+  previa_group_id: 25431313
+  property_id: 298
+  value: '18'
+  created_at: '2016-09-29 22:17:32'
+  updated_at: '2016-09-29 22:17:32'
+ten:
+  previa_group_id: 25431313
+  property_id: 311
+  value: '90'
+  created_at: '2016-09-29 22:17:32'
+  updated_at: '2016-09-29 22:17:32'
+eleven:
+  previa_group_id: 25431313
+  property_id: 313
+  value: 'Todos'
+  created_at: '2016-09-29 22:17:32'
+  updated_at: '2016-09-29 22:17:32'
+twelve:
+  previa_group_id: 25431313
+  property_id: 315
+  value: '3'
+  created_at: '2016-09-29 22:17:32'
+  updated_at: '2016-09-29 22:17:32'

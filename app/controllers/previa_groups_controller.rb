@@ -124,6 +124,7 @@ class PreviaGroupsController < ApplicationController
   # POST /previa_groups/1/invite_group
   # POST /previa_groups/1/invite_group.json
   def invite_group
+    puts params
     invited_group = PreviaGroup.find(params[:previa_group_id])
     InviteGroup.call(@previa_group, invited_group)
 
@@ -157,6 +158,31 @@ class PreviaGroupsController < ApplicationController
     end
   end
 
+  # GET /previa_groups/1/inbox
+  # GET /previa_groups/1/inbox.json
+  def inbox
+    @chats = GetChatsForPreviaGroup.call(@previa_group)
+  end
+
+  # GET /previa_groups/1/chat
+  # GET /previa_groups/1/chat.json
+  def chat
+    @chats = GetChatsForPreviaGroup.call(@previa_group)
+    @messages = GetMessagesForChat.call(Chat.find(params[:chat]))
+  end
+
+  # POST /previa_groups/1/send_message
+  # POST /previa_groups/1/send_message.json
+  def send_message
+    chat = Chat.find(params[:chat])
+    SendMessageToChat.call(@previa_group, chat, params[:message])
+
+    respond_to do |format|
+      format.html { redirect_to previa_group_chat_path(@previa_group, :chat => chat) }
+      format.json { head :no_content }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_previa_group
@@ -170,6 +196,6 @@ class PreviaGroupsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def previa_group_params
       params.fetch(:previa_group, {})
-      params.require(:previa_group).permit(:user_id, :name, :active, :date, :leader_id,:group_attributes, :members, :invited_users, :banned_users, :banned_groups, :matched_groups, :previa_invitations, :search_min_age, :search_max_age, :search_gender, :search_distance)
+      params.require(:previa_group).permit(:user_id, :name, :active, :date, :leader_id, :group_attributes, :members, :invited_users, :banned_users, :banned_groups, :matched_groups, :previa_invitations, :search_min_age, :search_max_age, :search_gender, :search_distance, :chat, :previa_group_id, :previa_invitation_id)
     end
 end

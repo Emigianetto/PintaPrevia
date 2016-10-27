@@ -1,0 +1,36 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined. If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one:
+  message: 'grupo 1 a grupo 2'
+  chat_id: 2
+  author_id: 253223
+  created_at: '2016-09-29 22:17:20'
+  updated_at: '2016-09-29 22:17:20'
+two:
+  message: 'grupo 2 a grupo 3'
+  chat_id: 3
+  author_id: 25431312
+  created_at: '2016-09-29 22:17:20'
+  updated_at: '2016-09-29 22:17:20'
+three:
+  message: 'grupo 2 a grupo 1'
+  chat_id: 2
+  author_id: 25431312
+  created_at: '2016-09-29 22:17:19'
+  updated_at: '2016-09-29 22:17:19'
+four:
+  message: 'grupo 3 a grupo 2'
+  chat_id: 3
+  author_id: 25431313
+  created_at: '2016-09-29 22:17:22'
+  updated_at: '2016-09-29 22:17:22'
+five:
+  message: 'grupo 2 a grupo 3 .'
+  chat_id: 3
+  author_id: 25431312
+  created_at: '2016-09-29 22:17:18'
+  updated_at: '2016-09-29 22:17:18'

@@ -11,7 +11,6 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <%= form_for :users, url: url_for( :controller => :users, :action => :login ), :html => {:class => "navbar-form navbar-right"} do |f| %>
-          <!-- <form method="POST" action="<%=url_for( :controller => :users, :action => :login ) %>" class="navbar-form navbar-right"> -->
             <div class="form-group">
               <input type="text" name="email" placeholder="Mail" class="form-control">
             </div>
@@ -21,9 +20,7 @@
             <%= button_tag(type: 'submit', class: "btn btn-success btn-md") do %>
               Ingresar
             <% end %>
-            <!-- <button type="submit" name="button" class="btn btn-success btn-md">Ingresar</button> -->
           <% end %>
-          <!-- </form> -->
         </div><!--/.navbar-collapse -->
       </div>
     </nav>

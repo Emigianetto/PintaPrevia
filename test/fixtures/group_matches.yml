@@ -1,1 +1,8 @@
---- {}
+one:
+  id: 1
+  inviter_group_id: 253223
+  invited_group_id: 25431312
+two:
+  id: 
+  inviter_group_id: 25431312
+  invited_group_id: 25431313
