@@ -18,12 +18,8 @@
     </li>
   </ul>
   <ul class="list-group">
-    <li class="nav-header disabled"><a>Mensajes</a></li>
     <li class="<% if current_page?(user_inbox_path(@user))%>active<% end %> list-group-item">
       <%= link_to "<span class='sr-only'>(actual)</span>Bandeja de entrada".html_safe, user_inbox_path(@user)%>
-    </li>
-    <li class="<% if current_page?(new_previa_group_path)%>active<% end %> list-group-item">
-      <%= link_to "<span class='sr-only'>(actual)</span>Redactar nuevo".html_safe, new_previa_group_path%>
     </li>
   </ul>
   <ul class="list-group">
@@ -31,8 +27,11 @@
     <li class="<% if current_page?(edit_user_path(@user))%>active<% end %> list-group-item">
       <%= link_to "<span class='sr-only'>(actual)</span>Editar perfil".html_safe, edit_user_path(@user) %>
     </li>
-    <li class="<% if current_page?(new_previa_group_path)%>active<% end %> list-group-item">
-      <%= link_to "<span class='sr-only'>(actual)</span>Editar galeria".html_safe, new_previa_group_path%>
+    <li class="<% if current_page?(user_gallery_path)%>active<% end %> list-group-item">
+      <%= link_to "<span class='sr-only'>(actual)</span>Ver galeria".html_safe, user_gallery_path %>
+    </li>
+    <li class="<% if current_page?(user_edit_gallery_path)%>active<% end %> list-group-item">
+      <%= link_to "<span class='sr-only'>(actual)</span>Editar galeria".html_safe, user_edit_gallery_path %>
     </li>
   </ul>
 </div>

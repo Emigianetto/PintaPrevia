@@ -22,6 +22,16 @@ class UsersController < ApplicationController
   def edit
   end
 
+  # GET /users/gallery
+  # GET /users/gallery.json
+  def gallery
+  end
+
+  # GET /users/edit_gallery
+  # GET /users/edit_gallery.json
+  def edit_gallery
+  end
+
   # POST /users
   # POST /users.json
   def create

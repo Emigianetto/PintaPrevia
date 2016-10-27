@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   post 'users/:id/reject_invitation' => 'users#reject_invitation', as: 'user_reject_invitation'
   get 'users/:id/invitations' => 'users#invitations', as: 'user_invitations'
   get 'users/:id/groups' => 'users#groups', as: 'user_groups'
+  get 'users/:id/gallery' => 'users#gallery', as: 'user_gallery'
+  get 'users/:id/edit_gallery' => 'users#edit_gallery', as: 'user_edit_gallery'
   post 'users/:id/ban_group' => 'users#ban_group', as: 'user_ban_group'
   post 'users/login' => 'users#login', as: 'user_login'
   post 'users/logout' => 'users#logout', as: 'user_logout'

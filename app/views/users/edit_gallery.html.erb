@@ -1,0 +1,36 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">Editar galería</div>
+  <div class="panel-body">
+
+  <% if !notice.nil? %>
+    <div class="alert alert-success" role="alert">
+      <p id="notice"><%= notice %></p>
+    </div>
+  <% end %>
+
+    <div class="col-sm-6" id="slider-thumbs">
+        <!-- Bottom switcher of slider -->
+        <ul class="hide-bullets">
+            <li class="col-sm-3">
+                <input type="checkbox" value="zero">
+                <a class="thumbnail" id="carousel-selector-0"><img src="http://placehold.it/150x150&text=zero"></a>
+            </li>
+            <li class="col-sm-3">
+                <input type="checkbox" value="one">
+                <a class="thumbnail" id="carousel-selector-1"><img src="http://placehold.it/150x150&text=1"></a>
+            </li>
+
+            <li class="col-sm-3">
+                <input type="checkbox" value="two">
+                <a class="thumbnail" id="carousel-selector-2"><img src="http://placehold.it/150x150&text=2"></a>
+            </li>
+
+            <li class="col-sm-3">
+                <input type="checkbox" value="three">
+                <a class="thumbnail" id="carousel-selector-3"><img src="http://placehold.it/150x150&text=3"></a>
+            </li>
+        </ul>
+    </div>
+    <%= link_to 'Eliminar imagen', new_previa_group_path(@user), class: 'btn btn-danger' %>
+  </div>
+</div>
