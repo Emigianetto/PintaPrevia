@@ -35,7 +35,7 @@
             <td headers="columna_acciones">
               <%= link_to "<span class='fa fa-close fa-lg' aria-hidden='true'></span> Abandonar".html_safe, user_leave_group_path(previa_group),  class: "btn btn-danger", method: :post, data: { confirm: '¿Estás seguro?' } %>
               <%= link_to "<span class='fa fa-navicon fa-lg' aria-hidden='true'></span> Integrantes".html_safe, previa_group_current_users_path(previa_group), class: "btn btn-primary" %>
-              <% if previa_group.active %> 
+              <% if previa_group.active and previa_group.leader == @user %> 
               <%= link_to "<span class='fa fa-filter fa-lg' aria-hidden='true'></span> Buscar grupos".html_safe, previa_group_search_previa_groups_path(previa_group), class: "btn btn-info" %>
               <% end %>
             </td>

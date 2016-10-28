@@ -14,15 +14,20 @@
 -uniqueness group name
 -pedir confirmacion de pass, tanto en el registro como en el editar
 -SearchGroups
+-cambiar links por botones en las tablas
+-fix en listado grupos aparece el boton de "buscar grupos" aun no siendo lider
+-ver si se saca los campos date del modelo y se usa el timestamp que ya tiene (created_at y updated_at
 
 
 
+-ver mensaje de error en campo imagen en form usuario (se ve en ingles y rompe todo el formato)
+-agregar username a user y usarlo para login, etc
+-al borrar grupo, ver de borrar dependencias (chats, invitaciones, etc)
 -fix lo de waiable y mongoid en editar perfil
 -cambiar links por botones en las tablas
 -fa icons en los listados y demas
 -ver de cambiar los :id en las url por variables en session
--ver si se saca los campos date del modelo y se usa el timestamp que ya tiene (created_at y updated_at
--Buscar grupo: ver condiciones de filtro (grupos que no soy lider, no soy integrante, etc)
+-Buscar grupo: ver condiciones de filtro (grupos que no soy lider, no soy integrante, ya hay match, etc)
 -Chat
 -DisbandGroup(por opcion de lider, por salida del ultimo integrante, o por salida del lider)
 -filtros

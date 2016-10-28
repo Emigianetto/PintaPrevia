@@ -1,4 +1,10 @@
 class User < ApplicationRecord
+
+  mount_uploader :image, ImageUploader
+
+  validates_processing_of :image
+  validate :image_size_validation
+
   validates :pass, confirmation: true
   validates :pass_confirmation, presence: true
   validates :email, confirmation: true
@@ -27,5 +33,10 @@ class User < ApplicationRecord
     now = Time.now.utc.to_date
     now.year - birth_date.year - ((now.month > birth_date.month || (now.month == birth_date.month && now.day >= birth_date.day)) ? 0 : 1)
   end
+
+  private
+    def image_size_validation
+      errors[:image] << "debe ser menor que 500KB" if image.size > 0.5.megabytes
+    end
 
 end

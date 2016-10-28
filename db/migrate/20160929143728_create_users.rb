@@ -8,6 +8,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :gender
       t.date :birth_date
       t.belongs_to :city, index: true
+      t.string :image
 
       t.timestamps null: false
     end

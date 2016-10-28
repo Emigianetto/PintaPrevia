@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action { flash.clear }
   before_action :set_user, :except => [:new, :login, :create]
   before_filter :authorize, :except => [:new, :login, :create]
 
@@ -22,21 +23,11 @@ class UsersController < ApplicationController
   def edit
   end
 
-  # GET /users/gallery
-  # GET /users/gallery.json
-  def gallery
-  end
-
-  # GET /users/edit_gallery
-  # GET /users/edit_gallery.json
-  def edit_gallery
-  end
-
   # POST /users
   # POST /users.json
   def create
-    puts user_params
-    @user = User.new(user_params)
+    @user = CreateUser.call(user_params)
+    #@user = User.new(user_params)
 
     respond_to do |format|
       if @user.save
@@ -178,6 +169,16 @@ class UsersController < ApplicationController
     @groups_leading = GetGroupsLeading.call(@user)
   end
 
+  # GET /users/1/gallery
+  # GET /users/1/gallery.json
+  def gallery
+  end
+
+  # GET /users/1/edit_gallery
+  # GET /users/1/edit_gallery.json
+  def edit_gallery
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -193,6 +194,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:previa_group_id, :first_name, :last_name, :email, :email_confirmation, :pass, :pass_confirmation, :birth_date, :gender, :city_id)
+      params.require(:user).permit(:previa_group_id, :first_name, :last_name, :email, :email_confirmation, :pass, :pass_confirmation, :birth_date, :gender, :city_id, :image)
     end
 end

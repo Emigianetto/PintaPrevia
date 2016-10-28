@@ -1,0 +1,22 @@
+.hide-bullets {
+    list-style-type: none;
+    margin-left: -40px;
+    margin-top:20px;
+}
+
+.thumbnail {
+    padding: 0;
+}
+
+.carousel-inner>.item>img, .carousel-inner>.item>a>img {
+    width: 100%;
+}
+
+.carousel-control .icon-prev, .carousel-control .icon-next, 
+.carousel-control .fa-chevron-left, .carousel-control 
+.fa-chevron-right{
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+}

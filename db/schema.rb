@@ -119,6 +119,7 @@ ActiveRecord::Schema.define(version: 20161027014517) do
     t.string   "gender"
     t.date     "birth_date"
     t.integer  "city_id"
+    t.string   "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["city_id"], name: "index_users_on_city_id"
