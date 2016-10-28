@@ -36,7 +36,11 @@ class SearchPreviaGroups
     puts "EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE\n"
     #groups = groups.reject{ |g| g.distance != distance.value} TODO calculo de distancia
     
-    groups = groups.reject{|g| g.id == previa_group.id}
+    invitations = PreviaInvitation.where('inviting_group_id = ?', previa_group.id)
+    invitations.each do |i|
+        groups = groups.reject{ |g| i.invited_group.id == g.id}
+    end
+    groups = groups.reject{ |g| g.id == previa_group.id }
 
     end
 

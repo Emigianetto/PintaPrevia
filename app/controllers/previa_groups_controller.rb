@@ -129,7 +129,7 @@ class PreviaGroupsController < ApplicationController
     InviteGroup.call(@previa_group, invited_group)
 
     respond_to do |format|
-      format.html { redirect_to @previa_group, notice: 'El grupo de previa fue invitado con éxito.' }
+      format.html { redirect_to previa_group_search_previa_groups_path(@previa_group), notice: 'El grupo de previa fue invitado con éxito.' }
       format.json { head :no_content }
     end
   end

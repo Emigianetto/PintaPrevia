@@ -22,6 +22,8 @@
 
 
 
+
+
 -ver mensaje de error en campo imagen en form usuario (se ve en ingles y rompe todo el formato)
 -agregar username a user y usarlo para login, etc
 -al borrar grupo, ver de borrar dependencias (chats, invitaciones, etc)
