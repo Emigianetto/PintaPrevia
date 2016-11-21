@@ -1,5 +1,5 @@
 <div class="panel panel-primary">
-  <div class="panel-heading">Lista de invitaciones a previa de grupos</div>
+  <div class="panel-heading">Lista de invitaciones a previa de grupos de <%= @user.first_name %></div>
   <div class="panel-body">
   <% if !notice.nil? %>
     <div class="alert alert-success" role="alert">
@@ -7,21 +7,21 @@
     </div>
   <% end %>
     
-    <table class="table table-bordered">
+    <table class="table table-bordered" summary="Lista de las invitaciones a previas que recibio el lider">
       <thead>
         <tr>
-          <th>Grupo</th>
-          <th>Lider</th>
-          <th colspan="3">Acciones</th>
+          <th id="columna_grupo">Grupo</th>
+          <th id="columna_lider">Lider</th>
+          <th id="columna_acciones">Acciones</th>
         </tr>
       </thead>
 
       <tbody>
         <% @previa_invitations.each do |invitation| %>
           <tr>
-            <td><%= invitation.inviting_group.name %></td>
-            <td><%= invitation.inviting_group.leader.first_name %></td>
-            <td>
+            <td headers="columna_grupo"><%= invitation.inviting_group.name %></td>
+            <td headers="columna_lider"><%= invitation.inviting_group.leader.first_name %></td>
+            <td headers="columna_acciones">
               <%= link_to "<span class='fa fa-navicon fa-lg' aria-hidden='true'></span> Aceptar".html_safe,previa_group_accept_previa_invitation_path(invitation.invited_group, :previa_invitation_id => invitation.id), method: :post, data: { confirm: '¿Estás seguro?'}, class: "btn btn-info" %>
               <%= link_to "<span class='fa fa-check fa-lg' aria-hidden='true'></span> Rechazar".html_safe,previa_group_reject_previa_invitation_path(invitation.invited_group, :previa_invitation_id => invitation.id), method: :post, data: { confirm: '¿Estás seguro?' }, class: "btn btn-success" %>
             </td>

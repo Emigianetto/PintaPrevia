@@ -26,7 +26,6 @@
 
 -Chat
 -Galeria
--deploy en heroku
 -filtros
 -error controller 404, forbidden, etc
 -ver mensaje de error en campo imagen en form usuario (se ve en ingles y rompe todo el formato)
@@ -34,6 +33,7 @@
 -Notificaciones? (nueva inv, aceptada, rechazada, etc)
 -Registro: Arreglar error campo fecha, align
 -Test Services, y general
+-deploy en heroku
 
 PARA RUBY:
 -seguridad (ver los before_filter y before_action, si tienen que heredar de app_controller o que)
