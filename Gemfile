@@ -29,9 +29,14 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 #gem 'waiable'
+
+# Internationalization
 gem 'rails-i18n'
+
+# File upload
 gem 'carrierwave'
-#gem 'rmagick'
+
+# A ruby wrapper for ImageMagick or GraphicsMagick command line
 gem 'mini_magick'
 
 # Use ActiveModel has_secure_password

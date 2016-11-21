@@ -24,24 +24,29 @@
 
 
 
--ver mensaje de error en campo imagen en form usuario (se ve en ingles y rompe todo el formato)
--agregar username a user y usarlo para login, etc
--al borrar grupo, ver de borrar dependencias (chats, invitaciones, etc)
--fix lo de waiable y mongoid en editar perfil
--ver de cambiar los :id en las url por variables en session
--Buscar grupo: ver condiciones de filtro (grupos que no soy lider, no soy integrante, ya hay match, etc)
 -Chat
--DisbandGroup(por opcion de lider, por salida del ultimo integrante, o por salida del lider)
+-Galeria
 -filtros
--Notice de errores en servicios.
--Backend?(ver como manejar admins, altas de cities, properties, etc)
--Notificaciones? (nueva inv, aceptada, rechazada, etc)
--fix footer
 -error controller 404, forbidden, etc
--Test Services
+-ver mensaje de error en campo imagen en form usuario (se ve en ingles y rompe todo el formato)
+-Notice de errores en servicios.
+-Notificaciones? (nueva inv, aceptada, rechazada, etc)
+-Registro: Arreglar error campo fecha, align
+-Test Services, y general
+-deploy en heroku
+
+PARA RUBY:
 -seguridad (ver los before_filter y before_action, si tienen que heredar de app_controller o que)
 -Login FB/Gmail
--Registro: Arreglar error campo fecha, align
+-secure password (ver gemfile gem 'bcrypt')
+-agregar username a user y usarlo para login, etc
+-Backend?(ver como manejar admins, altas de cities, properties, etc)
+-al borrar grupo, ver de borrar dependencias (chats, invitaciones, etc)
+-ver de cambiar los :id en las url por variables en session
+-Buscar grupo: ver condiciones de filtro (grupos que no soy lider, no soy integrante, ya hay match, etc)
+-DisbandGroup(por opcion de lider, por salida del ultimo integrante, o por salida del lider)
+-fix footer
+
 
 
 LULA:
