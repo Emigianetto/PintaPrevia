@@ -7,32 +7,13 @@
       <p id="notice"><%= notice %></p>
     </div>
   <% end %>
-
-    <!-- <table class="table table-bordered" summary="Mensajes del grupo">
-      <thead>
-        <tr>
-          <th id="columna_de">De</th>
-          <th id="columna_asunto">Asunto</th>
-          <th id="columna_fecha">Fecha</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @messages.each do |message| %>
-          <tr>
-            <td headers="columna_de"><%= message.author.name%></td>
-            <td headers="columna_asunto"><%= message.message %></td>
-            <td headers="columna_fecha"><%= message.created_at %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table> -->
     <div class="row">
         <div class="conversation-wrap col-lg-4">
           <% @chats.each do |chat| %>
             <div class="media conversation">
                 <a class="pull-left" href="#">
-                    <img class="media-object" data-src="holder.js/64x64" alt="64x64" style="width: 50px; height: 50px;" src="/assets/placeholder.png">
+                    <%= image_tag chat.with(@previa_group).first.leader.image.thumb.url if @previa_group.leader.image? %>
+                    
                 </a>
                 <div class="media-body">
                     <h5 class="media-heading"><%= chat.with(@previa_group).first.name %></h5>
@@ -46,7 +27,8 @@
               <% @messages.each do |message| %>
                 <div class="media msg ">
                     <a class="pull-left" href="#">
-                      <img class="media-object" data-src="holder.js/64x64"  alt="64x64" style="width: 32px; height: 32px;" src="/assets/placeholder.png">
+                      <%= image_tag message.author.leader.image.thumb.url if @previa_group.leader.image? %>
+
                     </a>
                     <div class="media-body">
                         <small class="pull-right time"><i class="fa fa-clock-o"></i><%= message.created_at %></small>

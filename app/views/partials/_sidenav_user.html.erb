@@ -27,11 +27,13 @@
     <li class="<% if current_page?(edit_user_path(@user))%>active<% end %> list-group-item">
       <%= link_to "<span class='sr-only'>(actual)</span>Editar perfil".html_safe, edit_user_path(@user) %>
     </li>
+    <% if false %>
     <li class="<% if current_page?(user_gallery_path(@user))%>active<% end %> list-group-item">
       <%= link_to "<span class='sr-only'>(actual)</span>Ver galeria".html_safe, user_gallery_path(@user) %>
     </li>
     <li class="<% if current_page?(user_edit_gallery_path(@user))%>active<% end %> list-group-item">
       <%= link_to "<span class='sr-only'>(actual)</span>Editar galeria".html_safe, user_edit_gallery_path(@user) %>
     </li>
+    <% end %>
   </ul>
 </div>

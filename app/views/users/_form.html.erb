@@ -22,7 +22,9 @@
       <% else %>
       <div class="form-group row vertical-align">
       <% end %>
-        <%= f.label :first_name, "Nombre", class: "col-xs-3 col-form-label" %>
+        <div class="col-xs-3 col-form-label">
+          <%= f.label :first_name, "Nombre" %>
+        </div>
         <div class="col-xs-9">
           <%= f.text_field :first_name, class: "form-control" %>
           <% if @user.errors[:first_name].any? %>
@@ -30,12 +32,15 @@
           <% end %>
         </div>
       </div>
+
       <% if @user.errors[:last_name].any? %>
       <div class="form-group row vertical-align has-error">
       <% else %>
       <div class="form-group row vertical-align">
       <% end %>
-        <%= f.label :last_name, "Apellido", class: "col-xs-3 col-form-label" %>
+        <div class="col-xs-3 col-form-label">
+          <%= f.label :last_name, "Apellido" %>
+        </div>
         <div class="col-xs-9">
           <%= f.text_field :last_name, class: "form-control" %>
           <% if @user.errors[:last_name].any? %>
@@ -43,6 +48,7 @@
           <% end %>
         </div>
       </div>
+
       <div class="form-group row vertical-align">
         <%= f.label :birth_date, "Fecha de nacimiento", class: "col-xs-3 col-form-label" %>
         <div class="col-xs-9">
@@ -51,12 +57,15 @@
           :end_year => Date.today.year, :html_options => {:class => "form-control"}) %>
         </div>
       </div>
+
       <% if @user.errors[:email].any? %>
       <div class="form-group row vertical-align has-error">
       <% else %>
       <div class="form-group row vertical-align">
       <% end %>
-        <%= f.label :email, "Mail", class: "col-xs-3 col-form-label" %>
+        <div class="col-xs-3 col-form-label">
+          <%= f.label :email, "Mail" %>
+        </div>
         <div class="col-xs-9">
           <%= f.email_field :email, class: "form-control" %>
           <% if @user.errors[:email].any? %>
@@ -64,12 +73,15 @@
           <% end %>
         </div>
       </div>
+
       <% if @user.errors[:email_confirmation].any? %>
       <div class="form-group row vertical-align has-error">
       <% else %>
       <div class="form-group row vertical-align">
       <% end %>
-        <%= f.label :email_confirmation, "Confirmar mail", class: "col-xs-3 col-form-label" %>
+        <div class="col-xs-3 col-form-label">
+          <%= f.label :email_confirmation, "Confirmar mail" %>
+        </div>
         <div class="col-xs-9">
           <%= f.email_field :email_confirmation, class: "form-control" %>
           <% if @user.errors[:email_confirmation].any? %>
@@ -78,13 +90,16 @@
         </div>
       </div>
     </div>
+
     <div class="col-md-6">
       <% if @user.errors[:pass].any? %>
       <div class="form-group row vertical-align has-error">
       <% else %>
       <div class="form-group row vertical-align">
       <% end %>
-        <%= f.label :pass, "Clave", class: "col-xs-3 col-form-label" %>
+        <div class="col-xs-3 col-form-label">
+          <%= f.label :pass, "Clave" %>
+        </div>
         <div class="col-xs-9">
           <%= f.password_field :pass, class: "form-control" %>
           <% if @user.errors[:pass].any? %>
@@ -92,12 +107,15 @@
           <% end %>
         </div>
       </div>
+
       <% if @user.errors[:pass_confirmation].any? %>
       <div class="form-group row vertical-align has-error">
       <% else %>
       <div class="form-group row vertical-align">
       <% end %>
-        <%= f.label :pass_confirmation, "Confirmar clave", class: "col-xs-3 col-form-label" %>
+        <div class="col-xs-3 col-form-label">
+          <%= f.label :pass_confirmation, "Confirmar clave" %>
+        </div>
         <div class="col-xs-9">
           <%= f.password_field :pass_confirmation, class: "form-control" %>
           <% if @user.errors[:pass_confirmation].any? %>
@@ -105,12 +123,15 @@
           <% end %>
         </div>
       </div>
+
       <% if @user.errors[:gender].any? %>
       <div class="form-group row vertical-align has-error">
       <% else %>
       <div class="form-group row vertical-align">
       <% end %>
-        <%= f.label :gender, "Sexo", class: "col-xs-3 col-form-label" %>
+        <div class="col-xs-3 col-form-label">
+          <%= f.label :gender, "Sexo" %>
+        </div>
         <div class="col-xs-9">
           <%= f.select :gender, User::GENDER_TYPES, {prompt: "Seleccione sexo"}, {class: "form-control"} %>
           <% if @user.errors[:gender].any? %>
@@ -118,12 +139,15 @@
           <% end %>
         </div>
       </div>
+
       <% if @user.errors[:city].any? %>
       <div class="form-group row vertical-align has-error">
       <% else %>
       <div class="form-group row vertical-align">
       <% end %>
-        <%= f.label :city_id, "Ciudad", class: "col-xs-3 col-form-label" %>
+        <div class="col-xs-3 col-form-label">
+          <%= f.label :city_id, "Ciudad" %>
+        </div>
         <div class="col-xs-9">
           <%= f.collection_select :city_id, City.all, :id, :name, {prompt: "Seleccione ciudad"}, {class: "form-control"} %>
           <% if @user.errors[:city].any? %>

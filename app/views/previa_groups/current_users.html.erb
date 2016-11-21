@@ -11,6 +11,7 @@
     <table class="table table-bordered">
       <thead>
         <tr>
+          <th>Foto</th>
           <th>Nombre</th>
           <th>Apellido</th>
           <th>Edad</th>
@@ -20,6 +21,7 @@
       <tbody>
         <% @current_users.each do |user| %>
           <tr>
+            <td><%= image_tag user.image.thumb.url %></td>
             <td><%= user.first_name %></td>
             <td><%= user.last_name %></td>
             <td><%= user.age %></td>
@@ -28,6 +30,6 @@
         <% end %>
       </tbody>
     </table>
-    <%= link_to 'Atrás', user_groups_path(), class: 'btn btn-info btn-lg' %>
+    <%= link_to 'Atrás', user_groups_path(), class: 'btn btn-info' %>
   </div>
 </div>

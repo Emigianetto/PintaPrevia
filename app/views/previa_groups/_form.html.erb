@@ -1,68 +1,82 @@
 <%= form_for(@previa_group) do |f| %>
   <div class="row">
     <div class="col-md-6">
-      <% if @user.errors[:name].any? %>
+      <% if @previa_group.errors[:name].any? %>
       <div class="form-group row vertical-align has-error">
       <% else %>
       <div class="form-group row vertical-align">
       <% end %>
-        <%= f.label :name, "Nombre", class: "col-xs-3 col-form-label" %>
+        <div class="col-xs-3 col-form-label">
+          <%= f.label :name, "Nombre" %>
+        </div>
         <div class="col-xs-9">
           <%= f.text_field :name, class: "form-control" %>
-          <% if @user.errors[:name].any? %>
-          <%= @user.errors[:name].first %>
+          <% if @previa_group.errors[:name].any? %>
+          <%= @previa_group.errors[:name].first %>
           <% end %>
         </div>
       </div>
-      <% if @user.errors[:search_min_age].any? %>
+
+      <% if @previa_group.errors[:search_min_age].any? %>
       <div class="form-group row vertical-align has-error">
       <% else %>
       <div class="form-group row vertical-align">
       <% end %>
-        <%= f.label :search_min_age, "Edad mínima", class: "col-xs-3 col-form-label" %>
+        <div class="col-xs-3 col-form-label">
+          <%= f.label :search_min_age, "Edad mínima" %>
+        </div>
         <div class="col-xs-9">
           <%= f.number_field :search_min_age, min: 18, max: 90, class: "form-control" %>
-          <% if @user.errors[:search_min_age].any? %>
-          <%= @user.errors[:search_min_age].first %>
+          <% if @previa_group.errors[:search_min_age].any? %>
+          <%= @previa_group.errors[:search_min_age].first %>
           <% end %>
         </div>
       </div>
-      <% if @user.errors[:search_max_age].any? %>
+
+      <% if @previa_group.errors[:search_max_age].any? %>
       <div class="form-group row vertical-align has-error">
       <% else %>
       <div class="form-group row vertical-align">
       <% end %>
-        <%= f.label :search_max_age, "Edad máxima", class: "col-xs-3 col-form-label" %>
+        <div class="col-xs-3 col-form-label">
+          <%= f.label :search_max_age, "Edad máxima" %>
+        </div>
         <div class="col-xs-9">
           <%= f.number_field :search_max_age, min: 18, max: 90, class: "form-control" %>
-          <% if @user.errors[:search_max_age].any? %>
-          <%= @user.errors[:search_max_age].first %>
+          <% if @previa_group.errors[:search_max_age].any? %>
+          <%= @previa_group.errors[:search_max_age].first %>
           <% end %>
         </div>
       </div>
-      <% if @user.errors[:search_gender].any? %>
+
+      <% if @previa_group.errors[:search_gender].any? %>
       <div class="form-group row vertical-align has-error">
       <% else %>
       <div class="form-group row vertical-align">
       <% end %>
-        <%= f.label :search_gender, "Tipo de grupo", class: "col-xs-3 col-form-label" %>
+        <div class="col-xs-3 col-form-label">
+          <%= f.label :search_gender, "Tipo de grupo" %>
+        </div>
         <div class="col-xs-9">
           <%= f.select :search_gender, PreviaGroup::GENDER_TYPES, {prompt: "Seleccione sexo"}, {class: "form-control"} %>
-          <% if @user.errors[:search_gender].any? %>
-          <%= @user.errors[:search_gender].first %>
+          <% if @previa_group.errors[:search_gender].any? %>
+          <%= @previa_group.errors[:search_gender].first %>
           <% end %>
         </div>
       </div>
-      <% if @user.errors[:search_distance].any? %>
+
+      <% if @previa_group.errors[:search_distance].any? %>
       <div class="form-group row vertical-align has-error">
       <% else %>
       <div class="form-group row vertical-align">
       <% end %>
-        <%= f.label :search_distance, "Distancia", class: "col-xs-3 col-form-label" %>
+        <div class="col-xs-3 col-form-label">
+          <%= f.label :search_distance, "Distancia" %>
+        </div>
         <div class="col-xs-9">
           <%= f.number_field :search_distance, class: "form-control" %>
-          <% if @user.errors[:search_distance].any? %>
-          <%= @user.errors[:search_distance].first %>
+          <% if @previa_group.errors[:search_distance].any? %>
+          <%= @previa_group.errors[:search_distance].first %>
           <% end %>
         </div>
       </div>

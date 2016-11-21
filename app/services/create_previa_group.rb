@@ -3,6 +3,9 @@ class CreatePreviaGroup
   def self.call(previa_group_params, user)
     previa_group = PreviaGroup.new(previa_group_params)
 
+
+    #if previa_group.valid?
+
     previa_group.leader = user
     previa_group.active = false
     previa_group.date = Time.now.strftime "%Y/%m/%d %H:%M:%S"
@@ -37,7 +40,7 @@ class CreatePreviaGroup
     distance_property.previa_group = previa_group
     distance_property.value = previa_group_params[:search_distance]
     distance_property.save
-
+    #end
     previa_group
   end
 

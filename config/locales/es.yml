@@ -32,8 +32,12 @@ es:
               blank: "El nombre no puede estar vacio."
             search_min_age:
               blank: "La edad mínima no puede estar vacia."
+              greater_than_or_equal_to: "La edad mínima debe ser mayor o igual a 18"
+              less_than_or_equal_to: "La edad mínima debe ser menor o igual a 90"
             search_max_age:
               blank: "La edad máxima no puede estar vacia."
+              greater_than_or_equal_to: "La edad máxima debe ser mayor o igual a 18"
+              less_than_or_equal_to: "La edad máxima debe ser menor o igual a 90"
             search_gender:
               blank: "El tipo de grupo no puede estar vacia."
             search_distance:

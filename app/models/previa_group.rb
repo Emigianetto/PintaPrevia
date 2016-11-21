@@ -1,6 +1,9 @@
 class PreviaGroup < ApplicationRecord
-  validates_presence_of :name, :date, :search_gender, :search_distance, :search_min_age, :search_max_age
+  validates_presence_of :name, :date, :search_gender, :search_distance
   validates_uniqueness_of :name
+
+  validates :search_min_age, presence: true, numericality: { greater_than_or_equal_to: 18, less_than_or_equal_to: 90 }
+  validates :search_max_age, presence: true, numericality: { greater_than_or_equal_to: 18, less_than_or_equal_to: 90 }
 
   belongs_to :leader, :class_name => 'User'
 
@@ -30,27 +33,13 @@ class PreviaGroup < ApplicationRecord
   GENDER_TYPES = ["Masculino", "Femenino", "Todos"]
 
   attr_accessor :search_gender, :search_distance, :search_min_age, :search_max_age
-=begin
-  has_many :current_groups
-  has_many :members, through: :current_groups, :class_name => 'User'
 
-  has_many :user_invitations
-  has_many :invited_users, through: :user_invitations, :class_name => 'User'
 
-  has_many :user_bans
-  has_many :banned_users, through: :user_bans, :class_name => 'User'
-
-  has_many :group_bans
-  has_many :banned_groups, through: :group_bans, :class_name => 'Group'
-
-  has_many :group_matches
-  has_many :matched_groups, through: :group_matches, :class_name => 'Group'
-=end
   def search_gender
     prop = previa_group_properties.select{ |p| p.property.name == 'gender' }
     prop = prop.first
-    if(prop.nil?)
-      prop |= "Todos"
+    if(prop.nil? or prop.value.empty?)
+      prop = "Todos"
     else
       prop = prop.value
     end
@@ -59,8 +48,8 @@ class PreviaGroup < ApplicationRecord
   def search_distance
     prop = previa_group_properties.select{ |p| p.property.name == 'distance' }
     prop = prop.first
-    if(prop.nil?)
-      prop |= "15"
+    if(prop.nil? or prop.value.empty?)
+      prop = "20"
     else
       prop = prop.value
     end
@@ -69,8 +58,8 @@ class PreviaGroup < ApplicationRecord
   def search_min_age
     prop = previa_group_properties.select{ |p| p.property.name == 'min_age' }
     prop = prop.first
-    if(prop.nil?)
-      prop |= "18"
+    if(prop.nil? or prop.value.empty?)
+      prop = "18"
     else
       prop = prop.value
     end
@@ -79,8 +68,8 @@ class PreviaGroup < ApplicationRecord
   def search_max_age
     prop = previa_group_properties.select{ |p| p.property.name == 'max_age' }
     prop = prop.first
-    if(prop.nil?)
-      prop |= "60"
+    if(prop.nil? or prop.value.empty?)
+      prop = "90"
     else
       prop = prop.value
     end
