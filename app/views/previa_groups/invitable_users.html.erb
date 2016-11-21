@@ -7,24 +7,24 @@
     </div>
   <% end %>
 
-    <table class="table table-bordered">
+    <table class="table table-bordered" summary="Lista de usuarios a invitar">
       <thead>
         <tr>
-          <th>Nombre</th>
-          <th>Apellido</th>
-          <th>Mail</th>
-          <th>Ciudad</th>
-          <th colspan="3">Acciones</th>
+          <th id="columna_nombre">Nombre</th>
+          <th id="columna_apellido">Apellido</th>
+          <th id="columna_mail">Mail</th>
+          <th id="columna_ciudad">Ciudad</th>
+          <th id="columna_acciones">Acciones</th>
         </tr>
       </thead>
       <tbody>
         <% @invitable_users.each do |user| %>
           <tr>
-            <td><%= user.first_name %></td>
-            <td><%= user.last_name %></td>
-            <td><%= user.email %></td>
-            <td><%= user.city.name %></td>
-            <td>
+            <td headers="columna_nombre"><%= user.first_name %></td>
+            <td headers="columna_apellido"><%= user.last_name %></td>
+            <td headers="columna_mail"><%= user.email %></td>
+            <td headers="columna_ciudad"><%= user.city.name %></td>
+            <td  headers="columna_acciones">
               <%= link_to "<span class='fa fa-check fa-lg' aria-hidden='true'></span> Invitar".html_safe, previa_group_invite_user_path(@previa_group, :user_id => user.id), method: :post, data: { confirm: '¿Estás seguro?'}, class: "btn btn-success" %>
             </td>
           </tr>

@@ -6,26 +6,25 @@
       <p id="notice"><%= notice %></p>
     </div>
   <% end %>
-  
 
-    <table class="table table-bordered">
+    <table class="table table-bordered" summary="Lista de usuarios que pertenecen a un grupo">
       <thead>
         <tr>
-          <th>Foto</th>
-          <th>Nombre</th>
-          <th>Apellido</th>
-          <th>Edad</th>
-          <th>Ciudad</th>
+          <th id="columna_foto">Foto</th>
+          <th id="columna_nombre">Nombre</th>
+          <th id="columna_apellido">Apellido</th>
+          <th id="columna_edad">Edad</th>
+          <th id="columna_ciudad">Ciudad</th>
         </tr>
       </thead>
       <tbody>
         <% @current_users.each do |user| %>
           <tr>
-            <td><%= image_tag user.image.thumb.url %></td>
-            <td><%= user.first_name %></td>
-            <td><%= user.last_name %></td>
-            <td><%= user.age %></td>
-            <td><%= user.city.name %></td>
+            <td headers="columna_foto"><%= image_tag user.image.thumb.url %></td>
+            <td headers="columna_nombre"><%= user.first_name %></td>
+            <td headers="columna_apellido"><%= user.last_name %></td>
+            <td headers="columna_edad"><%= user.age %></td>
+            <td headers="columna_ciudad"><%= user.city.name %></td>
           </tr>
         <% end %>
       </tbody>

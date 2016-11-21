@@ -59,6 +59,9 @@ LULA:
 -Idioma extranjero, abreviaturas, lenguaje especifico 
 -Tablas accesibles, tag summary, id y header en th y td
 -Formularios accesibles
+-wcag 2.0 nivel AA, como testearlo o que pide
+-estandares gramaticas y hojas de estilo
+-ver responsivo menu lateral
+-testeo general con fangs
 
 
--crear grupo, invitar usuarios
