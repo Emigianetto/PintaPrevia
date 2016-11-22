@@ -96,6 +96,7 @@ GEM
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
     pg (0.19.0)
+    puma (3.6.1)
     raakt (0.5.6)
       hpricot (>= 0.6)
     rack (2.0.1)
@@ -184,6 +185,7 @@ DEPENDENCIES
   jquery-rails
   mini_magick
   pg
+  puma
   raakt
   rails (= 5.0.0.1)
   rails-controller-testing
