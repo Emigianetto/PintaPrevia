@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20161027014517) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "chats", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -26,15 +29,15 @@ ActiveRecord::Schema.define(version: 20161027014517) do
   create_table "group_bans", force: :cascade do |t|
     t.integer "banning_group_id"
     t.integer "banned_group_id"
-    t.index ["banned_group_id"], name: "index_group_bans_on_banned_group_id"
-    t.index ["banning_group_id"], name: "index_group_bans_on_banning_group_id"
+    t.index ["banned_group_id"], name: "index_group_bans_on_banned_group_id", using: :btree
+    t.index ["banning_group_id"], name: "index_group_bans_on_banning_group_id", using: :btree
   end
 
   create_table "group_matches", force: :cascade do |t|
     t.integer "inviter_group_id"
     t.integer "invited_group_id"
-    t.index ["invited_group_id"], name: "index_group_matches_on_invited_group_id"
-    t.index ["inviter_group_id"], name: "index_group_matches_on_inviter_group_id"
+    t.index ["invited_group_id"], name: "index_group_matches_on_invited_group_id", using: :btree
+    t.index ["inviter_group_id"], name: "index_group_matches_on_inviter_group_id", using: :btree
   end
 
   create_table "messages", force: :cascade do |t|
@@ -43,8 +46,8 @@ ActiveRecord::Schema.define(version: 20161027014517) do
     t.integer  "chat_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["author_id"], name: "index_messages_on_author_id"
-    t.index ["chat_id"], name: "index_messages_on_chat_id"
+    t.index ["author_id"], name: "index_messages_on_author_id", using: :btree
+    t.index ["chat_id"], name: "index_messages_on_chat_id", using: :btree
   end
 
   create_table "previa_group_properties", id: false, force: :cascade do |t|
@@ -53,8 +56,8 @@ ActiveRecord::Schema.define(version: 20161027014517) do
     t.string   "value"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.index ["previa_group_id"], name: "index_previa_group_properties_on_previa_group_id"
-    t.index ["property_id"], name: "index_previa_group_properties_on_property_id"
+    t.index ["previa_group_id"], name: "index_previa_group_properties_on_previa_group_id", using: :btree
+    t.index ["property_id"], name: "index_previa_group_properties_on_property_id", using: :btree
   end
 
   create_table "previa_groups", force: :cascade do |t|
@@ -64,21 +67,21 @@ ActiveRecord::Schema.define(version: 20161027014517) do
     t.integer  "leader_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["leader_id"], name: "index_previa_groups_on_leader_id"
+    t.index ["leader_id"], name: "index_previa_groups_on_leader_id", using: :btree
   end
 
   create_table "previa_groups_chats", id: false, force: :cascade do |t|
     t.integer "chat_id"
     t.integer "previa_group_id"
-    t.index ["chat_id"], name: "index_previa_groups_chats_on_chat_id"
-    t.index ["previa_group_id"], name: "index_previa_groups_chats_on_previa_group_id"
+    t.index ["chat_id"], name: "index_previa_groups_chats_on_chat_id", using: :btree
+    t.index ["previa_group_id"], name: "index_previa_groups_chats_on_previa_group_id", using: :btree
   end
 
   create_table "previa_groups_users", id: false, force: :cascade do |t|
     t.integer "user_id"
     t.integer "previa_group_id"
-    t.index ["previa_group_id"], name: "index_previa_groups_users_on_previa_group_id"
-    t.index ["user_id"], name: "index_previa_groups_users_on_user_id"
+    t.index ["previa_group_id"], name: "index_previa_groups_users_on_previa_group_id", using: :btree
+    t.index ["user_id"], name: "index_previa_groups_users_on_user_id", using: :btree
   end
 
   create_table "previa_invitations", force: :cascade do |t|
@@ -87,8 +90,8 @@ ActiveRecord::Schema.define(version: 20161027014517) do
     t.integer  "invited_group_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
-    t.index ["invited_group_id"], name: "index_previa_invitations_on_invited_group_id"
-    t.index ["inviting_group_id"], name: "index_previa_invitations_on_inviting_group_id"
+    t.index ["invited_group_id"], name: "index_previa_invitations_on_invited_group_id", using: :btree
+    t.index ["inviting_group_id"], name: "index_previa_invitations_on_inviting_group_id", using: :btree
   end
 
   create_table "properties", force: :cascade do |t|
@@ -100,15 +103,15 @@ ActiveRecord::Schema.define(version: 20161027014517) do
   create_table "user_bans", id: false, force: :cascade do |t|
     t.integer "user_id"
     t.integer "previa_group_id"
-    t.index ["previa_group_id"], name: "index_user_bans_on_previa_group_id"
-    t.index ["user_id"], name: "index_user_bans_on_user_id"
+    t.index ["previa_group_id"], name: "index_user_bans_on_previa_group_id", using: :btree
+    t.index ["user_id"], name: "index_user_bans_on_user_id", using: :btree
   end
 
   create_table "user_invitations", id: false, force: :cascade do |t|
     t.integer "user_id"
     t.integer "previa_group_id"
-    t.index ["previa_group_id"], name: "index_user_invitations_on_previa_group_id"
-    t.index ["user_id"], name: "index_user_invitations_on_user_id"
+    t.index ["previa_group_id"], name: "index_user_invitations_on_previa_group_id", using: :btree
+    t.index ["user_id"], name: "index_user_invitations_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -122,7 +125,7 @@ ActiveRecord::Schema.define(version: 20161027014517) do
     t.string   "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["city_id"], name: "index_users_on_city_id"
+    t.index ["city_id"], name: "index_users_on_city_id", using: :btree
   end
 
 end
