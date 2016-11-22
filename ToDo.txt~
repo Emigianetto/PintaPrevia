@@ -20,19 +20,14 @@
 -cambiar links por botones en las tablas
 -fa icons en los listados y demas
 -Registro: Arreglar error campo fecha, align
-
-
-
-
-
-<<<<<<< HEAD
 -Chat: imagen de grupo (es la del lider?)
+
+
+
+
+
 -validaciones de rango de numeros en form previa group
 -invitaciones a previa: especificar el grupo destino de la invitacion en la lista de invitaciones
-=======
--Chat
--Galeria
->>>>>>> 415510bdf17fe0d3a456ef0d5f84b9827883b823
 -filtros
 -error controller 404, forbidden, etc
 -ver mensaje de error en campo imagen en form usuario (se ve en ingles y rompe todo el formato)
@@ -64,6 +59,9 @@ LULA:
 -Idioma extranjero, abreviaturas, lenguaje especifico 
 -Tablas accesibles, tag summary, id y header en th y td
 -Formularios accesibles
+-wcag 2.0 nivel AA, como testearlo o que pide
+-estandares gramaticas y hojas de estilo
+-ver responsivo menu lateral
+-testeo general con fangs
 
 
--crear grupo, invitar usuarios
