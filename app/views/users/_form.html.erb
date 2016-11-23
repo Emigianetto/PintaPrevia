@@ -15,7 +15,7 @@
           <% end %>
         </div>
         <div class="col-xs-3">
-          <%= image_tag @user.image.thumb.url if @user.image? %>
+          <%= image_tag(@user.image.thumb.url, :alt => "Imagen de perfil") if @user.image? %>
         </div>
       </div>
 
