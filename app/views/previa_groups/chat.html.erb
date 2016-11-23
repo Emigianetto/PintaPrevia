@@ -15,7 +15,7 @@
                     <%= image_tag chat.with(@previa_group).first.leader.image.thumb.url if @previa_group.leader.image? %>
                 </a>
                 <div class="media-body">
-                    <h5 class="media-heading"><%= chat.with(@previa_group).first.name %></h5>
+                    <h4 class="media-heading"><%= chat.with(@previa_group).first.name %></h4>
                     <small><%= chat.messages.last.message %></small>
                 </div>
             </div>
@@ -29,8 +29,8 @@
                       <%= image_tag message.author.leader.image.thumb.url if @previa_group.leader.image? %>
                     </a>
                     <div class="media-body">
-                        <small class="pull-right time"><i class="fa fa-clock-o"></i><%= message.created_at %></small>
-                        <h5 class="media-heading"><%= message.author.name %></h5>
+                        <small class="pull-right time"><em class="fa fa-clock-o"></em><%= message.created_at %></small>
+                        <h4 class="media-heading"><%= message.author.name %></h4>
                         <small class="col-lg-10"><%= message.message %></small>
                     </div>
                 </div>
@@ -43,7 +43,8 @@
             <%= form_for :previa_groups, url: url_for( :controller => :previa_groups, :action => :send_message, :method => :post ) do |f| %>
               <%= hidden_field_tag :chat, @messages.first.chat.id %>
               <div class="send-wrap ">
-                  <textarea class="form-control send-message" name="message" rows="3" placeholder="Escribir..."></textarea>
+                  <label class="sr-only" for="message">Mensaje</label>
+                  <textarea class="form-control send-message" id="message" name="message" rows="3" placeholder="Escribir..."></textarea>
               </div>
               <div>
                 <%= button_tag(type: 'submit', class: "col-lg-3 pull-right btn btn-success") do %>
