@@ -1,6 +1,43 @@
-<% if !notice.nil? %>
-  <div class="alert alert-success" role="alert">
-    <p id="notice"><%= notice %></p>
-  </div>
-<% end %>
+<div class="panel panel-primary">
+  <div class="panel-heading">Datos del grupo <%= @previa_group.name %> </div>
+  <div class="panel-body">
+  <% if !notice.nil? %>
+    <div class="alert alert-success" role="alert">
+      <p id="notice"><%= notice %></p>
+    </div>
+  <% end %>
 
+  <p>
+    <strong>Nombre </strong>
+    <%= @previa_group.name %>
+  </p>
+  <p>
+    <strong>Lider </strong>
+    <%= @previa_group.leader.first_name %>
+  </p>
+  <p>
+    <strong>Edad mínima </strong>
+    <%= @previa_group.search_min_age %>
+  </p>
+  <p>
+    <strong>Edad máxima </strong>
+    <%= @previa_group.search_max_age %>
+  </p>
+  <p>
+    <strong>Tipo de grupo </strong>
+    <%= @previa_group.search_gender %>
+  </p>
+  <p>
+    <strong>Distancia </strong>
+    <%= @previa_group.search_distance %>
+  </p>
+  <p>
+    <strong>Activo </strong>
+    <%= @previa_group.active %>
+  </p>
+  <p>
+    <strong>Fecha </strong>
+    <%= @previa_group.date %>
+  </p>
+  </div>
+</div>
