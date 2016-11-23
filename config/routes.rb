@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   get 'previa_groups/:id/inbox' => 'previa_groups#inbox', as: 'previa_group_inbox'
   get 'previa_groups/:id/chat' => 'previa_groups#chat', as: 'previa_group_chat'
   post 'previa_groups/:id/send_message' => 'previa_groups#send_message', as: 'previa_group_send_message'
+  post 'previa_groups/:id/delete_user' => 'previa_groups#delete_user', as: 'previa_group_delete_user'
 
   resources :properties
 end

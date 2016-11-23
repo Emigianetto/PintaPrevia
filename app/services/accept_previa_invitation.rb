@@ -17,6 +17,8 @@ class AcceptPreviaInvitation
     message.message = "Nuevo grupo encontrado!"
     chat.messages << message
 
+    CreateNotification.call(inviting_group.leader, "El grupo #{invited_group.name} aceptó la invitación a previa.")
+
     message.save
     chat.save
     previa_invitation.save
