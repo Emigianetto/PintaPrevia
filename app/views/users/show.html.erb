@@ -3,36 +3,3 @@
     <p id="notice"><%= notice %></p>
   </div>
 <% end %>
-
-<p>
-  <strong>Nombre:</strong>
-  <%= @user.first_name %>
-</p>
-
-<p>
-  <strong>Apellido:</strong>
-  <%= @user.last_name %>
-</p>
-
-<p>
-  <strong>Mail:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-  <strong>Fecha de nacimiento:</strong>
-  <%= @user.birth_date %>
-</p>
-
-<p>
-  <strong>Sexo:</strong>
-  <%= @user.gender %>
-</p>
-
-<p>
-  <strong>Ciudad:</strong>
-  <%= @user.city.name %>
-</p>
-
-<%= link_to 'Ver grupos', user_groups_path(@user), class: "btn btn-success" %> |
-<%= link_to 'Editar', edit_user_path(@user), class: "btn btn-primary" %>
