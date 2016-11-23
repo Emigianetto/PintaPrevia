@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   get 'users/:id/inbox' => 'users#inbox', as: 'user_inbox'
   get 'users/:id/gallery' => 'users#gallery', as: 'user_gallery'
   get 'users/:id/edit_gallery' => 'users#edit_gallery', as: 'user_edit_gallery'
+  get 'users/:id/notifications' => 'users#notifications', as: 'user_notifications'
+  post 'users/:id/delete_notification' => 'users#delete_notification', as: 'user_delete_notification'
   
 
   resources :previa_groups

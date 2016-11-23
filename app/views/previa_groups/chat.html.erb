@@ -12,7 +12,7 @@
           <% @chats.each do |chat| %>
             <div class="media conversation">
                 <a class="pull-left" href="#">
-                    <%= image_tag chat.with(@previa_group).first.leader.image.thumb.url if @previa_group.leader.image? %>
+                    <%= image_tag chat.with(@previa_group).first.leader.image.thumb.url if chat.with(@previa_group).first.leader.image? %>
                 </a>
                 <div class="media-body">
                     <h5 class="media-heading"><%= chat.with(@previa_group).first.name %></h5>
@@ -26,7 +26,7 @@
               <% @messages.each do |message| %>
                 <div class="media msg ">
                     <a class="pull-left" href="#">
-                      <%= image_tag message.author.leader.image.thumb.url if @previa_group.leader.image? %>
+                      <%= image_tag message.author.leader.image.thumb.url if message.author.leader.image? %>
                     </a>
                     <div class="media-body">
                         <small class="pull-right time"><i class="fa fa-clock-o"></i><%= message.created_at %></small>

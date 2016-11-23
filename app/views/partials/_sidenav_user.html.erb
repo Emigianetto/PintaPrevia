@@ -21,6 +21,9 @@
     <li class="<% if current_page?(user_inbox_path(@user))%>active<% end %> list-group-item">
       <%= link_to "<span class='sr-only'>(actual)</span>Bandeja de entrada".html_safe, user_inbox_path(@user)%>
     </li>
+    <li class="<% if current_page?(user_notifications_path(@user))%>active<% end %> list-group-item">
+      <%= link_to "<span class='sr-only'>(actual)</span>Notificaciones".html_safe, user_notifications_path(@user)%>
+    </li>
   </ul>
   <ul class="list-group">
     <li class="nav-header disabled"><a>Cuenta</a></li>

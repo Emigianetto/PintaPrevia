@@ -27,6 +27,8 @@ class User < ApplicationRecord
   #has_many :banned_groups, through: :user_bans, :class_name => 'PreviaGroup'
   has_and_belongs_to_many :banned_groups, :class_name=>'PreviaGroup', :join_table => 'user_bans', :foreign_key => 'user_id', :association_foreign_key => 'previa_group_id'
   
+  has_many :notifications
+
   GENDER_TYPES = ["Masculino", "Femenino"]
 
   def age

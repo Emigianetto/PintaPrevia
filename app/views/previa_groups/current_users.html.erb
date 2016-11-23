@@ -20,7 +20,7 @@
       <tbody>
         <% @current_users.each do |user| %>
           <tr>
-            <td headers="columna_foto"><%= image_tag user.image.thumb.url %></td>
+            <td headers="columna_foto"><%= image_tag user.image.thumb.url if user.image?%></td>
             <td headers="columna_nombre"><%= user.first_name %></td>
             <td headers="columna_apellido"><%= user.last_name %></td>
             <td headers="columna_edad"><%= user.age %></td>

@@ -11,6 +11,7 @@
       <thead>
         <tr>
           <th id="columna_grupo">Grupo</th>
+          <th id="columna_grupo_invitado">Grupo invitado</th>
           <th id="columna_lider">Lider</th>
           <th id="columna_acciones">Acciones</th>
         </tr>
@@ -20,6 +21,7 @@
         <% @previa_invitations.each do |invitation| %>
           <tr>
             <td headers="columna_grupo"><%= invitation.inviting_group.name %></td>
+            <td headers="columna_grupo_invitado"><%= invitation.invited_group.name %></td>
             <td headers="columna_lider"><%= invitation.inviting_group.leader.first_name %></td>
             <td headers="columna_acciones">
               <%= link_to "<span class='fa fa-navicon fa-lg' aria-hidden='true'></span> Aceptar".html_safe,previa_group_accept_previa_invitation_path(invitation.invited_group, :previa_invitation_id => invitation.id), method: :post, data: { confirm: '¿Estás seguro?'}, class: "btn btn-info" %>

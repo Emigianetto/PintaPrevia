@@ -179,6 +179,24 @@ class UsersController < ApplicationController
   def edit_gallery
   end
 
+  # GET /users/1/notifications
+  # GET /users/1/notifications.json
+  def notifications
+    @notifications = GetNotificationsForUser.call(@user)
+  end
+
+  # POST /users/1/delete_notification
+  # POST /users/1/delete_notification.json
+  def delete_notification
+    notification = Notification.find(params[:notification_id])
+    DeleteNotification.call(@user, notification)
+
+    respond_to do |format|
+      format.html { redirect_to user_notifications_path(@user), notice: 'La notificacion fue eliminada con éxito.' }
+      format.json { head :no_content }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user

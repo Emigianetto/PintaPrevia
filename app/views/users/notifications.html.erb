@@ -1,0 +1,30 @@
+<% if !notice.nil? %>
+  <div class="alert alert-success" role="alert">
+    <p id="notice"><%= notice %></p>
+  </div>
+<% end %>
+<div class="panel panel-primary">
+  <div class="panel-heading">Lista de notificaciones de <%= @user.first_name %></div>
+  <div class="panel-body">
+    
+    <table class="table table-bordered" summary="Lista de notificaciones que recibio el usuario">
+      <thead>
+        <tr>
+          <th id="columna_mensaje">Mensaje</th>
+          <th id="columna_acciones">Acciones</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @user.notifications.each do |notification| %>
+          <tr>
+            <td headers="columna_grupo"><%= notification.message %></td>
+            <td headers="columna_acciones">
+              <%= link_to "<span class='fa fa-close fa-lg' aria-hidden='true'></span> Eliminar".html_safe, user_delete_notification_path(@user, :notification_id => notification.id), method: :post, data: { confirm: '¿Estás seguro?'}, class: "btn btn-danger" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

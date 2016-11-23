@@ -21,27 +21,26 @@
 -fa icons en los listados y demas
 -Registro: Arreglar error campo fecha, align
 -Chat: imagen de grupo (es la del lider?)
-
-
-
-
-
--validaciones de rango de numeros en form previa group
+-deploy en heroku
 -invitaciones a previa: especificar el grupo destino de la invitacion en la lista de invitaciones
--filtros
--error controller 404, forbidden, etc
+
+
+
+-campo imagen tiene que ser obligatorio
 -ver mensaje de error en campo imagen en form usuario (se ve en ingles y rompe todo el formato)
+-validaciones de rango de numeros en form previa group
+-error controller 404, forbidden, etc
 -Notice de errores en servicios.
 -Notificaciones? (nueva inv, aceptada, rechazada, etc)
 -Test Services, y general
--deploy en heroku
 
 PARA RUBY:
+-filtros
 -testear que la edad minima sea menor que la edad maxima
 -cuando se cierra el grupo, eliminar las invitaciones a usuarios pendientes, ya que no deben poder aceptarse, porque el grupo esta cerrado
 -eliminar grupo (ver si se eliminan las properties y el resto de cosas en cascada, porque mepa que no se estan borrando)
 -Galeria
--Chat asincronico con actioncable y badges
+-Chat asincronico con actioncable y badges (agregar el leido/noleido)
 -seguridad (ver los before_filter y before_action, si tienen que heredar de app_controller o que)
 -Login FB/Gmail
 -secure password (ver gemfile gem 'bcrypt')
