@@ -1,5 +1,39 @@
-<% if !notice.nil? %>
-  <div class="alert alert-success" role="alert">
-    <p id="notice"><%= notice %></p>
+<div class="panel panel-primary">
+  <div class="panel-heading">Datos de <%= @user.first_name %> </div>
+  <div class="panel-body">
+  <% if !notice.nil? %>
+    <div class="alert alert-success" role="alert">
+      <p id="notice"><%= notice %></p>
+    </div>
+  <% end %>
+
+  <p>
+    <strong>Foto </strong>
+    <%= image_tag @user.image.thumb.url if @user.image? %>
+  </p>
+  <p>
+    <strong>Nombre </strong>
+    <%= @user.first_name %>
+  </p>
+  <p>
+    <strong>Apellido </strong>
+    <%= @user.last_name %>
+  </p>
+  <p>
+    <strong>Mail </strong>
+    <%= @user.email %>
+  </p>
+  <p>
+    <strong>Fecha de nacimiento </strong>
+    <%= @user.birth_date %>
+  </p>
+  <p>
+    <strong>Sexo </strong>
+    <%= @user.gender %>
+  </p>
+  <p>
+    <strong>Ciudad </strong>
+    <%= @user.city.name %>
+  </p>
   </div>
-<% end %>
+</div>
