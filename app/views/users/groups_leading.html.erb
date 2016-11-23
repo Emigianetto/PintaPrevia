@@ -21,6 +21,7 @@
           <tr>
             <td headers="columna_nombre"><%= previa_group.name %></td>
             <td headers="columna_acciones">
+              <%= link_to "<span class='fa fa-hand-o-up fa-lg' aria-hidden='true'></span> Mostrar".html_safe, previa_group_invitable_users_path(previa_group), class: "btn btn-primary" %>
               <% if !previa_group.active %>
               <%= link_to "<span class='fa fa-hand-o-up fa-lg' aria-hidden='true'></span> Seleccionar".html_safe, previa_group_invitable_users_path(previa_group), class: "btn btn-primary" %>
               <%= link_to "<span class='fa fa-check fa-lg' aria-hidden='true'></span> Finalizar".html_safe,previa_group_finish_path(previa_group), method: :post, data: { confirm: '¿Estás seguro?' }, class: "btn btn-success" %>
