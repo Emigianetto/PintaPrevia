@@ -32,7 +32,6 @@
 -validaciones de rango de numeros en form previa group
 -error controller 404, forbidden, etc
 -Notice de errores en servicios.
--Test Services, y general
 
 PARA RUBY:
 -opcion eliminar miembro del grupo
@@ -52,14 +51,13 @@ PARA RUBY:
 -Buscar grupo: ver condiciones de filtro (grupos que no soy lider, no soy integrante, ya hay match, etc)
 -DisbandGroup(por opcion de lider, por salida del ultimo integrante, o por salida del lider)
 -fix footer
+-Test Services, y general
 
 
 
 LULA:
--Idioma extranjero, abreviaturas, lenguaje especifico 
--Tablas accesibles, tag summary, id y header en th y td
--Formularios accesibles
 -wcag 2.0 nivel AA, como testearlo o que pide
--estandares gramaticas y hojas de estilo
 -ver responsivo menu lateral
--testeo general con fangs
+-testeo general con fangs (ver buttons porque no aparecen en el screenreader)
+-ver el uso solo con teclado y solo con mouse
+-con/sin tablas, con/sin scripts, con/sin imagenes, con/sin hojas de estilo, en diferentes navegadores inclusive viejos.

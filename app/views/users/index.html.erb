@@ -13,27 +13,27 @@
     <table class="table table-bordered">
       <thead>
         <tr>
-          <th>Nombre</th>
-          <th>Apellido</th>
-          <th>Mail</th>
-          <th>Clave</th>
-          <th>Fecha de nacimiento</th>
-          <th>Sexo</th>
-          <th>Ciudad</th>
-          <th colspan="3">Acciones</th>
+          <th id="columna_nombre">Nombre</th>
+          <th id="columna_apellido">Apellido</th>
+          <th id="columna_mail">Mail</th>
+          <th id="columna_clave">Clave</th>
+          <th id="columna_fecha">Fecha de nacimiento</th>
+          <th id="columna_sexo">Sexo</th>
+          <th id="columna_ciudad">Ciudad</th>
+          <th id="columna_acciones">Acciones</th>
         </tr>
       </thead>
       <tbody>
         <% @users.each do |user| %>
           <tr>
-            <td><%= user.first_name %></td>
-            <td><%= user.last_name %></td>
-            <td><%= user.email %></td>
-            <td><%= user.pass %></td>
-            <td><%= user.birth_date %></td>
-            <td><%= user.gender %></td>
-            <td><%= user.city.name %></td>
-            <td>
+            <td headers="columna_nombre"><%= user.first_name %></td>
+            <td headers="columna_apellido"><%= user.last_name %></td>
+            <td headers="columna_mail"><%= user.email %></td>
+            <td headers="columna_clave"><%= user.pass %></td>
+            <td headers="columna_fecha"><%= user.birth_date %></td>
+            <td headers="columna_sexo"><%= user.gender %></td>
+            <td headers="columna_ciudad"><%= user.city.name %></td>
+            <td headers="columna_acciones">
               <span class="btn btn-success"> <%= link_to 'Mostrar', user %> </span>
               <span class="btn btn-primary"> <%= link_to 'Editar', edit_user_path(user) %> </span>
               <span class="btn btn-danger"> <%= link_to 'Eliminar', user, method: :delete, data: { confirm: '¿Estas seguro?' } %> </span>
