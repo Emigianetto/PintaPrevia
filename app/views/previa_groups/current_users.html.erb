@@ -17,6 +17,9 @@
           <th id="columna_apellido">Apellido</th>
           <th id="columna_edad">Edad</th>
           <th id="columna_ciudad">Ciudad</th>
+          <% if @user == @previa_group.leader%>
+          <th id="columna_acciones">Acciones</th>
+          <% end %>
         </tr>
       </thead>
       <tbody>
@@ -27,6 +30,11 @@
             <td headers="columna_apellido"><%= user.last_name %></td>
             <td headers="columna_edad"><%= user.age %></td>
             <td headers="columna_ciudad"><%= user.city.name %></td>
+            <% if @user == @previa_group.leader and @user != user %>
+            <td headers="columna_acciones">
+              <%= link_to "<span class='fa fa-close fa-lg' aria-hidden='true'></span> Eliminar".html_safe, previa_group_delete_user_path(@previa_group, :user_id => user.id), method: :post, data: { confirm: '¿Estás seguro?'}, class: "btn btn-danger" %>
+            </td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>

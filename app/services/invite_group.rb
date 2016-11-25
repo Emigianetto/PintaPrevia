@@ -9,6 +9,8 @@ class InviteGroup
     previa_invitation.save
     inviting_group.save
     invited_group.save
+
+    CreateNotification.call(invited_group.leader, "El grupo #{inviting_group.name} invitó al grupo #{invited_group.name}.")
   end
 
 end

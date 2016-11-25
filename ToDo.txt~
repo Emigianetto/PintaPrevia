@@ -26,15 +26,16 @@
 
 
 
+-Notificaciones? (nueva inv, aceptada, rechazada, etc) falta usar el visto
 -campo imagen tiene que ser obligatorio
 -ver mensaje de error en campo imagen en form usuario (se ve en ingles y rompe todo el formato)
 -validaciones de rango de numeros en form previa group
 -error controller 404, forbidden, etc
 -Notice de errores en servicios.
--Notificaciones? (nueva inv, aceptada, rechazada, etc)
 -Test Services, y general
 
 PARA RUBY:
+-opcion eliminar miembro del grupo
 -filtros
 -testear que la edad minima sea menor que la edad maxima
 -cuando se cierra el grupo, eliminar las invitaciones a usuarios pendientes, ya que no deben poder aceptarse, porque el grupo esta cerrado
@@ -62,5 +63,3 @@ LULA:
 -estandares gramaticas y hojas de estilo
 -ver responsivo menu lateral
 -testeo general con fangs
-
-

@@ -183,6 +183,18 @@ class PreviaGroupsController < ApplicationController
     end
   end
 
+  # POST /previa_groups/1/delete_user
+  # POST /previa_groups/1/delete_user.json
+  def delete_user
+    deleted_user = User.find(params[:user_id])
+    DeleteUserFromGroup.call(@previa_group, deleted_user)
+
+    respond_to do |format|
+      format.html { redirect_to previa_group_current_users_path(@previa_group), notice: 'El usuario fue eliminado con éxito.' }
+      format.json { head :no_content }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_previa_group
