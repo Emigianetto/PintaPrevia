@@ -7,7 +7,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <h3><span class="label">Pinta Previa</span></h3>
+          <h1><span class="label">Pinta Previa</span></h1>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <%= form_for :users, url: url_for( :controller => :users, :action => :login ), :html => {:class => "navbar-form navbar-right"} do |f| %>
@@ -19,7 +19,7 @@
               <label class="sr-only" for="pass">Clave</label>
               <input type="password" id="pass" name="pass" placeholder="Clave" class="form-control">
             </div>
-            <%= button_tag(type: 'submit', class: "btn btn-success btn-md") do %>
+            <%= button_tag(type: 'submit', class: "btn btn-success btn-md", 'aria-label' => 'Ingresar') do %>
               Ingresar
             <% end %>
           <% end %>

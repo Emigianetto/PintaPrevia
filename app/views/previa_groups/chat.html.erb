@@ -1,5 +1,7 @@
 <div class="panel panel-primary">
-  <div class="panel-heading">Mensajes</div>
+  <div class="panel-heading">
+    <h1>Mensajes</h1>
+  </div>
   <div class="panel-body panel-height">
 
   <% if !notice.nil? %>
@@ -16,7 +18,7 @@
                 </a>
                 <div class="media-body">
                     <h4 class="media-heading"><%= chat.with(@previa_group).first.name %></h4>
-                    <small><%= chat.messages.last.message %></small>
+                    <p><%= chat.messages.last.message %></p>
                 </div>
             </div>
           <% end %>
@@ -29,9 +31,9 @@
                       <%= image_tag message.author.leader.image.thumb.url if message.author.leader.image? %>
                     </a>
                     <div class="media-body">
-                        <small class="pull-right time"><em class="fa fa-clock-o"></em><%= message.created_at %></small>
+                        <p class="pull-right time"><em class="fa fa-clock-o"></em><%= message.created_at %></p>
                         <h4 class="media-heading"><%= message.author.name %></h4>
-                        <small class="col-lg-10"><%= message.message %></small>
+                        <p class="col-lg-10"><%= message.message %></p>
                     </div>
                 </div>
                 <!-- <div class="alert alert-info msg-date">
