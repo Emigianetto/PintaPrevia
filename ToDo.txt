@@ -1,10 +1,3 @@
-
--Notificaciones? (nueva inv, aceptada, rechazada, etc) falta usar el visto
--ver el uso solo con mouse
-
-
--arreglar tamaño topnav_logout con la imagen.
--arreglar menu con topnav
 -con/sin tablas, en diferentes navegadores inclusive viejos.
 
 LULA
@@ -13,6 +6,7 @@ LULA
 
 
 PARA RUBY:
+-Notificaciones? (nueva inv, aceptada, rechazada, etc) falta usar el visto
 -Notice de errores en servicios.
 -opcion eliminar miembro del grupo
 -filtros

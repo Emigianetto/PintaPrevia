@@ -10,19 +10,15 @@
         </h1>
       </div>
       <nav class="collapse navbar-collapse" id=bs-navbar>
-        <ul class="nav navbar-nav">
-
-
-        </ul>
         <ul class="nav navbar-nav navbar-right">
           <%= form_for :users, url: url_for( :controller => :users, :action => :login ), :html => {:class => "navbar-form navbar-right"} do |f| %>
             <div class="form-group">  
               <label class="sr-only" for="email">Mail</label>
-              <input type="text" id="email" name="email" placeholder="MailOK" class="form-control">
+              <input type="text" id="email" name="email" placeholder="Mail" class="form-control">
             </div>
             <div class="form-group">
               <label class="sr-only" for="pass">Clave</label>
-              <input type="password" id="pass" name="pass" placeholder="ClaveOK" class="form-control">
+              <input type="password" id="pass" name="pass" placeholder="Clave" class="form-control">
             </div>
             <%=tag("input", type: 'submit', class: "btn btn-success btn-md", value: "Ingresar", 'aria-label' => 'Ingresar') %>
           <% end %>

@@ -11,17 +11,17 @@
   <% end %>
     <div class="row">
         <div class="conversation-wrap col-lg-4">
-          <% @chats.each do |chat| %>
-            <div class="media conversation">
-                <a class="pull-left" href="#">
-                    <%= image_tag(chat.with(@previa_group).first.leader.image.thumb.url, :alt => "Imagen de perfil del líder") if chat.with(@previa_group).first.leader.image? %>
-                </a>
-                <div class="media-body">
-                    <h3 class="media-heading"><%= chat.with(@previa_group).first.name %></h3>
-                    <p><%= chat.messages.last.message %></p>
+            <% @chats.each do |chat| %>
+                <div class="media conversation">
+                    <a class="pull-left" href=<%= previa_group_chat_path(@previa_group, :chat => chat) %> >
+                        <%= image_tag(chat.with(@previa_group).first.leader.image.thumb.url, :alt => "Imagen de perfil del líder") if chat.with(@previa_group).first.leader.image? %>
+                    </a>
+                    <div class="media-body">
+                        <h3 class="media-heading"><%= chat.with(@previa_group).first.name %></h3>
+                        <p><%= chat.messages.last.message %></p>
+                    </div>
                 </div>
-            </div>
-          <% end %>
+            <% end %>
         </div>
         <div class="message-wrap col-lg-8">
             <div class="msg-wrap">
