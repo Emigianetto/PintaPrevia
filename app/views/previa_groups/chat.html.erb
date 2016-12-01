@@ -14,7 +14,7 @@
           <% @chats.each do |chat| %>
             <div class="media conversation">
                 <a class="pull-left" href="#">
-                    <%= image_tag chat.with(@previa_group).first.leader.image.thumb.url if chat.with(@previa_group).first.leader.image? %>
+                    <%= image_tag(chat.with(@previa_group).first.leader.image.thumb.url, :alt => "Imagen de perfil del líder") if chat.with(@previa_group).first.leader.image? %>
                 </a>
                 <div class="media-body">
                     <h3 class="media-heading"><%= chat.with(@previa_group).first.name %></h3>
@@ -28,7 +28,7 @@
               <% @messages.each do |message| %>
                 <div class="media msg ">
                     <a class="pull-left" href="#">
-                      <%= image_tag message.author.leader.image.thumb.url if message.author.leader.image? %>
+                      <%= image_tag(message.author.leader.image.thumb.url, :alt => "Imagen de perfil del líder") if message.author.leader.image? %>
                     </a>
                     <div class="media-body">
                         <p class="pull-right time"><em class="fa fa-clock-o"></em><%= message.created_at %></p>
@@ -49,9 +49,7 @@
                   <textarea class="form-control send-message" id="message" name="message" rows="3" placeholder="Escribir..."></textarea>
               </div>
               <div>
-                <%= button_tag(type: 'submit', class: "col-lg-3 pull-right btn btn-success") do %>
-                  <span class='fa fa-plus fa-lg' aria-hidden='true'></span> Enviar
-                <% end %>
+                <%=tag("input", type: 'submit', class: "col-lg-3 pull-right btn btn-success", value: "Enviar".html_safe, 'aria-label' => 'Enviar') %>
               </div>
             <% end %>
         </div>

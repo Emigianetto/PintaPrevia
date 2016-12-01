@@ -1,3 +1,49 @@
+
+-Notificaciones? (nueva inv, aceptada, rechazada, etc) falta usar el visto
+-campo imagen tiene que ser obligatorio
+-ver mensaje de error en campo imagen en form usuario (se ve en ingles y rompe todo el formato)
+-validaciones de rango de numeros en form previa group
+-error controller 404, forbidden, etc
+-Notice de errores en servicios.
+
+
+
+LULA:
+-wcag 2.0 nivel AA, como testearlo o que pide
+-ver responsivo menu lateral
+-testeo general con fangs (ver buttons porque no aparecen en el screenreader)
+-ver el uso solo con teclado y solo con mouse
+-con/sin tablas, con/sin scripts, con/sin imagenes, con/sin hojas de estilo, en diferentes navegadores inclusive viejos.
+
+
+
+
+
+PARA RUBY:
+-opcion eliminar miembro del grupo
+-filtros
+-testear que la edad minima sea menor que la edad maxima
+-cuando se cierra el grupo, eliminar las invitaciones a usuarios pendientes, ya que no deben poder aceptarse, porque el grupo esta cerrado
+-eliminar grupo (ver si se eliminan las properties y el resto de cosas en cascada, porque mepa que no se estan borrando)
+-Galeria
+-Chat asincronico con actioncable y badges (agregar el leido/noleido)
+-seguridad (ver los before_filter y before_action, si tienen que heredar de app_controller o que)
+-Login FB/Gmail
+-secure password (ver gemfile gem 'bcrypt')
+-agregar username a user y usarlo para login, etc
+-Backend?(ver como manejar admins, altas de cities, properties, etc)
+-al borrar grupo, ver de borrar dependencias (chats, invitaciones, etc)
+-ver de cambiar los :id en las url por variables en session
+-Buscar grupo: ver condiciones de filtro (grupos que no soy lider, no soy integrante, ya hay match, etc)
+-DisbandGroup(por opcion de lider, por salida del ultimo integrante, o por salida del lider)
+-fix footer
+-Test Services, y general
+
+
+
+
+
+HECHO:
 -InviteUser
 -Accept/RejectInvite
 -Properties(implementar las funciones para manejar los atributos de busqueda)
@@ -23,41 +69,3 @@
 -Chat: imagen de grupo (es la del lider?)
 -deploy en heroku
 -invitaciones a previa: especificar el grupo destino de la invitacion en la lista de invitaciones
-
-
-
--Notificaciones? (nueva inv, aceptada, rechazada, etc) falta usar el visto
--campo imagen tiene que ser obligatorio
--ver mensaje de error en campo imagen en form usuario (se ve en ingles y rompe todo el formato)
--validaciones de rango de numeros en form previa group
--error controller 404, forbidden, etc
--Notice de errores en servicios.
-
-PARA RUBY:
--opcion eliminar miembro del grupo
--filtros
--testear que la edad minima sea menor que la edad maxima
--cuando se cierra el grupo, eliminar las invitaciones a usuarios pendientes, ya que no deben poder aceptarse, porque el grupo esta cerrado
--eliminar grupo (ver si se eliminan las properties y el resto de cosas en cascada, porque mepa que no se estan borrando)
--Galeria
--Chat asincronico con actioncable y badges (agregar el leido/noleido)
--seguridad (ver los before_filter y before_action, si tienen que heredar de app_controller o que)
--Login FB/Gmail
--secure password (ver gemfile gem 'bcrypt')
--agregar username a user y usarlo para login, etc
--Backend?(ver como manejar admins, altas de cities, properties, etc)
--al borrar grupo, ver de borrar dependencias (chats, invitaciones, etc)
--ver de cambiar los :id en las url por variables en session
--Buscar grupo: ver condiciones de filtro (grupos que no soy lider, no soy integrante, ya hay match, etc)
--DisbandGroup(por opcion de lider, por salida del ultimo integrante, o por salida del lider)
--fix footer
--Test Services, y general
-
-
-
-LULA:
--wcag 2.0 nivel AA, como testearlo o que pide
--ver responsivo menu lateral
--testeo general con fangs (ver buttons porque no aparecen en el screenreader)
--ver el uso solo con teclado y solo con mouse
--con/sin tablas, con/sin scripts, con/sin imagenes, con/sin hojas de estilo, en diferentes navegadores inclusive viejos.

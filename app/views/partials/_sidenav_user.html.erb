@@ -1,82 +1,95 @@
-<div class="nav nav-sidebar">
-  <ul class="list-group">
-    <li class="nav-header disabled"><a>Grupo</a></li>
-    <li class="<% if current_page?(new_previa_group_path)%>active<% end %> list-group-item">
-      <% if current_page?(new_previa_group_path)%>
-        <%= link_to "<span class='sr-only'>(actual)</span>Crear grupo".html_safe, new_previa_group_path%>
-      <%else%>
-        <%= link_to "Crear grupo".html_safe, new_previa_group_path%>
-      <%end%> 
-    </li>
-    <li class="<% if current_page?(user_groups_path(@user))%>active<% end %> list-group-item">
-      <% if current_page?(user_groups_path(@user))%>
-        <%= link_to "<span class='sr-only'>(actual)</span>Listar grupos".html_safe, user_groups_path(@user)%>
-      <%else%>
-        <%= link_to "Listar grupos".html_safe, user_groups_path(@user)%>
-      <%end%> 
-    </li>
-    <li class="<% if current_page?(user_groups_leading_path(@user))%>active<% end %> list-group-item">
-      <% if current_page?(user_groups_leading_path(@user))%>
-        <%= link_to "<span class='sr-only'>(actual)</span>Administrar grupos".html_safe, user_groups_leading_path(@user)%>
-      <%else%>
-        <%= link_to "Administrar grupos".html_safe, user_groups_leading_path(@user)%>
-      <%end%> 
-    </li>
-    <li class="<% if current_page?(user_invitations_path(@user))%>active<% end %> list-group-item">
-      <% if current_page?(user_invitations_path(@user))%>
-        <%= link_to "<span class='sr-only'>(actual)</span>Invitaciones a grupo".html_safe, user_invitations_path(@user) %>
-      <%else%>
-        <%= link_to "Invitaciones a grupo".html_safe, user_invitations_path(@user) %>
-      <%end%>  
-    </li>
-    <li class="<% if current_page?(user_previa_invitations_path(@user))%>active<% end %> list-group-item">
-      <% if current_page?(user_previa_invitations_path(@user))%>
-        <%= link_to "<span class='sr-only'>(actual)</span>Solicitudes de previa".html_safe, user_previa_invitations_path(@user) %>
-      <%else%>
-        <%= link_to "Solicitudes de previa".html_safe, user_previa_invitations_path(@user) %>
-      <%end%>  
-    </li>
-  </ul>
-  <ul class="list-group">
-    <li class="<% if current_page?(user_inbox_path(@user))%>active<% end %> list-group-item">
-      <% if current_page?(user_inbox_path(@user))%>
-        <%= link_to "<span class='sr-only'>(actual)</span>Bandeja de entrada".html_safe, user_inbox_path(@user)%>
-      <%else%>
-        <%= link_to "Bandeja de entrada".html_safe, user_inbox_path(@user)%>
-      <%end%>  
-    </li>
-    <li class="<% if current_page?(user_notifications_path(@user))%>active<% end %> list-group-item">
-      <% if current_page?(user_notifications_path(@user))%>
-        <%= link_to "<span class='sr-only'>(actual)</span>Notificaciones".html_safe, user_notifications_path(@user)%>
-      <%else%>
-        <%= link_to "Notificaciones".html_safe, user_notifications_path(@user)%>
-      <%end%>
-    </li>
-  </ul>
-  <ul class="list-group">
-    <li class="nav-header disabled"><a>Cuenta</a></li>
-    <li class="<% if current_page?(edit_user_path(@user))%>active<% end %> list-group-item">
-      <% if current_page?(edit_user_path(@user))%>
-        <%= link_to "<span class='sr-only'>(actual)</span>Editar perfil".html_safe, edit_user_path(@user) %>
-      <%else%>
-        <%= link_to "Editar perfil".html_safe, edit_user_path(@user) %>
-      <%end%>
-    </li>
-    <% if false %>
-    <li class="<% if current_page?(user_gallery_path(@user))%>active<% end %> list-group-item">
-      <% if current_page?(user_gallery_path(@user))%>
-        <%= link_to "<span class='sr-only'>(actual)</span>Ver galeria".html_safe, user_gallery_path(@user) %>
-      <%else%>
-        <%= link_to "Ver galeria".html_safe, user_gallery_path(@user) %>
-      <%end%>
-    </li>
-    <li class="<% if current_page?(user_edit_gallery_path(@user))%>active<% end %> list-group-item">
-      <% if current_page?(user_edit_gallery_path(@user))%>
-        <%= link_to "<span class='sr-only'>(actual)</span>Editar galeria".html_safe, user_edit_gallery_path(@user) %>
-      <%else%>
-        <%= link_to "Editar galeria".html_safe, user_edit_gallery_path(@user) %>
-      <%end%>
-    </li>
-    <% end %>
-  </ul>
+<div class="sidebar-nav">
+  <div class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <span class="visible-xs navbar-brand">Menú</span>
+    </div>
+    <div class="navbar-collapse collapse sidebar-navbar-collapse">
+      <ul class="list-group">
+        <li class="nav-header disabled"><a>Grupo</a></li>
+        <li class="<% if current_page?(new_previa_group_path)%>active<% end %> list-group-item">
+          <% if current_page?(new_previa_group_path)%>
+            <%= link_to "<span class='sr-only'>(actual)</span>Crear grupo".html_safe, new_previa_group_path%>
+          <%else%>
+            <%= link_to "Crear grupo".html_safe, new_previa_group_path%>
+          <%end%> 
+        </li>
+        <li class="<% if current_page?(user_groups_path(@user))%>active<% end %> list-group-item">
+          <% if current_page?(user_groups_path(@user))%>
+            <%= link_to "<span class='sr-only'>(actual)</span>Listar grupos".html_safe, user_groups_path(@user)%>
+          <%else%>
+            <%= link_to "Listar grupos".html_safe, user_groups_path(@user)%>
+          <%end%> 
+        </li>
+        <li class="<% if current_page?(user_groups_leading_path(@user))%>active<% end %> list-group-item">
+          <% if current_page?(user_groups_leading_path(@user))%>
+            <%= link_to "<span class='sr-only'>(actual)</span>Administrar grupos".html_safe, user_groups_leading_path(@user)%>
+          <%else%>
+            <%= link_to "Administrar grupos".html_safe, user_groups_leading_path(@user)%>
+          <%end%> 
+        </li>
+        <li class="<% if current_page?(user_invitations_path(@user))%>active<% end %> list-group-item">
+          <% if current_page?(user_invitations_path(@user))%>
+            <%= link_to "<span class='sr-only'>(actual)</span>Invitaciones a grupo".html_safe, user_invitations_path(@user) %>
+          <%else%>
+            <%= link_to "Invitaciones a grupo".html_safe, user_invitations_path(@user) %>
+          <%end%>  
+        </li>
+        <li class="<% if current_page?(user_previa_invitations_path(@user))%>active<% end %> list-group-item">
+          <% if current_page?(user_previa_invitations_path(@user))%>
+            <%= link_to "<span class='sr-only'>(actual)</span>Solicitudes de previa".html_safe, user_previa_invitations_path(@user) %>
+          <%else%>
+            <%= link_to "Solicitudes de previa".html_safe, user_previa_invitations_path(@user) %>
+          <%end%>  
+        </li>
+      </ul>
+      <ul class="list-group">
+        <li class="<% if current_page?(user_inbox_path(@user))%>active<% end %> list-group-item">
+          <% if current_page?(user_inbox_path(@user))%>
+            <%= link_to "<span class='sr-only'>(actual)</span>Bandeja de entrada".html_safe, user_inbox_path(@user)%>
+          <%else%>
+            <%= link_to "Bandeja de entrada".html_safe, user_inbox_path(@user)%>
+          <%end%>  
+        </li>
+        <li class="<% if current_page?(user_notifications_path(@user))%>active<% end %> list-group-item">
+          <% if current_page?(user_notifications_path(@user))%>
+            <%= link_to "<span class='sr-only'>(actual)</span>Notificaciones".html_safe, user_notifications_path(@user)%>
+          <%else%>
+            <%= link_to "Notificaciones".html_safe, user_notifications_path(@user)%>
+          <%end%>
+        </li>
+      </ul>
+      <ul class="list-group">
+        <li class="nav-header disabled"><a>Cuenta</a></li>
+        <li class="<% if current_page?(edit_user_path(@user))%>active<% end %> list-group-item">
+          <% if current_page?(edit_user_path(@user))%>
+            <%= link_to "<span class='sr-only'>(actual)</span>Editar perfil".html_safe, edit_user_path(@user) %>
+          <%else%>
+            <%= link_to "Editar perfil".html_safe, edit_user_path(@user) %>
+          <%end%>
+        </li>
+        <% if false %>
+        <li class="<% if current_page?(user_gallery_path(@user))%>active<% end %> list-group-item">
+          <% if current_page?(user_gallery_path(@user))%>
+            <%= link_to "<span class='sr-only'>(actual)</span>Ver galeria".html_safe, user_gallery_path(@user) %>
+          <%else%>
+            <%= link_to "Ver galeria".html_safe, user_gallery_path(@user) %>
+          <%end%>
+        </li>
+        <li class="<% if current_page?(user_edit_gallery_path(@user))%>active<% end %> list-group-item">
+          <% if current_page?(user_edit_gallery_path(@user))%>
+            <%= link_to "<span class='sr-only'>(actual)</span>Editar galeria".html_safe, user_edit_gallery_path(@user) %>
+          <%else%>
+            <%= link_to "Editar galeria".html_safe, user_edit_gallery_path(@user) %>
+          <%end%>
+        </li>
+        <% end %>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
 </div>
