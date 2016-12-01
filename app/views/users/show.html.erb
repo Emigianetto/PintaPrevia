@@ -11,7 +11,7 @@
 
   <p>
     <strong>Foto </strong>
-    <%= image_tag @user.image.thumb.url if @user.image? %>
+    <%= image_tag(@user.image.thumb.url, :alt => "Imagen de perfil del usuario") if @user.image? %>
   </p>
   <p>
     <strong>Nombre </strong>

@@ -19,9 +19,7 @@
               <label class="sr-only" for="pass">Clave</label>
               <input type="password" id="pass" name="pass" placeholder="Clave" class="form-control">
             </div>
-            <%= button_tag(type: 'submit', class: "btn btn-success btn-md", 'aria-label' => 'Ingresar') do %>
-              Ingresar
-            <% end %>
+            <%=tag("input", type: 'submit', class: "btn btn-success btn-md", value: "Ingresar", 'aria-label' => 'Ingresar') %>
           <% end %>
         </div><!--/.navbar-collapse -->
       </div>
