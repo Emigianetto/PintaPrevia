@@ -66,11 +66,11 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
 
-          <li class="<% if current_page?(edit_user_path(@user))%>active<% end %>">
+          <li class="<% if current_page?(user_path(@user))%>active<% end %>">
             <% if current_page?(edit_user_path(@user))%>
-              <%= link_to "<span class='sr-only'>(actual)</span>Perfil".html_safe, edit_user_path(@user) %>
+              <%= link_to "<span class='sr-only'>(actual)</span>Perfil".html_safe, user_path(@user) %>
             <%else%>
-              <%= link_to "Perfil".html_safe, edit_user_path(@user) %>
+              <%= link_to "Perfil".html_safe, user_path(@user) %>
             <%end%>
           </li>
 

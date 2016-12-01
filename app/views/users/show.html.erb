@@ -37,5 +37,7 @@
     <strong>Ciudad </strong>
     <%= @user.city.name %>
   </p>
+  <%= link_to "<span class='sr-only'>(actual)</span>Editar".html_safe, edit_user_path(@user), class: "btn btn-primary" %>
+  
   </div>
 </div>
