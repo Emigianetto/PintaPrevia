@@ -1,5 +1,12 @@
 # config/locales/es.yml
-es:
+es-ES:
+  errors:
+    messages:
+      extension_white_list_error: "No se pueden subir archivos de la extensión %{extension}. Las extensiones permitidas son: %{allowed_types}"
+      extension_black_list_error: "No se pueden subir archivos de la extensión %{extension}. Las extensiones prohibidas son: %{prohibited_types}"
+      rmagick_processing_error: "No se pudo manipular con rmagick, quizá porque no es una imágen?"
+      mime_types_processing_error: "No se pudo procesar archivo con MIME::Types, quizá no tiene el content-type correcto?"
+      mini_magick_processing_error: "No se pudo manipular con MiniMagick, quizá porque no es una imágen?"
   activerecord:
     errors:
       messages:
@@ -25,6 +32,8 @@ es:
             gender:
               blank: "El sexo no puede estar vacio."
             city:
+              blank: "La ciudad no puede estar vacia."
+            image:
               blank: "La ciudad no puede estar vacia."
         previa_group:
           attributes:

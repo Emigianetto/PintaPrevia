@@ -1,4 +1,6 @@
+include CarrierWave::Validations::ActiveModel
 class User < ApplicationRecord
+
 
   mount_uploader :image, ImageUploader
 
@@ -38,7 +40,7 @@ class User < ApplicationRecord
 
   private
     def image_size_validation
-      errors[:image] << "debe ser menor que 500KB" if image.size > 0.5.megabytes
+      errors[:image] << "El tamaño del archivo debe ser menor que 500KB" if image.size > 0.5.megabytes
     end
 
 end

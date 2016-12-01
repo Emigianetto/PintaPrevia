@@ -28,13 +28,19 @@ class UsersController < ApplicationController
   def create
     @user = CreateUser.call(user_params)
     #@user = User.new(user_params)
+    puts "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG"
+    puts @user
+    puts @user.valid?
+    puts "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG"
 
     respond_to do |format|
-      if @user.save
+      if @user.valid?
+        puts "VAPORELIF"
         #url_for(:controller => :frontend, :action => :index)
         format.html { redirect_to root_path, notice: 'El usuario fue creado con éxito.'}
         format.json { redirect_to root_path, status: :ok} #TODO
       else
+        puts "VAPORELELSE"
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
