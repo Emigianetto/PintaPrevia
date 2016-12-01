@@ -1,6 +1,6 @@
 <div class="panel panel-primary">
   <div class="panel-heading">
-    <h1>Mensajes</h1>
+    <h2>Mensajes</h2>
   </div>
   <div class="panel-body panel-height">
 
@@ -17,7 +17,7 @@
                     <%= image_tag chat.with(@previa_group).first.leader.image.thumb.url if chat.with(@previa_group).first.leader.image? %>
                 </a>
                 <div class="media-body">
-                    <h4 class="media-heading"><%= chat.with(@previa_group).first.name %></h4>
+                    <h3 class="media-heading"><%= chat.with(@previa_group).first.name %></h3>
                     <p><%= chat.messages.last.message %></p>
                 </div>
             </div>
@@ -32,7 +32,7 @@
                     </a>
                     <div class="media-body">
                         <p class="pull-right time"><em class="fa fa-clock-o"></em><%= message.created_at %></p>
-                        <h4 class="media-heading"><%= message.author.name %></h4>
+                        <h3 class="media-heading"><%= message.author.name %></h3>
                         <p class="col-lg-10"><%= message.message %></p>
                     </div>
                 </div>

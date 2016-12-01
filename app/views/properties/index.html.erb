@@ -16,9 +16,9 @@
   <tbody>
     <% @properties.each do |property| %>
       <tr>
-        <td><%= link_to 'Mostrar', property %></td>
-        <td><%= link_to 'Editar', edit_property_path(property) %></td>
-        <td><%= link_to 'Eliminar', property, method: :delete, data: { confirm: '¿Estás seguro?' } %></td>
+        <%= link_to "<span class='fa fa-navicon fa-lg' aria-hidden='true'></span> Mostrar <span class='sr-only' aria-hidden='true'>propiedad #{property.name}</span>".html_safe,property, class: "btn btn-success" %>
+        <%= link_to "<span class='fa fa-navicon fa-lg' aria-hidden='true'></span> Editar <span class='sr-only' aria-hidden='true'>propiedad #{property.name}</span>".html_safe, edit_property_path(property), class: "btn btn-primary" %>
+        <%= link_to "<span class='fa fa-navicon fa-lg' aria-hidden='true'></span> Eliminar <span class='sr-only' aria-hidden='true'>propiedad #{property.name}</span>".html_safe, property, method: :delete, data: { confirm: '¿Estás seguro?' }, class: "btn btn-danger" %>
       </tr>
     <% end %>
   </tbody>

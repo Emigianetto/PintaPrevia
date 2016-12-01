@@ -29,9 +29,9 @@
             <td headers="columna_activo"><%= previa_group.active %></td>
             <td headers="columna_fecha"><%= previa_group.date %></td>
             <td headers="columna_acciones">
-              <%= link_to "<span class='fa fa-navicon fa-lg' aria-hidden='true'></span> Mostrar".html_safe,previa_group, class: "btn btn-success" %>
-              <%= link_to "<span class='fa fa-navicon fa-lg' aria-hidden='true'></span> Editar".html_safe, edit_previa_group_path(previa_group), class: "btn btn-primary" %>
-              <%= link_to "<span class='fa fa-navicon fa-lg' aria-hidden='true'></span> Eliminar".html_safe, previa_group, method: :delete, data: { confirm: '¿Estás seguro?' }, class: "btn btn-danger" %></td>
+              <%= link_to "<span class='fa fa-navicon fa-lg' aria-hidden='true'></span> Mostrar <span class='sr-only' aria-hidden='true'>grupo #{previa_group.name}</span>".html_safe,previa_group, class: "btn btn-success" %>
+              <%= link_to "<span class='fa fa-navicon fa-lg' aria-hidden='true'></span> Editar <span class='sr-only' aria-hidden='true'>grupo #{previa_group.name}</span>".html_safe, edit_previa_group_path(previa_group), class: "btn btn-primary" %>
+              <%= link_to "<span class='fa fa-navicon fa-lg' aria-hidden='true'></span> Eliminar <span class='sr-only' aria-hidden='true'>grupo #{previa_group.name}</span>".html_safe, previa_group, method: :delete, data: { confirm: '¿Estás seguro?' }, class: "btn btn-danger" %></td>
           </tr>
         <% end %>
       </tbody>

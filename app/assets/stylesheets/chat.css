@@ -1,3 +1,12 @@
+h2 {
+    font-size: 22px !important;
+}
+
+h3 {
+    font-size: 15px !important;
+}
+
+
 .conversation-wrap
 {
     box-shadow: -2px 0 3px #ddd;

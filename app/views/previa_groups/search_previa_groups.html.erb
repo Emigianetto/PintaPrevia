@@ -22,8 +22,8 @@
           <tr>
             <td headers="columna_nombre"><%= previa_group.name %></td>
             <td headers="columna_acciones">
-              <%= link_to "<span class='fa fa-navicon fa-lg' aria-hidden='true'></span> Detalles".html_safe,previa_group_details_path(previa_group), class: "btn btn-info" %>
-              <%= link_to "<span class='fa fa-check fa-lg' aria-hidden='true'></span> Invitar".html_safe,previa_group_invite_group_path(@previa_group, :previa_group_id => previa_group), method: :post, data: { confirm: '¿Estás seguro?' }, class: "btn btn-success" %>
+              <%= link_to "<span class='fa fa-navicon fa-lg' aria-hidden='true'></span> Detalles <span class='sr-only' aria-hidden='true'>de grupo #{previa_group.name}</span>".html_safe,previa_group_details_path(previa_group), class: "btn btn-info" %>
+              <%= link_to "<span class='fa fa-check fa-lg' aria-hidden='true'></span> Invitar <span class='sr-only' aria-hidden='true'>al grupo #{previa_group.name}</span>".html_safe,previa_group_invite_group_path(@previa_group, :previa_group_id => previa_group), method: :post, data: { confirm: '¿Estás seguro?' }, class: "btn btn-success" %>
             </td>
           </tr>
         <% end %>
