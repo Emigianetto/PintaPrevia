@@ -31,7 +31,7 @@
                       <%= image_tag(message.author.leader.image.thumb.url, :alt => "Imagen de perfil del líder") if message.author.leader.image? %>
                     </a>
                     <div class="media-body">
-                        <p class="pull-right time"><em class="fa fa-clock-o"></em><%= message.created_at %></p>
+                        <p class="pull-right time"><em class="fa fa-clock-o"></em><%= message.created_at.strftime("%d/%m/%Y %H:%M:%S") %></p>
                         <h3 class="media-heading"><%= message.author.name %></h3>
                         <p class="col-lg-10"><%= message.message %></p>
                     </div>

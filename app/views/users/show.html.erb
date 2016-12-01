@@ -27,7 +27,7 @@
   </p>
   <p>
     <strong>Fecha de nacimiento </strong>
-    <%= @user.birth_date %>
+    <%= @user.birth_date.strftime("%d/%m/%Y") %>
   </p>
   <p>
     <strong>Sexo </strong>

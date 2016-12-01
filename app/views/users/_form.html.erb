@@ -33,10 +33,11 @@
       <div class="form-group row vertical-align">
       <% end %>
         <div class="col-xs-3 col-form-label">
+          <%= f.label :sarasa, "Sarasa" %>
           <%= f.label :first_name, "Nombre" %>
         </div>
         <div class="col-xs-9">
-          <%= f.text_field :first_name, class: "form-control" %>
+          <%= f.text_field :first_name, class: "form-control", id: "user_sarasa" %>
           <% if @user.errors[:first_name].any? %>
           <%= @user.errors[:first_name].first %>
           <% end %>
@@ -67,7 +68,7 @@
           <label class="sr-only" for="user_birth_date_1i">Año</label>
 
           <%= date_select("user", "birth_date", :default => Date.today, 
-          :order => [:month, :day, :year], :start_year => (Date.today.year - 100), 
+          :order => [:day, :month, :year], :start_year => (Date.today.year - 100), 
           :end_year => Date.today.year, :html_options => {:class => "form-control"}) %>
         </div>
       </div>

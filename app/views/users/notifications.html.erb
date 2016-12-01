@@ -13,6 +13,7 @@
       <thead>
         <tr>
           <th id="columna_mensaje" class="col-md-9">Mensaje</th>
+          <th id="columna_fecha" class="col-md-9">Fecha</th>
           <th id="columna_acciones" class="col-md-3">Acciones</th>
         </tr>
       </thead>
@@ -21,6 +22,7 @@
         <% @user.notifications.each do |notification| %>
           <tr>
             <td headers="columna_grupo"><%= notification.message %></td>
+            <td headers="columna_fecha"><%= notification.created_at.strftime("%d/%m/%Y %H:%M:%S") %></td>
             <td headers="columna_acciones">
               <%= link_to "<span class='fa fa-close fa-lg' aria-hidden='true'></span> Eliminar".html_safe, user_delete_notification_path(@user, :notification_id => notification.id), method: :post, data: { confirm: '¿Estás seguro?'}, class: "btn btn-danger" %>
             </td>
