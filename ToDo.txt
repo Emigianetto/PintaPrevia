@@ -1,27 +1,22 @@
 
 -Notificaciones? (nueva inv, aceptada, rechazada, etc) falta usar el visto
 -campo imagen tiene que ser obligatorio
--ver mensaje de error en campo imagen en form usuario (se ve en ingles y rompe todo el formato)
--validaciones de rango de numeros en form previa group
--error controller 404, forbidden, etc
--Notice de errores en servicios.
-
-
-
-LULA:
--wcag 2.0 nivel AA, como testearlo o que pide
--ver responsivo menu lateral
--testeo general con fangs (ver buttons porque no aparecen en el screenreader)
+-ver mensaje de error en campo imagen en form usuario (rompe todo el formato)
 -ver el uso solo con teclado y solo con mouse
+
+
+-arreglar tamaño topnav_logout con la imagen.
+-arreglar menu con topnav
 -con/sin tablas, con/sin scripts, con/sin imagenes, con/sin hojas de estilo, en diferentes navegadores inclusive viejos.
-
-
-
+-wcag 2.0 nivel AA, como testearlo o que pide (chat)
+-testeo general con fangs 
 
 
 PARA RUBY:
+-Notice de errores en servicios.
 -opcion eliminar miembro del grupo
 -filtros
+-validaciones de rango de numeros en form previa group
 -testear que la edad minima sea menor que la edad maxima
 -cuando se cierra el grupo, eliminar las invitaciones a usuarios pendientes, ya que no deben poder aceptarse, porque el grupo esta cerrado
 -eliminar grupo (ver si se eliminan las properties y el resto de cosas en cascada, porque mepa que no se estan borrando)
@@ -38,6 +33,7 @@ PARA RUBY:
 -DisbandGroup(por opcion de lider, por salida del ultimo integrante, o por salida del lider)
 -fix footer
 -Test Services, y general
+-error controller 404, forbidden, etc
 
 
 
