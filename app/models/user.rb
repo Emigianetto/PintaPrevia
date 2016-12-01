@@ -4,6 +4,7 @@ class User < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
+  validates :image, presence: true
   validates_processing_of :image
   validate :image_size_validation
 

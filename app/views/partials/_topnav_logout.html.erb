@@ -1,15 +1,81 @@
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-          <div class="row">
-            <div class="col-sm-4">
+      <div class=navbar-header>
+        <button aria-controls=bs-navbar aria-expanded=false class="collapsed navbar-toggle" data-target=#bs-navbar data-toggle=collapse type=button>
+        <span class=sr-only>Toggle navigation</span>
+        <span class=icon-bar></span>
+        <span class=icon-bar></span>
+        <span class=icon-bar></span>
+        </button>
+        <h1>
+          <%= image_tag(@user.image.thumb.url, :alt => "Imagen de perfil del usuario") if @user.image? %><span class="label"><%= @user.first_name%></span>
+        </h1>
+      </div>
+      <nav class="collapse navbar-collapse" id=bs-navbar>
+        <ul class="nav navbar-nav">
 
-              <h1><%= image_tag(@user.image.thumb.url, :alt => "Imagen de perfil del usuario")  if @user.image? %><span class="label"><%= @user.first_name%></span></h1>
-            </div>
-            <div class="col-sm-4">
+          <li class="<% if current_page?(new_previa_group_path)%>active<% end %>">
+            <% if current_page?(new_previa_group_path)%>
+              <%= link_to "<span class='sr-only'>(actual)</span>Crear grupo".html_safe, new_previa_group_path%>
+            <%else%>
+              <%= link_to "Crear grupo".html_safe, new_previa_group_path%>
+            <%end%> 
+          </li>
+          <li class="<% if current_page?(user_groups_path(@user))%>active<% end %>">
+            <% if current_page?(user_groups_path(@user))%>
+              <%= link_to "<span class='sr-only'>(actual)</span>Grupos".html_safe, user_groups_path(@user)%>
+            <%else%>
+              <%= link_to "Grupos".html_safe, user_groups_path(@user)%>
+            <%end%> 
+          </li>
+          <li class="<% if current_page?(user_groups_leading_path(@user))%>active<% end %>">
+            <% if current_page?(user_groups_leading_path(@user))%>
+              <%= link_to "<span class='sr-only'>(actual)</span>Administrar".html_safe, user_groups_leading_path(@user)%>
+            <%else%>
+              <%= link_to "Administrar".html_safe, user_groups_leading_path(@user)%>
+            <%end%> 
+          </li>
+          <li class="<% if current_page?(user_invitations_path(@user))%>active<% end %>">
+            <% if current_page?(user_invitations_path(@user))%>
+              <%= link_to "<span class='sr-only'>(actual)</span>Invitaciones".html_safe, user_invitations_path(@user) %>
+            <%else%>
+              <%= link_to "Invitaciones".html_safe, user_invitations_path(@user) %>
+            <%end%>  
+          </li>
+          <li class="<% if current_page?(user_previa_invitations_path(@user))%>active<% end %>">
+            <% if current_page?(user_previa_invitations_path(@user))%>
+              <%= link_to "<span class='sr-only'>(actual)</span>Solicitudes de previa".html_safe, user_previa_invitations_path(@user) %>
+            <%else%>
+              <%= link_to "Solicitudes de previa".html_safe, user_previa_invitations_path(@user) %>
+            <%end%>  
+          </li>
+
+          <li class="<% if current_page?(user_inbox_path(@user))%>active<% end %> ">
+            <% if current_page?(user_inbox_path(@user))%>
+              <%= link_to "<span class='sr-only'>(actual)</span>Mensajes".html_safe, user_inbox_path(@user)%>
+            <%else%>
+              <%= link_to "Mensajes".html_safe, user_inbox_path(@user)%>
+            <%end%>  
+          </li>
+          <li class="<% if current_page?(user_notifications_path(@user))%>active<% end %>">
+            <% if current_page?(user_notifications_path(@user))%>
+              <%= link_to "<span class='sr-only'>(actual)</span>Notificaciones".html_safe, user_notifications_path(@user)%>
+            <%else%>
+              <%= link_to "Notificaciones".html_safe, user_notifications_path(@user)%>
+            <%end%>
+          </li>
+
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+
+          <li class="<% if current_page?(edit_user_path(@user))%>active<% end %>">
+            <% if current_page?(edit_user_path(@user))%>
+              <%= link_to "<span class='sr-only'>(actual)</span>Perfil".html_safe, edit_user_path(@user) %>
+            <%else%>
+              <%= link_to "Perfil".html_safe, edit_user_path(@user) %>
+            <%end%>
+          </li>
+
           <%= form_for :users, url: url_for( :controller => :users, :action => :logout ), :html => {:class => "navbar-form navbar-right"} do |f| %>
             <%=tag("input", type: 'submit', class: "btn btn-primary btn-md", value: "Cerrar sesión") %>
           <% end %>
-            </div>
-          </div>
-      </div>
-    </nav>
+        </ul>
+      </nav>

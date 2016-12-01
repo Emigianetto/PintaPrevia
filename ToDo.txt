@@ -1,15 +1,15 @@
 
 -Notificaciones? (nueva inv, aceptada, rechazada, etc) falta usar el visto
--campo imagen tiene que ser obligatorio
--ver mensaje de error en campo imagen en form usuario (rompe todo el formato)
--ver el uso solo con teclado y solo con mouse
+-ver el uso solo con mouse
 
 
 -arreglar tamaño topnav_logout con la imagen.
 -arreglar menu con topnav
--con/sin tablas, con/sin scripts, con/sin imagenes, con/sin hojas de estilo, en diferentes navegadores inclusive viejos.
+-con/sin tablas, en diferentes navegadores inclusive viejos.
+
+LULA
 -wcag 2.0 nivel AA, como testearlo o que pide (chat)
--testeo general con fangs 
+-testeo general con fangs
 
 
 PARA RUBY:

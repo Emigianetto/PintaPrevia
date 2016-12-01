@@ -1,26 +1,30 @@
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Iniciar sesión</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <h1><span class="label">Pinta Previa</span></h1>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
+      <div class=navbar-header>
+        <button aria-controls=bs-navbar aria-expanded=false class="collapsed navbar-toggle" data-target=#bs-navbar data-toggle=collapse type=button>
+        <span class=sr-only>Toggle navigation</span>
+        <span class=icon-bar></span>
+        <span class=icon-bar></span>
+        <span class=icon-bar></span>
+        </button>
+        <h1>
+          <%= image_tag("pintaprevia.jpg", :alt => "Logo del sistema", height: '50', width: '50') %><span class="label">Pinta Previa</span>
+        </h1>
+      </div>
+      <nav class="collapse navbar-collapse" id=bs-navbar>
+        <ul class="nav navbar-nav">
+
+
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
           <%= form_for :users, url: url_for( :controller => :users, :action => :login ), :html => {:class => "navbar-form navbar-right"} do |f| %>
             <div class="form-group">  
               <label class="sr-only" for="email">Mail</label>
-              <input type="text" id="email" name="email" placeholder="Mail" class="form-control">
+              <input type="text" id="email" name="email" placeholder="MailOK" class="form-control">
             </div>
             <div class="form-group">
               <label class="sr-only" for="pass">Clave</label>
-              <input type="password" id="pass" name="pass" placeholder="Clave" class="form-control">
+              <input type="password" id="pass" name="pass" placeholder="ClaveOK" class="form-control">
             </div>
             <%=tag("input", type: 'submit', class: "btn btn-success btn-md", value: "Ingresar", 'aria-label' => 'Ingresar') %>
           <% end %>
-        </div><!--/.navbar-collapse -->
-      </div>
-    </nav>
+        </ul>
+      </nav>

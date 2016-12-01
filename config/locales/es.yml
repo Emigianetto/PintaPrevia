@@ -34,7 +34,7 @@ es-ES:
             city:
               blank: "La ciudad no puede estar vacia."
             image:
-              blank: "La ciudad no puede estar vacia."
+              blank: "La imagen no puede estar vacia."
         previa_group:
           attributes:
             name:

@@ -16,18 +16,19 @@
   <!-- <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon" /> -->
   <%= favicon_link_tag %>
 </head>
-<body style="padding-top: 70px">
-
-  <% if session[:current_user_id].nil? %>
-    <%= render "partials/topnav_login" %>
-  <% else %>
-    <%= render "partials/topnav_logout" %>
-  <% end %>
+<body style="padding-top: 0px">
+  <header class="navbar-inverse navbar-static-top" id=top>
+    <% if session[:current_user_id].nil? %>
+      <%= render "partials/topnav_login" %>
+    <% else %>
+      <%= render "partials/topnav_logout" %>
+    <% end %>
+  </header>
   
   <div class="container-fluid">
     <div class="row">
 
-      <% if !session[:current_user_id].nil? %>
+      <% if false and !session[:current_user_id].nil? %>
         <div class="col-sm-3">
         <% if session[:current_user_admin].nil? %>
           <%= render "partials/sidenav_user" %>
