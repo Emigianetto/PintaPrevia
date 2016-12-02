@@ -208,12 +208,12 @@ class PreviaGroupsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_previa_group
-      # @previa_group = PreviaGroup.find(params[:id])
-      @previa_group = PreviaGroup.find_by(id: 253223)
+      @previa_group = PreviaGroup.find(params[:id])
+      # @previa_group = PreviaGroup.find_by(id: 253223)
     end
 
     def set_user
-      session[:current_user_id] = User.find_by(id: 298486374)
+      # session[:current_user_id] = User.find_by(id: 298486374)
       @user = User.find(session[:current_user_id])
     end
 
