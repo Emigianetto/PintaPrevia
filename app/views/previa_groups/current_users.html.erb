@@ -9,7 +9,8 @@
     </div>
   <% end %>
 
-    <table class="table table-bordered" summary="Lista de usuarios que pertenecen a un grupo">
+    <figure>
+    <table class="table table-bordered" aria-labelledby="tabla-usuarios-actuales">
       <thead>
         <tr>
           <th id="columna_foto">Foto</th>
@@ -39,6 +40,10 @@
         <% end %>
       </tbody>
     </table>
+      <figcaption id="tabla-usuarios-actuales" class="sr-only">
+        Lista de usuarios que pertenecen a un grupo
+      </figcaption>
+    </figure>
     <%= link_to 'Atrás', user_groups_path(), class: 'btn btn-info' %>
   </div>
 </div>

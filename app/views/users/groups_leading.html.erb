@@ -9,7 +9,8 @@
     </div>
   <% end %>
 
-    <table class="table table-bordered" summary="Lista de los grupos que lidera el usuario">
+  <figure>
+    <table class="table table-bordered" aria-labelledby="tabla-administrar">
       <thead>
         <tr>
           <th id="columna_nombre">Nombre</th>
@@ -32,6 +33,10 @@
           </tr>
         <% end %>
       </tbody>
-    </table>
+    </table>    
+    <figcaption id="tabla-administrar" class="sr-only">
+      Lista de los grupos que administra el usuario
+    </figcaption>
+  </figure>
   </div>
 </div>

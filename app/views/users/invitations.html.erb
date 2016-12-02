@@ -9,7 +9,8 @@
   </div>
   <div class="panel-body">
     
-    <table class="table table-bordered" summary="Lista de las invitaciones a grupos que recibio el usuario">
+  <figure>
+    <table class="table table-bordered" aria-labelledby="tabla-invitaciones">
       <thead>
         <tr>
           <th id="columna_grupo">Grupo</th>
@@ -31,5 +32,9 @@
         <% end %>
       </tbody>
     </table>
+    <figcaption id="tabla-invitaciones" class="sr-only">
+      Lista de las invitaciones a grupos que recibio el usuario
+    </figcaption>
+  </figure>
   </div>
 </div>

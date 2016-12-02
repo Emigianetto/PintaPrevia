@@ -10,38 +10,43 @@
     </div>
   <% end %>
 
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th id="columna_nombre">Nombre</th>
-          <th id="columna_apellido">Apellido</th>
-          <th id="columna_mail">Mail</th>
-          <th id="columna_clave">Clave</th>
-          <th id="columna_fecha">Fecha de nacimiento</th>
-          <th id="columna_sexo">Sexo</th>
-          <th id="columna_ciudad">Ciudad</th>
-          <th id="columna_acciones">Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @users.each do |user| %>
+    <figure>
+      <table class="table table-bordered" aria-labelledby="tabla-usuarios">
+        <thead>
           <tr>
-            <td headers="columna_nombre"><%= user.first_name %></td>
-            <td headers="columna_apellido"><%= user.last_name %></td>
-            <td headers="columna_mail"><%= user.email %></td>
-            <td headers="columna_clave"><%= user.pass %></td>
-            <td headers="columna_fecha"><%= user.birth_date %></td>
-            <td headers="columna_sexo"><%= user.gender %></td>
-            <td headers="columna_ciudad"><%= user.city.name %></td>
-            <td headers="columna_acciones">
-              <%= link_to "<span class='fa fa-navicon fa-lg' aria-hidden='true'></span> Mostrar <span class='sr-only' aria-hidden='true'>usuario #{user.first_name} #{user.last_name}</span>".html_safe,user, class: "btn btn-success" %>
-              <%= link_to "<span class='fa fa-navicon fa-lg' aria-hidden='true'></span> Editar <span class='sr-only' aria-hidden='true'>grupo #{user.first_name} #{user.last_name}</span>".html_safe, edit_user_path(user), class: "btn btn-primary" %>
-              <%= link_to "<span class='fa fa-navicon fa-lg' aria-hidden='true'></span> Eliminar <span class='sr-only' aria-hidden='true'>grupo #{user.first_name} #{user.last_name}</span>".html_safe, user, method: :delete, data: { confirm: '¿Estás seguro?' }, class: "btn btn-danger" %>
-            </td>
+            <th id="columna_nombre">Nombre</th>
+            <th id="columna_apellido">Apellido</th>
+            <th id="columna_mail">Mail</th>
+            <th id="columna_clave">Clave</th>
+            <th id="columna_fecha">Fecha de nacimiento</th>
+            <th id="columna_sexo">Sexo</th>
+            <th id="columna_ciudad">Ciudad</th>
+            <th id="columna_acciones">Acciones</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td headers="columna_nombre"><%= user.first_name %></td>
+              <td headers="columna_apellido"><%= user.last_name %></td>
+              <td headers="columna_mail"><%= user.email %></td>
+              <td headers="columna_clave"><%= user.pass %></td>
+              <td headers="columna_fecha"><%= user.birth_date %></td>
+              <td headers="columna_sexo"><%= user.gender %></td>
+              <td headers="columna_ciudad"><%= user.city.name %></td>
+              <td headers="columna_acciones">
+                <%= link_to "<span class='fa fa-navicon fa-lg' aria-hidden='true'></span> Mostrar <span class='sr-only' aria-hidden='true'>usuario #{user.first_name} #{user.last_name}</span>".html_safe,user, class: "btn btn-success" %>
+                <%= link_to "<span class='fa fa-navicon fa-lg' aria-hidden='true'></span> Editar <span class='sr-only' aria-hidden='true'>grupo #{user.first_name} #{user.last_name}</span>".html_safe, edit_user_path(user), class: "btn btn-primary" %>
+                <%= link_to "<span class='fa fa-navicon fa-lg' aria-hidden='true'></span> Eliminar <span class='sr-only' aria-hidden='true'>grupo #{user.first_name} #{user.last_name}</span>".html_safe, user, method: :delete, data: { confirm: '¿Estás seguro?' }, class: "btn btn-danger" %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <figcaption id="tabla-usuarios" class="sr-only">
+        Lista de usuarios
+      </figcaption>
+    </figure>
     <%= link_to 'Nuevo usuario', new_user_path, class: 'btn btn-primary' %>
   </div>
 </div>

@@ -123,7 +123,7 @@ class UsersController < ApplicationController
   # GET /users/1/invitations
   # GET /users/1/invitations.json
   def invitations
-    @title = "Notificaciones"
+    @title = "Invitaciones"
     @invitations = GetInvitationsForUser.call(@user)
   end
 

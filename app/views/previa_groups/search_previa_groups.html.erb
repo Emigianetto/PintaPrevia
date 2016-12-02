@@ -9,7 +9,8 @@
     </div>
   <% end %>
   
-    <table class="table table-bordered" summary="Lista de los grupos que coincidieron con los parámetros de búsqueda">
+    <figure>
+    <table class="table table-bordered" aria-labelledby="tabla-previas">
       <thead>
         <tr>
           <th id="columna_nombre">Nombre</th>
@@ -29,5 +30,9 @@
         <% end %>
       </tbody>
     </table>
+      <figcaption id="tabla-previas" class="sr-only">
+        Lista de los grupos que coincidieron con los parámetros de búsqueda
+      </figcaption>
+    </figure>
   </div>
 </div>

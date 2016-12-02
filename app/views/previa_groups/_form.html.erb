@@ -26,7 +26,7 @@
           <%= f.label :search_min_age, "Edad mínima" %>
         </div>
         <div class="col-xs-9">
-          <%= f.number_field :search_min_age, min: 18, max: 90, class: "form-control" %>
+          <%= f.text_field :search_min_age, class: "form-control" %>
           <% if @previa_group.errors[:search_min_age].any? %>
           <%= @previa_group.errors[:search_min_age].first %>
           <% end %>
@@ -42,7 +42,7 @@
           <%= f.label :search_max_age, "Edad máxima" %>
         </div>
         <div class="col-xs-9">
-          <%= f.number_field :search_max_age, min: 18, max: 90, class: "form-control" %>
+          <%= f.text_field :search_max_age, class: "form-control" %>
           <% if @previa_group.errors[:search_max_age].any? %>
           <%= @previa_group.errors[:search_max_age].first %>
           <% end %>
@@ -74,7 +74,7 @@
           <%= f.label :search_distance, "Distancia" %>
         </div>
         <div class="col-xs-9">
-          <%= f.number_field :search_distance, class: "form-control" %>
+          <%= f.text_field :search_distance, class: "form-control" %>
           <% if @previa_group.errors[:search_distance].any? %>
           <%= @previa_group.errors[:search_distance].first %>
           <% end %>
