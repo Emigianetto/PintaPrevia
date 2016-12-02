@@ -7,7 +7,7 @@
       <div class="form-group row vertical-align">
       <% end %>
         <div class="col-xs-3 col-form-label">
-          <p><b>Foto</b></p>
+          <p style="font-weight: bold;">Foto</p>
         </div>
         <div class="col-xs-4">
           <%= f.label :image, class: " btn btn-info btn-file" do %>
@@ -36,7 +36,7 @@
           <%= f.label :first_name, "Nombre" %>
         </div>
         <div class="col-xs-9">
-          <%= f.text_field :first_name, class: "form-control", id: "user_sarasa" %>
+          <%= f.text_field :first_name, class: "form-control" %>
           <% if @user.errors[:first_name].any? %>
           <%= @user.errors[:first_name].first %>
           <% end %>
