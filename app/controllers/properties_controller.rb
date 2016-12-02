@@ -4,21 +4,25 @@ class PropertiesController < ApplicationController
   # GET /properties
   # GET /properties.json
   def index
+    @title = "Propiedades"
     @properties = Property.all
   end
 
   # GET /properties/1
   # GET /properties/1.json
   def show
+    @title = "Propiedad"
   end
 
   # GET /properties/new
   def new
+    @title = "Nueva propiedad"
     @property = Property.new
   end
 
   # GET /properties/1/edit
   def edit
+    @title = "Editar propiedad"
   end
 
   # POST /properties

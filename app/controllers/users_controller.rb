@@ -6,21 +6,25 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
+    @title = "Usuarios"
     @users = User.all
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
+    @title = "Usuario " + @user.first_name + " " + @user.last_name
   end
 
   # GET /users/new
   def new
+    @title = "Nuevo usuario"
     @user = User.new
   end
 
   # GET /users/1/edit
   def edit
+    @title = "Editar usuario"
   end
 
   # POST /users
@@ -119,23 +123,27 @@ class UsersController < ApplicationController
   # GET /users/1/invitations
   # GET /users/1/invitations.json
   def invitations
+    @title = "Notificaciones"
     @invitations = GetInvitationsForUser.call(@user)
   end
 
   # GET /users/1/previa_invitations
   # GET /users/1/previa_invitations.json
   def previa_invitations
+    @title = "Invitaciones a previa"
     @previa_invitations = GetPreviaInvitations.call(@user)
   end
 
   # GET /users/1/groups
   # GET /users/1/groups.json
   def groups
+    @title = "Grupos"
   end
 
   # GET /users/1/groups_leading
   # GET /users/1/groups_leading.json
   def groups_leading
+    @title = "Administrar grupos"
     @groups_leading = GetGroupsLeading.call(@user)
   end
 
@@ -166,22 +174,26 @@ class UsersController < ApplicationController
   # GET /users/1/inbox
   # GET /users/1/inbox.json
   def inbox
+    @title = "Mensajes"
     @groups_leading = GetGroupsLeading.call(@user)
   end
 
   # GET /users/1/gallery
   # GET /users/1/gallery.json
   def gallery
+    @title = "Galeria"
   end
 
   # GET /users/1/edit_gallery
   # GET /users/1/edit_gallery.json
   def edit_gallery
+    @title = "Editar galeria"
   end
 
   # GET /users/1/notifications
   # GET /users/1/notifications.json
   def notifications
+    @title = "Notificaciones"
     @notifications = GetNotificationsForUser.call(@user)
   end
 

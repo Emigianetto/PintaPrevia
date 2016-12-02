@@ -74,8 +74,10 @@
             <%end%>
           </li>
 
-          <%= form_for :users, url: url_for( :controller => :users, :action => :logout ), :html => {:class => "navbar-form navbar-right"} do |f| %>
-            <%=tag("input", type: 'submit', class: "btn btn-primary btn-md", value: "Cerrar sesión") %>
-          <% end %>
+          <li>
+            <%= form_for :users, url: url_for( :controller => :users, :action => :logout ), :html => {:class => "navbar-form navbar-right"} do |f| %>
+              <%=tag("input", type: 'submit', class: "btn btn-primary btn-md", value: "Cerrar sesión") %>
+            <% end %>
+          </li>
         </ul>
       </nav>

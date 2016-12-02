@@ -5,21 +5,25 @@ class PreviaGroupsController < ApplicationController
   # GET /previa_groups
   # GET /previa_groups.json
   def index
+    @title = "Grupos"
     @previa_groups = PreviaGroup.all
   end
 
   # GET /previa_groups/1
   # GET /previa_groups/1.json
   def show
+    @title = "Grupo " + @previa_group.name
   end
 
   # GET /previa_groups/new
   def new
+    @title = "Nuevo grupo"
     @previa_group = PreviaGroup.new(:active => false, :leader => @user, :search_min_age => 18, :search_max_age => 60, :search_gender => 'Mixto', :search_distance => 30)
   end
 
   # GET /previa_groups/1/edit
   def edit
+    @title = "Editar grupo"
   end
 
   # POST /previa_groups
@@ -65,18 +69,21 @@ class PreviaGroupsController < ApplicationController
   # GET /previa_groups/1/details
   # GET /previa_groups/1/details.json
   def details
+    @title = "Detalles de grupo"
     @current_users = GetCurrentUsers.call(@previa_group)
   end
 
   # GET /previa_groups/1/invitable_users
   # GET /previa_groups/1/invitable_users.json
   def invitable_users
+    @title = "Invitar usuario"
     @invitable_users = GetInvitableUsers.call(@previa_group)
   end
 
   # GET /previa_groups/1/current_users
   # GET /previa_groups/1/current_users.json
   def current_users
+    @title = "Usuarios actuales"
     @current_users = GetCurrentUsers.call(@previa_group)
   end
 
@@ -106,6 +113,7 @@ class PreviaGroupsController < ApplicationController
   # GET /previa_groups/1/invite_group
   # GET /previa_groups/1/invite_group.json
   def search_previa_groups
+    @title = "Buscar previa"
     @previa_groups_found = SearchPreviaGroups.call(@previa_group)
   end
 
@@ -161,12 +169,14 @@ class PreviaGroupsController < ApplicationController
   # GET /previa_groups/1/inbox
   # GET /previa_groups/1/inbox.json
   def inbox
+    @title = "Conversaciones del grupo " + @previa_group.name
     @chats = GetChatsForPreviaGroup.call(@previa_group)
   end
 
   # GET /previa_groups/1/chat
   # GET /previa_groups/1/chat.json
   def chat
+    @title = "Conversacion"
     @chats = GetChatsForPreviaGroup.call(@previa_group)
     @messages = GetMessagesForChat.call(Chat.find(params[:chat]))
   end
