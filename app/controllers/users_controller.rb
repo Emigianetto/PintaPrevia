@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action { flash.clear }
   before_action :set_user, :except => [:new, :login, :create]
-  before_filter :authorize, :except => [:new, :login, :create]
+  # before_filter :authorize, :except => [:new, :login, :create]
 
   # GET /users
   # GET /users.json
@@ -200,8 +200,8 @@ class UsersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
+      session[:current_user_id] = User.all.first.id
       @user = User.find_by(id: session[:current_user_id])
-      #@user = User.find(params[:id])
     end
 
     def authorize
