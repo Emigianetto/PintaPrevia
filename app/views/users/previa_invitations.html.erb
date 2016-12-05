@@ -27,8 +27,8 @@
             <td headers="columna_grupo_invitado"><%= invitation.invited_group.name %></td>
             <td headers="columna_lider"><%= invitation.inviting_group.leader.first_name %></td>
             <td headers="columna_acciones">
-              <%= link_to "<span class='fa fa-navicon fa-lg' aria-hidden='true'></span> Aceptar".html_safe,previa_group_accept_previa_invitation_path(invitation.invited_group, :previa_invitation_id => invitation.id), method: :post, data: { confirm: '¿Estás seguro?'}, class: "btn btn-info" %>
-              <%= link_to "<span class='fa fa-check fa-lg' aria-hidden='true'></span> Rechazar".html_safe,previa_group_reject_previa_invitation_path(invitation.invited_group, :previa_invitation_id => invitation.id), method: :post, data: { confirm: '¿Estás seguro?' }, class: "btn btn-success" %>
+              <%= link_to "<span class='fa fa-check fa-lg' aria-hidden='true'></span> Aceptar".html_safe,previa_group_accept_previa_invitation_path(invitation.invited_group, :previa_invitation_id => invitation.id), method: :post, data: { confirm: '¿Estás seguro?'}, class: "btn btn-success" %>
+              <%= link_to "<span class='fa fa-close fa-lg' aria-hidden='true'></span> Rechazar".html_safe,previa_group_reject_previa_invitation_path(invitation.invited_group, :previa_invitation_id => invitation.id), method: :post, data: { confirm: '¿Estás seguro?' }, class: "btn btn-danger" %>
             </td>
           </tr>
         <% end %>
