@@ -212,15 +212,15 @@ class UsersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      session[:current_user_id] = User.all.first.id
+      # session[:current_user_id] = User.all.first.id
       @user = User.find_by(id: session[:current_user_id])
     end
 
     def authorize
-      session[:current_user_id] = 298486374
-      # if session[:current_user_id].nil?
-      #   redirect_to(root_path)
-      # end
+      # session[:current_user_id] = 298486374
+      if session[:current_user_id].nil?
+        redirect_to(root_path)
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
