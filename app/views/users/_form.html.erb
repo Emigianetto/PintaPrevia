@@ -97,7 +97,7 @@
           <%= f.label :email_confirmation, "Confirmar mail" %>
         </div>
         <div class="col-xs-9">
-          <%= f.email_field :email_confirmation, class: "form-control" %>
+          <%= f.email_field :email_confirmation, value: @user.email, class: "form-control" %>
           <% if @user.errors[:email_confirmation].any? %>
           <%= @user.errors[:email_confirmation].first %>
           <% end %>

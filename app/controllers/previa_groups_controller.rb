@@ -212,7 +212,7 @@ class PreviaGroupsController < ApplicationController
     end
 
     def set_user
-      # session[:current_user_id] = User.find_by(id: 298486374)
+      session[:current_user_id] = User.find_by(id: 298486374)
       @user = User.find(session[:current_user_id])
     end
 
