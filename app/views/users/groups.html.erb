@@ -10,8 +10,9 @@
     </div>
   <% end %>
 
-  <figure>
     <table class="table table-bordered" aria-labelledby="tabla-grupos">
+    
+    <caption class="sr-only" id="tabla-grupos">Lista de los grupos a las que pertenece el usuario</caption>
       <thead>
         <tr>
           <th id="columna_nombre">Nombre</th>
@@ -46,10 +47,7 @@
         <% end %>
       </tbody>
     </table>
-    <figcaption id="tabla-grupos" class="sr-only">
-      Lista de los grupos a las que pertenece el usuario
-    </figcaption>
-  </figure>
+
     <%= link_to 'Nuevo grupo', new_previa_group_path(@user), class: 'btn btn-primary' %>
   </div>
 </div>
