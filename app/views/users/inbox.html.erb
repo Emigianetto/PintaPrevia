@@ -10,8 +10,9 @@
     </div>
   <% end %>
 
-  <figure>
     <table class="table table-bordered" aria-labelledby="tabla-mensajes">
+
+    <caption class="sr-only" id="tabla-mensajes">Lista de los mensajes que recibio el usuario</caption>
       <thead>
         <tr>
           <th id="columna_destinatario">Destinatario</th>
@@ -30,9 +31,5 @@
         <% end %>
       </tbody>
     </table>
-    <figcaption id="tabla-mensajes" class="sr-only">
-      Lista de los mensajes que recibio el usuario
-    </figcaption>
-  </figure>
   </div>
 </div>

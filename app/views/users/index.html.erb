@@ -10,8 +10,8 @@
     </div>
   <% end %>
 
-    <figure>
-      <table class="table table-bordered" aria-labelledby="tabla-usuarios">
+    <table class="table table-bordered" aria-labelledby="tabla-usuarios">
+      <caption class="sr-only" id="tabla-usuarios">Lista de usuarios</caption>
         <thead>
           <tr>
             <th id="columna_nombre">Nombre</th>
@@ -43,10 +43,6 @@
           <% end %>
         </tbody>
       </table>
-      <figcaption id="tabla-usuarios" class="sr-only">
-        Lista de usuarios
-      </figcaption>
-    </figure>
     <%= link_to 'Nuevo usuario', new_user_path, class: 'btn btn-primary' %>
   </div>
 </div>
