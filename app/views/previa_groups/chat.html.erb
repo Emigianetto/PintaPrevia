@@ -13,7 +13,7 @@
         <div class="conversation-wrap col-lg-4">
             <% @chats.each do |chat| %>
                 <div class="media conversation">
-                    <a class="pull-left" href=<%= previa_group_chat_path(@previa_group, :chat => chat) %> >
+                    <a class="pull-left" href="<%= previa_group_chat_path(@previa_group, :chat => chat) %>" >
                         <%= image_tag(chat.with(@previa_group).first.leader.image.thumb.url, :alt => "Imagen de perfil del líder") if chat.with(@previa_group).first.leader.image? %>
                     </a>
                     <div class="media-body">
@@ -27,9 +27,9 @@
             <div class="msg-wrap">
               <% @messages.each do |message| %>
                 <div class="media msg ">
-                    <a class="pull-left" href="#">
+                    <div class="pull-left">
                       <%= image_tag(message.author.leader.image.thumb.url, :alt => "Imagen de perfil del líder") if message.author.leader.image? %>
-                    </a>
+                    </div>
                     <div class="media-body">
                         <p class="pull-right time"><em class="fa fa-clock-o"></em><%= message.created_at.strftime("%d/%m/%Y %H:%M:%S") %></p>
                         <h3 class="media-heading"><%= message.author.name %></h3>

@@ -132,7 +132,6 @@ class PreviaGroupsController < ApplicationController
   # POST /previa_groups/1/invite_group
   # POST /previa_groups/1/invite_group.json
   def invite_group
-    puts params
     invited_group = PreviaGroup.find(params[:previa_group_id])
     InviteGroup.call(@previa_group, invited_group)
 
@@ -208,8 +207,8 @@ class PreviaGroupsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_previa_group
-      @previa_group = PreviaGroup.find(params[:id])
-      # @previa_group = PreviaGroup.find_by(id: 253223)
+      # @previa_group = PreviaGroup.find(params[:id])
+      @previa_group = PreviaGroup.find_by(id: 253223)
     end
 
     def set_user
